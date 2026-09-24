@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../images/banner.png" alt="Lokum — 더 달콤한 브라우징" width="820">
+  <img src="../images/banner-ko.png" alt="Lokum — 빠름 · 강력함 · 데이터를 절대 훔치지 않음" width="820">
 </p>
 
 <p align="center">
@@ -364,7 +364,7 @@ Firefox 자체의 인터페이스는 빌드 과정에서 애플리케이션에 �
 
 ```sh
 tar -xJf Lokum-<버전>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # 실행
 ./install-desktop-entry.sh   # 선택: 앱 메뉴에 Lokum 추가
 ```

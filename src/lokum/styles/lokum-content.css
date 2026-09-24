@@ -49,6 +49,10 @@
       var(--lk-sugar-dust),
       radial-gradient(70vw 55vh at 8% -8%, var(--lk-frame-2), transparent 70%),
       radial-gradient(60vw 60vh at 105% 105%, var(--lk-frame-3), transparent 70%) !important;
+    /* Firefox sizes new tab wallpapers to "cover"; keep the sugar tile small. */
+    background-size: 140px 140px, 100% 100%, 100% 100% !important;
+    background-repeat: repeat, no-repeat, no-repeat !important;
+    background-position: 0 0, 0 0, 0 0 !important;
     background-attachment: fixed !important;
     color: var(--lk-text) !important;
   }
@@ -58,6 +62,8 @@
       background-image:
         radial-gradient(70vw 55vh at 8% -8%, var(--lk-frame-2), transparent 70%),
         radial-gradient(60vw 60vh at 105% 105%, var(--lk-frame-3), transparent 70%) !important;
+      background-size: 100% 100%, 100% 100% !important;
+      background-repeat: no-repeat !important;
     }
   }
 

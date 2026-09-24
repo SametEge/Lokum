@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../images/banner.png" alt="Lokum — une navigation plus douce" width="820">
+  <img src="../images/banner-fr.png" alt="Lokum — Rapide · Puissant · Ne vole jamais vos données" width="820">
 </p>
 
 <p align="center">
@@ -386,7 +386,7 @@ mises à jour.
 
 ```sh
 tar -xJf Lokum-<version>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # lancer
 ./install-desktop-entry.sh   # facultatif : ajouter Lokum au menu des applications
 ```

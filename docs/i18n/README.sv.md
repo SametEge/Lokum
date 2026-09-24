@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../images/banner.png" alt="Lokum — ett sötare sätt att surfa" width="820">
+  <img src="../images/banner-sv.png" alt="Lokum — Snabb · Kraftfull · Stjäl aldrig din data" width="820">
 </p>
 
 <p align="center">
@@ -372,7 +372,7 @@ portabla utgåvan rör inte registret och meddelar bara om uppdateringar.
 
 ```sh
 tar -xJf Lokum-<version>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # kör
 ./install-desktop-entry.sh   # valfritt: lägg till Lokum i programmenyn
 ```

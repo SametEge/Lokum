@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/banner.png" alt="Lokum — a sweeter way to browse" width="820">
+  <img src="docs/images/banner.png" alt="Lokum — Fast · Powerful · Never steals your data" width="820">
 </p>
 
 <p align="center">
@@ -369,7 +369,7 @@ edition does not touch the registry and only notifies you about updates.
 
 ```sh
 tar -xJf Lokum-<version>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # run it
 ./install-desktop-entry.sh   # optional: add Lokum to your application menu
 ```

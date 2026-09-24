@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../images/banner.png" alt="Lokum — 更甜蜜的瀏覽方式" width="820">
+  <img src="../images/banner-zh-TW.png" alt="Lokum — 快速 · 強大 · 絕不竊取你的資料" width="820">
 </p>
 
 <p align="center">
@@ -350,7 +350,7 @@ Firefox 本身的介面來自 Mozilla 官方語言套件，建置時會合併進
 
 ```sh
 tar -xJf Lokum-<版本>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # 執行
 ./install-desktop-entry.sh   # 選用：將 Lokum 加入應用程式選單
 ```
