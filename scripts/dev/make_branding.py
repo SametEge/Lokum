@@ -90,6 +90,65 @@ def wordmark_svg(font_path, fill="context-fill", gradient=False):
             f'{defs}<path fill="{fill}" d="{d}"/></svg>\n')
 
 
+# ---------------------------------------------------------------- taglines
+
+# The README banner's subtitle, one per README language.
+TAGLINES = {
+    "en": "Fast · Powerful · Never steals your data",
+    "tr": "Hızlı · Güçlü · Verilerinizi çalmaz",
+    "de": "Schnell · Leistungsstark · Stiehlt nie Ihre Daten",
+    "fr": "Rapide · Puissant · Ne vole jamais vos données",
+    "it": "Veloce · Potente · Non ruba mai i tuoi dati",
+    "rm": "Svelt · Ferm · Na engola mai tias datas",
+    "es": "Rápido · Potente · Nunca roba tus datos",
+    "sv": "Snabb · Kraftfull · Stjäl aldrig din data",
+    "ko": "빠름 · 강력함 · 데이터를 절대 훔치지 않음",
+    "ja": "速い · パワフル · あなたのデータを盗まない",
+    "zh-CN": "快速 · 强大 · 绝不窃取你的数据",
+    "zh-TW": "快速 · 強大 · 絕不竊取你的資料",
+}
+
+CJK_FONT = "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc"
+CJK_FACE = {"ko": "KR", "ja": "JP", "zh-CN": "SC", "zh-TW": "TC"}
+
+
+def load_font(path, weight=None, face=None):
+    from fontTools.ttLib import TTCollection, TTFont
+    from fontTools.varLib import instancer
+
+    if path.endswith(".ttc"):
+        fonts = TTCollection(path).fonts
+        font = next((f for f in fonts if face and face in f["name"].getDebugName(1)), fonts[0])
+    else:
+        font = TTFont(path)
+    if weight and "fvar" in font:
+        axes = {a.axisTag: a.defaultValue for a in font["fvar"].axes}
+        axes["wght"] = weight
+        font = instancer.instantiateVariableFont(font, axes)
+    return font
+
+
+def text_path(text, fonts, size):
+    """Outlines text with the first font that has each glyph; returns the
+    SVG path data (baseline at y=0) and the advance width in pixels."""
+    from fontTools.pens.svgPathPen import SVGPathPen
+    from fontTools.pens.transformPen import TransformPen
+
+    prepared = [(f.getGlyphSet(), f.getBestCmap(), size / f["head"].unitsPerEm) for f in fonts]
+    x = 0.0
+    parts = []
+    for ch in text:
+        for glyph_set, cmap, scale in prepared:
+            name = cmap.get(ord(ch))
+            if name:
+                pen = SVGPathPen(glyph_set)
+                glyph_set[name].draw(TransformPen(pen, (scale, 0, 0, -scale, x, 0)))
+                parts.append(pen.getCommands())
+                x += glyph_set[name].width * scale
+                break
+    return " ".join(parts), x
+
+
 # ---------------------------------------------------------------- artwork
 
 def cube_group(x, y, s, palette, rot=0, opacity=1.0):
@@ -163,10 +222,10 @@ def installer_header_svg():
 </svg>'''
 
 
-def banner_svg(wordmark_inner, width=1280, height=400):
+def banner_svg(wordmark_inner, tagline=None, width=1280, height=400):
     cubes = []
-    positions = [(120, 120, 46, -8), (230, 290, 30, 10), (1060, 110, 40, 6), (1170, 270, 52, -10),
-                 (960, 320, 24, 12), (330, 80, 20, 4), (880, 70, 18, -6)]
+    positions = [(120, 120, 46, -8), (200, 305, 30, 10), (1060, 110, 40, 6), (1170, 270, 52, -10),
+                 (1030, 352, 24, 12), (330, 80, 20, 4), (880, 70, 18, -6)]
     for i, (x, y, s, rot) in enumerate(positions):
         cubes.append(cube_group(x, y, s, FLAVOR_CUBES[i % len(FLAVOR_CUBES)], rot))
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
@@ -180,8 +239,44 @@ def banner_svg(wordmark_inner, width=1280, height=400):
 {sugar_dots(width, height, 220, 9, 0.6, 2.4)}
 {''.join(cubes)}
 <g transform="translate({width / 2 - 260},{height / 2 - 125})">{wordmark_inner}</g>
-<text x="{width / 2}" y="{height / 2 + 105}" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#8b5271">A sweeter way to browse · Firefox-based · Arc-style</text>
+{tagline_markup(tagline, width, height / 2 + 105)}
 </g></svg>'''
+
+
+def tagline_markup(tagline, width, baseline):
+    if not tagline:
+        return ""
+    d, advance = tagline
+    return (f'<g transform="translate({(width - advance) / 2:.1f},{baseline:.1f})">'
+            f'<path fill="#fff" opacity=".55" transform="translate(0,2)" d="{d}"/>'
+            f'<path fill="#8b5271" d="{d}"/></g>')
+
+
+def make_banners(font_path, wordmark_inner):
+    """docs/images/banner.png (English) and banner-<lang>.png for every README."""
+    latin = load_font(font_path, weight=600)
+    for lang, text in TAGLINES.items():
+        fonts = [latin]
+        if os.path.exists(CJK_FONT):
+            fonts.append(load_font(CJK_FONT, face=CJK_FACE.get(lang, "SC")))
+        size = 32 if lang not in CJK_FACE else 30
+        tagline = text_path(text, fonts, size)
+        svg = banner_svg(wordmark_inner, tagline)
+        name = "banner" if lang == "en" else f"banner-{lang}"
+        svg_path = os.path.join(DOCS, name + ".svg")
+        write(svg_path, svg)
+        run("rsvg-convert", "-w", "1280", "-h", "400", svg_path, "-o", os.path.join(DOCS, name + ".png"))
+        if lang != "en":
+            os.remove(svg_path)
+        print("banner", lang)
+
+
+def nested_wordmark(wordmark, width, height):
+    """The wordmark SVG as a nested <svg> element of the given size."""
+    inner = wordmark.split(">", 1)[1].rsplit("</svg>", 1)[0]
+    viewbox = wordmark.split('viewBox="', 1)[1].split('"', 1)[0]
+    return (f'<svg viewBox="{viewbox}" width="{width}" height="{height}" '
+            f'preserveAspectRatio="xMidYMid meet">{inner}</svg>')
 
 
 # ------------------------------------------------------------------- main
@@ -189,11 +284,17 @@ def banner_svg(wordmark_inner, width=1280, height=400):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--font", required=True, help="Fredoka variable TTF")
+    ap.add_argument("--banners-only", action="store_true", help="only regenerate the README banners")
     args = ap.parse_args()
 
     for tool in ("rsvg-convert", "convert"):
         if not shutil.which(tool):
             sys.exit(f"missing tool: {tool}")
+
+    if args.banners_only:
+        wm = wordmark_svg(args.font, gradient=True)
+        make_banners(args.font, nested_wordmark(wm, 520, 180))
+        return
 
     make_logo.main()
     logo = os.path.join(SRC, "lokum-logo.svg")
@@ -255,12 +356,9 @@ def main():
     # NSIS artwork
     inst = os.path.join(GEN, "installer")
     os.makedirs(inst, exist_ok=True)
-    wm_inner = wm_color.split(">", 1)[1].rsplit("</svg>", 1)[0]
-    wm_viewbox = wm_color.split('viewBox="', 1)[1].split('"', 1)[0]
 
     def nested(width, height):
-        return (f'<svg viewBox="{wm_viewbox}" width="{width}" height="{height}" '
-                f'preserveAspectRatio="xMidYMid meet">{wm_inner}</svg>')
+        return nested_wordmark(wm_color, width, height)
     with tempfile.TemporaryDirectory() as tmp:
         wiz = os.path.join(tmp, "wizard.svg")
         write(wiz, installer_wizard_svg(nested(116, 40)))
@@ -277,9 +375,7 @@ def main():
     os.makedirs(DOCS, exist_ok=True)
     shutil.copy(logo, os.path.join(DOCS, "lokum-logo.svg"))
     rsvg(logo, os.path.join(DOCS, "lokum-logo-256.png"), 256)
-    banner = banner_svg(nested(520, 180))
-    write(os.path.join(DOCS, "banner.svg"), banner)
-    run("rsvg-convert", "-w", "1280", "-h", "400", os.path.join(DOCS, "banner.svg"), "-o", os.path.join(DOCS, "banner.png"))
+    make_banners(args.font, nested(520, 180))
     print("branding generated")
 
 

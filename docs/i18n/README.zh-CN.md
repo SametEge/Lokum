@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../images/banner.png" alt="Lokum — 更甜蜜的浏览方式" width="820">
+  <img src="../images/banner-zh-CN.png" alt="Lokum — 快速 · 强大 · 绝不窃取你的数据" width="820">
 </p>
 
 <p align="center">
@@ -351,7 +351,7 @@ Lokum 版本一起送达。
 
 ```sh
 tar -xJf Lokum-<版本>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # 运行
 ./install-desktop-entry.sh   # 可选：将 Lokum 添加到应用菜单
 ```

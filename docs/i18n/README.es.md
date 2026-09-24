@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../images/banner.png" alt="Lokum — una forma más dulce de navegar" width="820">
+  <img src="../images/banner-es.png" alt="Lokum — Rápido · Potente · Nunca roba tus datos" width="820">
 </p>
 
 <p align="center">
@@ -382,7 +382,7 @@ edición portátil no toca el registro y solo te avisa de las actualizaciones.
 
 ```sh
 tar -xJf Lokum-<versión>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # ejecutar
 ./install-desktop-entry.sh   # opcional: añadir Lokum al menú de aplicaciones
 ```

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../images/banner.png" alt="Lokum — navigar pli dultsch" width="820">
+  <img src="../images/banner-rm.png" alt="Lokum — Svelt · Ferm · Na engola mai tias datas" width="820">
 </p>
 
 <p align="center">
@@ -385,7 +385,7 @@ actualisaziuns.
 
 ```sh
 tar -xJf Lokum-<versiun>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # lantschar
 ./install-desktop-entry.sh   # facultativ: agiuntar Lokum al menu d'applicaziuns
 ```

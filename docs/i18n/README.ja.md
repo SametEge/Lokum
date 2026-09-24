@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../images/banner.png" alt="Lokum — もっと甘いブラウジングを" width="820">
+  <img src="../images/banner-ja.png" alt="Lokum — 速い · パワフル · あなたのデータを盗まない" width="820">
 </p>
 
 <p align="center">
@@ -369,7 +369,7 @@ Firefox のほかのショートカットはすべていつもどおり使えま
 
 ```sh
 tar -xJf Lokum-<バージョン>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # 起動
 ./install-desktop-entry.sh   # 任意：アプリメニューに Lokum を追加
 ```

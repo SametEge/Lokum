@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../images/banner.png" alt="Lokum — daha tatlı bir gezinti" width="820">
+  <img src="../images/banner-tr.png" alt="Lokum — Hızlı · Güçlü · Verilerinizi çalmaz" width="820">
 </p>
 
 <p align="center">
@@ -378,7 +378,7 @@ haber verir.
 
 ```sh
 tar -xJf Lokum-<sürüm>-linux-x86_64.tar.xz
-cd Lokum
+cd lokum
 ./lokum                      # çalıştır
 ./install-desktop-entry.sh   # isteğe bağlı: Lokum'u uygulama menüsüne ekle
 ```
