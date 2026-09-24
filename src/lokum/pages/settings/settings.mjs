@@ -16,6 +16,8 @@ import {
   LokumTabs,
   LokumShell,
   importFirefoxModule,
+  LokumAddons,
+  UBLOCK_ID,
   t,
   el,
   icon,
@@ -530,9 +532,6 @@ function setDoh(key) {
   Services.prefs.setIntPref("network.trr.mode", preset.mode);
 }
 
-const UBLOCK_ID = "uBlock0@raymondhill.net";
-const UBLOCK_URL = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-
 function adblockControl() {
   const button = el("button", { class: "lk-button primary" });
   const status = el("span", { class: "lk-badge", hidden: true });
@@ -552,11 +551,7 @@ function adblockControl() {
   button.addEventListener("click", async () => {
     button.disabled = true;
     button.textContent = t("settings.privacy.adblock.installing");
-    try {
-      const install = await AM.getInstallForURL(UBLOCK_URL, { telemetryInfo: { source: "lokum-settings" } });
-      await install.install();
-    } catch (ex) {
-      console.error(ex);
+    if (!(await LokumAddons.installUBlock("lokum-settings"))) {
       button.textContent = t("settings.privacy.adblock.failed");
     }
     button.disabled = false;

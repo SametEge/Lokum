@@ -18,6 +18,7 @@
 ;   /PID=<n>          wait for this Lokum process to exit before copying
 ;   /RELAUNCH         start Lokum when done
 ;   /DESKTOP=0|1      desktop shortcut (default 1)
+;   /UBLOCK=0|1       install uBlock Origin on first start (default 1)
 ;   /D=<dir>          install directory (must be last)
 
 Unicode true
@@ -105,6 +106,8 @@ VIAddVersionKey /LANG=0 "LegalCopyright" "Lokum contributors · MPL 2.0"
 Var WantDesktop
 Var DesktopCheckbox
 Var DefaultCheckbox
+Var UblockCheckbox
+Var WantUblock
 Var MakeDefault
 Var IsUpdate
 Var Relaunch
@@ -317,7 +320,11 @@ Function WriteInstallerLocale
   ${EndSelect}
   CreateDirectory "$INSTDIR\distribution"
   FileOpen $1 "$INSTDIR\distribution\lokum-install.json" w
-  FileWrite $1 '{"locale": "$0", "installedBy": "installer", "version": "${VERSION}"}'
+  StrCpy $2 "false"
+  ${If} $WantUblock == "1"
+    StrCpy $2 "true"
+  ${EndIf}
+  FileWrite $1 '{"locale": "$0", "ublock": $2, "installedBy": "installer", "version": "${VERSION}"}'
   FileClose $1
 FunctionEnd
 
@@ -345,7 +352,12 @@ Function OptionsPage
   ${If} $MakeDefault == "1"
     ${NSD_Check} $DefaultCheckbox
   ${EndIf}
-  ${NSD_CreateLabel} 0 80u 100% 36u "$(OptionsNote)"
+  ${NSD_CreateCheckbox} 0 70u 100% 12u "$(OptUblock)"
+  Pop $UblockCheckbox
+  ${If} $WantUblock == "1"
+    ${NSD_Check} $UblockCheckbox
+  ${EndIf}
+  ${NSD_CreateLabel} 0 96u 100% 36u "$(OptionsNote)"
   Pop $0
   nsDialogs::Show
 FunctionEnd
@@ -362,6 +374,12 @@ Function OptionsPageLeave
     StrCpy $MakeDefault "1"
   ${Else}
     StrCpy $MakeDefault "0"
+  ${EndIf}
+  ${NSD_GetState} $UblockCheckbox $0
+  ${If} $0 == ${BST_CHECKED}
+    StrCpy $WantUblock "1"
+  ${Else}
+    StrCpy $WantUblock "0"
   ${EndIf}
 FunctionEnd
 
@@ -381,6 +399,7 @@ Function .onInit
 
   StrCpy $WantDesktop "1"
   StrCpy $MakeDefault "0"
+  StrCpy $WantUblock "1"
   StrCpy $IsUpdate "0"
   StrCpy $Relaunch "0"
   ${GetParameters} $R0
@@ -398,6 +417,11 @@ Function .onInit
   ${GetOptions} $R0 "/DESKTOP=" $R1
   ${IfNot} ${Errors}
     StrCpy $WantDesktop $R1
+  ${EndIf}
+  ClearErrors
+  ${GetOptions} $R0 "/UBLOCK=" $R1
+  ${IfNot} ${Errors}
+    StrCpy $WantUblock $R1
   ${EndIf}
   ; An existing install counts as an update even when started by hand.
   ReadRegStr $R1 HKCU "${LOKUM_KEY}" "InstallDir"

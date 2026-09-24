@@ -109,18 +109,18 @@ when you switch space.
 
 | | Flavor | Mood |
 | --- | --- | --- |
-| 🌹 | **Rose** (Gül) | The classic rosewater delight, blushing pink. *(default)* |
-| 🌰 | **Pistachio** (Fıstık) | Fresh pistachio green, calm and focused. |
-| 🍋 | **Lemon** (Limon) | Sunny lemon zest for bright mornings. |
-| 🍎 | **Pomegranate** (Nar) | Deep pomegranate red, bold and juicy. |
-| 🍊 | **Orange** (Portakal) | Warm orange and bergamot glow. |
-| 🌿 | **Mint** (Nane) | Cool mint, crisp like a spring breeze. |
-| 💜 | **Lavender** (Lavanta) | Soft lavender for dreamy afternoons. |
-| 🤍 | **Mastic** (Sakız) | Creamy mastic ivory, quiet and elegant. |
-| 🥥 | **Coconut** (Hindistan cevizi) | Coconut white, clean and minimal. |
-| ☕ | **Turkish Coffee** (Kahve) | Rich Turkish coffee browns. |
-| 🌙 | **Midnight** (Gece) | Starry midnight plum for night owls. |
-| 🎨 | **Assorted** (Karışık) | A box of assorted delights that slowly drifts through every color. |
+| 🌹 | **Rose** | The classic rosewater delight, blushing pink. *(default)* |
+| 🌰 | **Pistachio** | Fresh pistachio green, calm and focused. |
+| 🍋 | **Lemon** | Sunny lemon zest for bright mornings. |
+| 🍎 | **Pomegranate** | Deep pomegranate red, bold and juicy. |
+| 🍊 | **Orange** | Warm orange and bergamot glow. |
+| 🌿 | **Mint** | Cool mint, crisp like a spring breeze. |
+| 💜 | **Lavender** | Soft lavender for dreamy afternoons. |
+| 🤍 | **Mastic** | Creamy mastic ivory, quiet and elegant. |
+| 🥥 | **Coconut** | Coconut white, clean and minimal. |
+| ☕ | **Turkish Coffee** | Rich Turkish coffee browns. |
+| 🌙 | **Midnight** | Starry midnight plum for night owls. |
+| 🎨 | **Assorted** | A box of assorted delights that slowly drifts through every color. |
 
 Every palette is checked by the test suite: text must reach a WCAG contrast of
 4.5:1 on its frame and accent buttons 3:1 in both light and dark mode.
@@ -344,7 +344,7 @@ switched off in **Settings → Shortcuts**.
 ### Windows (installer)
 
 1. Download `Lokum-Setup-<version>-x64.exe` from the [latest release](https://github.com/SametEge/Lokum/releases/latest).
-2. Run it (see the SmartScreen note above), pick your language, choose whether you want a desktop shortcut and whether to make Lokum your default browser, and click **Install**.
+2. Run it (see the SmartScreen note above), pick your language, choose whether you want a desktop shortcut, whether to make Lokum your default browser and whether to install the uBlock Origin ad blocker (ticked by default), and click **Install**.
 3. Lokum installs to `%LOCALAPPDATA%\Programs\Lokum` — per user, no administrator rights — and registers itself as a browser, so you can choose it in **Windows Settings → Default apps**.
 
 Command‑line switches, useful for scripted installs:
@@ -354,6 +354,7 @@ Command‑line switches, useful for scripted installs:
 | `/S` | Silent install |
 | `/D=C:\path\to\Lokum` | Install directory (must be last) |
 | `/DESKTOP=0` | No desktop shortcut (default `1`) |
+| `/UBLOCK=0` | Don't install uBlock Origin (default `1`: installed on first start) |
 | `/UPDATE` | Update an existing installation (used by the updater) |
 | `/RELAUNCH` | Start Lokum when finished |
 

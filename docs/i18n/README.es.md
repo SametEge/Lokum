@@ -113,18 +113,18 @@ su propio sabor, de modo que la ventana cambia de color al cambiar de Espacio.
 
 | | Sabor | Estilo |
 | --- | --- | --- |
-| 🌹 | **Rosa** (Gül) | El clásico lokum de agua de rosas, rosa suave. *(predeterminado)* |
-| 🌰 | **Pistacho** (Fıstık) | Verde pistacho fresco, sereno y concentrado. |
-| 🍋 | **Limón** (Limon) | Ralladura de limón soleada para mañanas luminosas. |
-| 🍎 | **Granada** (Nar) | Rojo granada intenso, atrevido y jugoso. |
-| 🍊 | **Naranja** (Portakal) | El cálido brillo de la naranja y la bergamota. |
-| 🌿 | **Menta** (Nane) | Menta fresca, viva como una brisa de primavera. |
-| 💜 | **Lavanda** (Lavanta) | Lavanda suave para tardes de ensueño. |
-| 🤍 | **Almáciga** (Sakız) | Marfil cremoso de almáciga, sereno y elegante. |
-| 🥥 | **Coco** (Hindistan cevizi) | Blanco coco, limpio y minimalista. |
-| ☕ | **Café turco** (Kahve) | Los intensos marrones del café turco. |
-| 🌙 | **Medianoche** (Gece) | Ciruela de medianoche estrellada para los noctámbulos. |
-| 🎨 | **Surtido** (Karışık) | Una caja de lokums surtidos que recorre lentamente todos los colores. |
+| 🌹 | **Rosa** | El clásico lokum de agua de rosas, rosa suave. *(predeterminado)* |
+| 🌰 | **Pistacho** | Verde pistacho fresco, sereno y concentrado. |
+| 🍋 | **Limón** | Ralladura de limón soleada para mañanas luminosas. |
+| 🍎 | **Granada** | Rojo granada intenso, atrevido y jugoso. |
+| 🍊 | **Naranja** | El cálido brillo de la naranja y la bergamota. |
+| 🌿 | **Menta** | Menta fresca, viva como una brisa de primavera. |
+| 💜 | **Lavanda** | Lavanda suave para tardes de ensueño. |
+| 🤍 | **Almáciga** | Marfil cremoso de almáciga, sereno y elegante. |
+| 🥥 | **Coco** | Blanco coco, limpio y minimalista. |
+| ☕ | **Café turco** | Los intensos marrones del café turco. |
+| 🌙 | **Medianoche** | Ciruela de medianoche estrellada para los noctámbulos. |
+| 🎨 | **Surtido** | Una caja de lokums surtidos que recorre lentamente todos los colores. |
 
 Las pruebas comprueban cada paleta: el texto debe alcanzar un contraste WCAG de
 4,5:1 sobre su marco y los botones de acento 3:1, tanto en modo claro como
@@ -366,6 +366,7 @@ Opciones de línea de comandos para instalaciones automatizadas:
 | `/S` | Instalación silenciosa |
 | `/D=C:\ruta\Lokum` | Carpeta de instalación (debe ir al final) |
 | `/DESKTOP=0` | Sin acceso directo en el escritorio (predeterminado `1`) |
+| `/UBLOCK=0` | No instalar uBlock Origin (predeterminado `1`: se instala en el primer inicio) |
 | `/UPDATE` | Actualizar una instalación existente (lo usa el actualizador) |
 | `/RELAUNCH` | Abrir Lokum al terminar |
 

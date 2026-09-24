@@ -113,18 +113,18 @@ ti midas il spazi mida lura era la colur da la fanestra.
 
 | | Gust | Atmosfera |
 | --- | --- | --- |
-| 🌹 | **Rosa** (Gül) | Il lokum classic cun aua da rosas, d'in rosa tener. *(standard)* |
-| 🌰 | **Pistazia** (Fıstık) | Verd pistazia fresc, quiet e concentrà. |
-| 🍋 | **Citrona** (Limon) | Scorsa da citrona sulegliva per damaun clers. |
-| 🍎 | **Granat** (Nar) | Cotschen granat profund, curaschus e savurus. |
-| 🍊 | **Pomaranza** (Portakal) | La glisch chauda da pomaranza e bergamotta. |
-| 🌿 | **Menta** (Nane) | Menta frestga, viva sco in'aura da primavaira. |
-| 💜 | **Lavanda** (Lavanta) | Lavanda lomma per suentermezdis da siemi. |
-| 🤍 | **Mastix** (Sakız) | Ivur cremus da mastix, quiet ed elegant. |
-| 🥥 | **Cocos** (Hindistan cevizi) | Alv cocos, net e minimal. |
-| ☕ | **Caffè tirc** (Kahve) | Ils bruns rigs dal caffè tirc. |
-| 🌙 | **Mesanotg** (Gece) | Prugna da mesanotg plain stailas per utschels da notg. |
-| 🎨 | **Maschadà** (Karışık) | Ina stgatla da lokums maschadads che passa plaunsieu tras tut las colurs. |
+| 🌹 | **Rosa** | Il lokum classic cun aua da rosas, d'in rosa tener. *(standard)* |
+| 🌰 | **Pistazia** | Verd pistazia fresc, quiet e concentrà. |
+| 🍋 | **Citrona** | Scorsa da citrona sulegliva per damaun clers. |
+| 🍎 | **Granat** | Cotschen granat profund, curaschus e savurus. |
+| 🍊 | **Pomaranza** | La glisch chauda da pomaranza e bergamotta. |
+| 🌿 | **Menta** | Menta frestga, viva sco in'aura da primavaira. |
+| 💜 | **Lavanda** | Lavanda lomma per suentermezdis da siemi. |
+| 🤍 | **Mastix** | Ivur cremus da mastix, quiet ed elegant. |
+| 🥥 | **Cocos** | Alv cocos, net e minimal. |
+| ☕ | **Caffè tirc** | Ils bruns rigs dal caffè tirc. |
+| 🌙 | **Mesanotg** | Prugna da mesanotg plain stailas per utschels da notg. |
+| 🎨 | **Maschadà** | Ina stgatla da lokums maschadads che passa plaunsieu tras tut las colurs. |
 
 Ils tests controllan mintga paletta: il text sto cuntanscher in contrast WCAG
 da 4,5:1 sin ses rom ed ils buttuns d'accent 3:1 — en il modus cler ed en il
@@ -368,6 +368,7 @@ Opziuns da la lingia da cumonds per installaziuns automatisadas:
 | `/S` | Installaziun senza canera |
 | `/D=C:\via\Lokum` | Ordinatur d'installaziun (sto esser l'ultima opziun) |
 | `/DESKTOP=0` | Nagina scursanida sin il desktop (standard `1`) |
+| `/UBLOCK=0` | Betg installar uBlock Origin (standard `1`: vegn installà a l'emprima aviada) |
 | `/UPDATE` | Actualisar in'installaziun existenta (dovrà da l'actualisaziun) |
 | `/RELAUNCH` | Lantschar Lokum a la fin |
 

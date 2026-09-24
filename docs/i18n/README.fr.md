@@ -114,18 +114,18 @@ changez d'Espace.
 
 | | Saveur | Ambiance |
 | --- | --- | --- |
-| 🌹 | **Rose** (Gül) | Le classique loukoum à l'eau de rose, rose tendre. *(par défaut)* |
-| 🌰 | **Pistache** (Fıstık) | Vert pistache frais, calme et concentré. |
-| 🍋 | **Citron** (Limon) | Un zeste de citron ensoleillé pour les matins lumineux. |
-| 🍎 | **Grenade** (Nar) | Rouge grenade profond, audacieux et juteux. |
-| 🍊 | **Orange** (Portakal) | La chaude lueur de l'orange et de la bergamote. |
-| 🌿 | **Menthe** (Nane) | Menthe fraîche, vive comme une brise de printemps. |
-| 💜 | **Lavande** (Lavanta) | Lavande douce pour des après‑midi rêveurs. |
-| 🤍 | **Mastic** (Sakız) | Ivoire crémeux au mastic, calme et élégant. |
-| 🥥 | **Noix de coco** (Hindistan cevizi) | Blanc coco, net et minimaliste. |
-| ☕ | **Café turc** (Kahve) | Les bruns riches du café turc. |
-| 🌙 | **Minuit** (Gece) | Prune de minuit étoilée pour les oiseaux de nuit. |
-| 🎨 | **Assortiment** (Karışık) | Une boîte de loukoums assortis qui glisse lentement à travers toutes les couleurs. |
+| 🌹 | **Rose** | Le classique loukoum à l'eau de rose, rose tendre. *(par défaut)* |
+| 🌰 | **Pistache** | Vert pistache frais, calme et concentré. |
+| 🍋 | **Citron** | Un zeste de citron ensoleillé pour les matins lumineux. |
+| 🍎 | **Grenade** | Rouge grenade profond, audacieux et juteux. |
+| 🍊 | **Orange** | La chaude lueur de l'orange et de la bergamote. |
+| 🌿 | **Menthe** | Menthe fraîche, vive comme une brise de printemps. |
+| 💜 | **Lavande** | Lavande douce pour des après‑midi rêveurs. |
+| 🤍 | **Mastic** | Ivoire crémeux au mastic, calme et élégant. |
+| 🥥 | **Noix de coco** | Blanc coco, net et minimaliste. |
+| ☕ | **Café turc** | Les bruns riches du café turc. |
+| 🌙 | **Minuit** | Prune de minuit étoilée pour les oiseaux de nuit. |
+| 🎨 | **Assortiment** | Une boîte de loukoums assortis qui glisse lentement à travers toutes les couleurs. |
 
 La suite de tests vérifie chaque palette : le texte doit atteindre un contraste
 WCAG de 4,5:1 sur son cadre et les boutons d'accent 3:1, en mode clair comme en
@@ -369,6 +369,7 @@ Options de ligne de commande pour les installations scriptées :
 | `/S` | Installation silencieuse |
 | `/D=C:\chemin\Lokum` | Dossier d'installation (doit être en dernier) |
 | `/DESKTOP=0` | Pas de raccourci sur le bureau (défaut `1`) |
+| `/UBLOCK=0` | Ne pas installer uBlock Origin (défaut `1` : installé au premier démarrage) |
 | `/UPDATE` | Mettre à jour une installation existante (utilisé par le programme de mise à jour) |
 | `/RELAUNCH` | Lancer Lokum à la fin |
 

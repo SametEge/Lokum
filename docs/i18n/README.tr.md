@@ -351,7 +351,7 @@ kısayolları **Ayarlar → Kısayollar**'dan kapatılabilir.
 ### Windows (kurulum sihirbazı)
 
 1. [Son sürümden](https://github.com/SametEge/Lokum/releases/latest) `Lokum-Setup-<sürüm>-x64.exe`'yi indirin.
-2. Çalıştırın (yukarıdaki SmartScreen notuna bakın), dilinizi seçin, masaüstü kısayolu isteyip istemediğinizi ve Lokum'u varsayılan tarayıcı yapıp yapmayacağınızı belirleyin ve **Kur**'a tıklayın.
+2. Çalıştırın (yukarıdaki SmartScreen notuna bakın), dilinizi seçin, masaüstü kısayolu isteyip istemediğinizi, Lokum'u varsayılan tarayıcı yapıp yapmayacağınızı ve uBlock Origin reklam engelleyicinin kurulup kurulmayacağını (varsayılan olarak işaretli) belirleyin ve **Kur**'a tıklayın.
 3. Lokum `%LOCALAPPDATA%\Programs\Lokum` klasörüne kurulur — kullanıcı başına, yönetici izni olmadan — ve kendini tarayıcı olarak kaydeder; böylece **Windows Ayarları → Varsayılan uygulamalar**'dan seçebilirsiniz.
 
 Betikli kurulumlar için komut satırı seçenekleri:
@@ -361,6 +361,7 @@ Betikli kurulumlar için komut satırı seçenekleri:
 | `/S` | Sessiz kurulum |
 | `/D=C:\yol\Lokum` | Kurulum klasörü (en sonda olmalı) |
 | `/DESKTOP=0` | Masaüstü kısayolu yok (varsayılan `1`) |
+| `/UBLOCK=0` | uBlock Origin kurulmasın (varsayılan `1`: ilk açılışta kurulur) |
 | `/UPDATE` | Mevcut kurulumu güncelle (güncelleyici kullanır) |
 | `/RELAUNCH` | Bitince Lokum'u başlat |
 
