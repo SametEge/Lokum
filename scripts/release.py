@@ -194,6 +194,12 @@ def cmd_assemble(args):
     setup = win.get("installer", {}).get("name", "")
     zip_name = win.get("archive", {}).get("name", "")
     linux = assets.get("linux-x86_64", {}).get("archive", {}).get("name", "")
+    rows = [
+        ("**Windows 10/11 (64-bit) — installer**", setup),
+        ("Windows (64-bit) — zip, no install", zip_name),
+        ("Linux (x86_64) — tarball", linux),
+    ]
+    table = "\n".join(f"| {label} | [{name}]({base_url}/{name}) |" for label, name in rows if name)
     body = f"""<p align="center"><img src="https://raw.githubusercontent.com/{repo}/main/docs/images/banner.png" alt="Lokum" width="720"></p>
 
 ## 🍬 Lokum {version}
@@ -204,9 +210,7 @@ def cmd_assemble(args):
 
 | Platform | File |
 | --- | --- |
-| **Windows 10/11 (64-bit) — installer** | [{setup}]({base_url}/{setup}) |
-| Windows (64-bit) — zip, no install | [{zip_name}]({base_url}/{zip_name}) |
-| Linux (x86_64) — tarball | [{linux}]({base_url}/{linux}) |
+{table}
 
 **Windows:** run `{setup}`. Lokum installs for your user only (no admin rights) and updates itself automatically.
 If SmartScreen says *"Windows protected your PC"*, click **More info → Run anyway** (Lokum is open source but not code-signed yet).
