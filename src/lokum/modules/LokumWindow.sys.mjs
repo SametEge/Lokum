@@ -546,6 +546,9 @@ function applyAppearance() {
   const value = LokumPrefs.get("lokum.appearance");
   const map = { dark: 0, light: 1, auto: 2 };
   Services.prefs.setIntPref("browser.theme.toolbar-theme", map[value] ?? 2);
+  // Web pages follow the content theme; "automatic" (2) website appearance
+  // below derives from it, so pages match Lokum's light/dark choice.
+  Services.prefs.setIntPref("browser.theme.content-theme", map[value] ?? 2);
   Services.prefs.setIntPref(
     "layout.css.prefers-color-scheme.content-override",
     2

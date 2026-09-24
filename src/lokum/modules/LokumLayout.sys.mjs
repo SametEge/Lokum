@@ -23,13 +23,15 @@ export const LAYOUTS = Object.freeze(["arc", "vertical", "horizontal"]);
 
 // Toolbar items Lokum wants first in the navigation bar, in order.
 const NAV_LEADING = ["back-button", "forward-button", "stop-reload-button"];
-// Items that would not fit in the narrow Arc sidebar toolbar.
-const ARC_REMOVE = ["sidebar-button", "home-button", "alltabs-button", "fxa-toolbar-menu-button"];
+// Items that would not fit in the narrow Arc sidebar toolbar. The sidebar
+// button is deliberately NOT removed: Firefox turns vertical tabs off when it
+// leaves the toolbar (bug 1970015), so the Arc layout hides it with CSS.
+const ARC_REMOVE = ["home-button", "alltabs-button", "fxa-toolbar-menu-button"];
 const ARC_TRAILING = ["unified-extensions-button", "downloads-button"];
 
 // Placement arrangements are applied once per layout switch; bump this to
 // re-run them for everyone after a Lokum update.
-const ARRANGEMENT_VERSION = 1;
+const ARRANGEMENT_VERSION = 2;
 const PREF_ARRANGED = "lokum.layout.arranged";
 
 export const LokumLayout = {
@@ -56,9 +58,11 @@ export const LokumLayout = {
     if (prefs.getBoolPref("sidebar.verticalTabs", false) !== vertical) {
       prefs.setBoolPref("sidebar.verticalTabs", vertical);
     }
-    const visibility = vertical ? "always-show" : "hide-sidebar";
-    if (prefs.getStringPref("sidebar.visibility", "") !== visibility) {
-      prefs.setStringPref("sidebar.visibility", visibility);
+    // Firefox moves sidebar.visibility to a value valid for the orientation
+    // by itself; vertical layouts additionally need the launcher shown
+    // (Lokum's compact mode replaces Firefox's "hide sidebar").
+    if (vertical && prefs.getStringPref("sidebar.visibility", "") !== "always-show") {
+      prefs.setStringPref("sidebar.visibility", "always-show");
     }
     const startPosition = LokumPrefs.get("lokum.sidebar.position") !== "right";
     if (prefs.getBoolPref("sidebar.position_start", true) !== startPosition) {

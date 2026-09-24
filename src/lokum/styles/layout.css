@@ -224,6 +224,12 @@
     display: none !important;
   }
 
+  /* Firefox's own sidebar toggle is replaced by compact mode (Ctrl+Alt+S)
+     and can reappear when Firefox rebuilds its toolbar state. */
+  & #sidebar-button {
+    display: none !important;
+  }
+
   & #toolbar-menubar:not([inactive]) {
     flex-wrap: wrap;
     padding-inline: 8px;
@@ -261,6 +267,19 @@
     --urlbar-container-height: 38px;
     --urlbar-height: 34px;
     position: relative;
+  }
+
+  /* The sidebar is too narrow for identity labels ("Not Secure", the
+   * browser name on built-in pages...); keep just the icon there. The
+   * floating command bar has room and shows them again. */
+  & #urlbar:not([breakout-extend]) #identity-icon-label,
+  & #urlbar:not([breakout-extend]) #trust-label,
+  & #urlbar:not([breakout-extend]) #identity-box .identity-box-button > label {
+    display: none !important;
+  }
+
+  & #urlbar:not([breakout-extend]) #identity-box {
+    margin-inline-end: 2px;
   }
 
   /* Push the trailing buttons (extensions, downloads) to the end of row 1. */

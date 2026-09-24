@@ -93,8 +93,15 @@
 
 :root[lokum][lokum-grain] #browser::before {
   background-image: var(--lk-grain);
-  opacity: light-dark(0.22, 0.3);
+  opacity: 0.22;
   mix-blend-mode: soft-light;
+}
+
+/* Soft-light noise is much louder on dark frames. */
+@media (prefers-color-scheme: dark) {
+  :root[lokum][lokum-grain] #browser::before {
+    opacity: 0.08;
+  }
 }
 
 :root[lokum][lokum-sugar] #sidebar-container::before,

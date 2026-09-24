@@ -28,15 +28,11 @@ export const LOKUM_DEFAULTS = Object.freeze({
   // Layout ------------------------------------------------------------------
   "lokum.layout": "arc", // arc | vertical | horizontal
   "lokum.sidebar.position": "left", // left | right
-  "lokum.sidebar.width": 264,
   "lokum.compact": false, // auto-hide the sidebar / toolbars
   "lokum.floatingUrlbar": true, // centered command bar when the address bar is focused
-  "lokum.showNavButtons": true,
-  "lokum.urlbar.domainOnly": true, // show just the domain until focused (Arc style)
   "lokum.tabs.closeButton": "hover", // hover | always | never
   "lokum.tabs.newTabPosition": "top", // top | bottom (vertical layouts)
   "lokum.mediaCard": true, // mini player for tabs playing audio
-  "lokum.statusPill": true, // floating link preview pill
 
   // Spaces ------------------------------------------------------------------
   "lokum.spaces.enabled": true,
@@ -46,7 +42,6 @@ export const LOKUM_DEFAULTS = Object.freeze({
   // Tabs ----------------------------------------------------------------------
   "lokum.tabs.autoArchiveHours": 0, // 0 = never; 12, 24, 168, 720
   "lokum.tabs.sleepMinutes": 0, // 0 = never; unload background tabs after N minutes
-  "lokum.tabs.peek": true, // shift+alt click opens a link in a floating peek window
 
   // Updates -------------------------------------------------------------------
   "lokum.update.enabled": true,
@@ -66,7 +61,6 @@ export const LOKUM_DEFAULTS = Object.freeze({
   "lokum.lastVersion": "",
   "lokum.locale.initialized": false,
   "lokum.shortcuts.enabled": true,
-  "lokum.debug": false,
 });
 
 /**
