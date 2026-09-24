@@ -1,0 +1,17 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* User-origin sheet for browser windows. Unlike author sheets, user sheets
+ * also apply inside shadow trees (e.g. <sidebar-main>). Selectors cannot see
+ * outside of the shadow tree (:host() does not match from user sheets), so
+ * rules are keyed on unique structure plus pref media queries. */
+
+@media -moz-pref("sidebar.verticalTabs") {
+  /* The revamped sidebar draws its own tool buttons; Lokum replaces them
+   * with the space footer (library, spaces, new space). */
+  .wrapper > .buttons-wrapper:has(> .tools-and-extensions),
+  #sidebar-tools-and-extensions-splitter {
+    display: none !important;
+  }
+}

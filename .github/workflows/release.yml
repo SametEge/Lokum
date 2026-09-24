@@ -1,0 +1,115 @@
+# Automatic releases.
+#
+#  * Every push to main builds, tests and publishes a new Lokum release with
+#    a Windows installer, a Windows zip and a Linux tarball.
+#  * Every six hours the workflow checks Mozilla for a new Firefox release
+#    and, if there is one, publishes a Lokum update built on it.
+#  * It can also be started by hand (Actions → Release → Run workflow).
+#
+# Installed copies of Lokum find new releases through the latest.json asset
+# and update themselves.
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - ".github/ISSUE_TEMPLATE/**"
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      firefox_version:
+        description: "Firefox version (empty = latest release)"
+        required: false
+        default: ""
+      prerelease:
+        description: "Publish as a beta pre-release"
+        type: boolean
+        default: false
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    name: Plan
+    runs-on: ubuntu-24.04
+    outputs:
+      should_release: ${{ steps.plan.outputs.should_release }}
+      version: ${{ steps.plan.outputs.version }}
+      firefox_version: ${{ steps.plan.outputs.firefox_version }}
+      previous_tag: ${{ steps.plan.outputs.previous_tag }}
+      reason: ${{ steps.plan.outputs.reason }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >
+          python3 scripts/release.py plan
+          --event "${{ github.event_name }}"
+          --firefox-version "${{ inputs.firefox_version }}"
+          ${{ inputs.prerelease && '--prerelease' || '' }}
+
+  build:
+    name: Build
+    needs: plan
+    if: needs.plan.outputs.should_release == 'true'
+    uses: ./.github/workflows/build.yml
+    with:
+      version: ${{ needs.plan.outputs.version }}
+      firefox_version: ${{ needs.plan.outputs.firefox_version }}
+      channel: ${{ inputs.prerelease && 'beta' || 'stable' }}
+
+  publish:
+    name: Publish release
+    needs: [plan, build]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Collect files
+        run: |
+          mkdir -p dist
+          find artifacts -type f -exec cp {} dist/ \;
+          ls -la dist
+
+      - name: Assemble latest.json, checksums and notes
+        run: >
+          python3 scripts/release.py assemble
+          --dist dist
+          --version "${{ needs.plan.outputs.version }}"
+          --previous-tag "${{ needs.plan.outputs.previous_tag }}"
+          --reason "${{ needs.plan.outputs.reason }}"
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ needs.plan.outputs.version }}
+          PRERELEASE: ${{ inputs.prerelease && 'true' || 'false' }}
+        run: |
+          flags=(--latest)
+          if [ "$PRERELEASE" = "true" ]; then flags=(--prerelease); fi
+          gh release create "v${VERSION}" \
+            --target "${GITHUB_SHA}" \
+            --title "Lokum ${VERSION} 🍬" \
+            --notes-file dist/RELEASE_NOTES.md \
+            "${flags[@]}" \
+            dist/Lokum-* dist/latest.json dist/SHA256SUMS.txt
+          echo "### 🍬 Lokum ${VERSION} released" >> "$GITHUB_STEP_SUMMARY"
+          echo "https://github.com/${GITHUB_REPOSITORY}/releases/tag/v${VERSION}" >> "$GITHUB_STEP_SUMMARY"

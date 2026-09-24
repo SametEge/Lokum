@@ -1,0 +1,713 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* Lokum's own chrome elements. */
+
+.lk-icon {
+  width: 16px;
+  height: 16px;
+  -moz-context-properties: fill, fill-opacity, stroke;
+  fill: currentColor;
+  stroke: currentColor;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+:root[lokum] :is(#lokum-sidebar-footer, #lokum-space-header, .lk-media-card, .lk-update-card, #lokum-titlestrip, .lk-palette, #lokum-toasts) button {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: transparent;
+  cursor: default;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Space header ("🌸 Kişisel  ⋯")
+ * ----------------------------------------------------------------------- */
+
+#lokum-space-header {
+  display: none;
+}
+
+:root[lokum][lokum-spaces] #tabbrowser-tabs[orient="vertical"] > #lokum-space-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px var(--tab-inner-inline-margin, 8px) 4px;
+  padding: 2px 4px 2px 6px;
+  min-height: 28px;
+  border-radius: 9px;
+  color: var(--lk-text);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  user-select: none;
+  transition: background-color var(--lk-dur-fast) var(--lk-ease);
+}
+
+:root[lokum][lokum-spaces] #lokum-space-header:hover {
+  background-color: var(--lk-hover);
+}
+
+#lokum-space-header .lk-space-icon {
+  font-size: 15px;
+  line-height: 1;
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.12));
+}
+
+#lokum-space-header .lk-space-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  outline: none;
+  border-radius: 4px;
+  padding-inline: 2px;
+}
+
+#lokum-space-header .lk-space-name[contenteditable="true"] {
+  background: var(--lk-surface-strong);
+  box-shadow: 0 0 0 2px var(--lk-accent-soft);
+  text-overflow: clip;
+  user-select: text;
+}
+
+#lokum-space-header .lk-space-clear,
+#lokum-space-header .lk-space-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  min-width: 22px;
+  padding: 0 6px;
+  border-radius: 6px;
+  color: var(--lk-text-muted);
+  font-size: 11px;
+  font-weight: 550;
+  opacity: 0;
+  transition: opacity var(--lk-dur-fast) var(--lk-ease), background-color var(--lk-dur-fast);
+}
+
+#lokum-space-header:hover :is(.lk-space-clear, .lk-space-more),
+#lokum-space-header:focus-within :is(.lk-space-clear, .lk-space-more) {
+  opacity: 1;
+}
+
+#lokum-space-header :is(.lk-space-clear, .lk-space-more):hover {
+  background: var(--lk-hover);
+  color: var(--lk-text);
+}
+
+/* Space switch: the tab list glides in from the side we are moving to. */
+:root[lokum-space-anim="next"] #tabbrowser-arrowscrollbox,
+:root[lokum-space-anim="next"] #lokum-space-header {
+  animation: lk-slide-from-right 360ms var(--lk-ease-out);
+}
+
+:root[lokum-space-anim="prev"] #tabbrowser-arrowscrollbox,
+:root[lokum-space-anim="prev"] #lokum-space-header {
+  animation: lk-slide-from-left 360ms var(--lk-ease-out);
+}
+
+/* -------------------------------------------------------------------------
+ * Sidebar footer: library, space dots, new space
+ * ----------------------------------------------------------------------- */
+
+#lokum-sidebar-footer {
+  display: none;
+}
+
+:root[lokum][lokum-vertical] #lokum-sidebar-footer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px 8px;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+:root[lokum][lokum-vertical]:not([lokum-spaces]) #lokum-sidebar-footer :is(.lk-space-dots, .lk-new-space) {
+  display: none;
+}
+
+.lk-footer-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  color: var(--lk-text-muted);
+  flex-shrink: 0;
+  transition: background-color var(--lk-dur-fast) var(--lk-ease), color var(--lk-dur-fast), transform var(--lk-dur-fast) var(--lk-ease);
+}
+
+.lk-footer-button:hover {
+  background: var(--lk-hover);
+  color: var(--lk-text);
+}
+
+.lk-footer-button:active {
+  transform: scale(0.9);
+}
+
+.lk-space-dots {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.lk-space-dot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  transition: background-color var(--lk-dur-fast) var(--lk-ease), transform var(--lk-dur) var(--lk-spring);
+}
+
+.lk-space-dot-icon {
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.55;
+  filter: grayscale(0.4);
+  transition: opacity var(--lk-dur-fast), filter var(--lk-dur-fast), transform var(--lk-dur) var(--lk-spring);
+}
+
+.lk-space-dot:hover {
+  background: var(--lk-hover);
+}
+
+.lk-space-dot:hover .lk-space-dot-icon {
+  opacity: 0.9;
+  filter: none;
+}
+
+.lk-space-dot[selected] {
+  background: var(--lk-surface-strong);
+  box-shadow: var(--lk-tab-shadow);
+}
+
+.lk-space-dot[selected] .lk-space-dot-icon {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.12);
+}
+
+.lk-space-dot[selected]::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  width: 10px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--dot-color, var(--lk-accent));
+}
+
+.lk-space-dot[dragover] {
+  background: var(--lk-accent-soft);
+  transform: scale(1.15);
+}
+
+#lokum-sidebar-footer[single] .lk-space-dots {
+  opacity: 0.85;
+}
+
+/* -------------------------------------------------------------------------
+ * Media card
+ * ----------------------------------------------------------------------- */
+
+.lk-media-card {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 8px;
+  margin: 4px 8px;
+  padding: 8px;
+  border-radius: 12px;
+  background: var(--lk-surface-strong);
+  box-shadow: var(--lk-tab-shadow);
+  position: relative;
+  animation: lk-pop-in 420ms var(--lk-spring);
+}
+
+.lk-media-card[hidden],
+:root:not([lokum-vertical]) .lk-media-card {
+  display: none !important;
+}
+
+.lk-media-art {
+  grid-row: 1 / 3;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--lk-accent-softer);
+}
+
+.lk-media-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  grid-column: 2 / 4;
+}
+
+.lk-media-title {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lk-media-subtitle {
+  font-size: 11px;
+  color: var(--lk-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lk-media-controls {
+  grid-column: 2 / 4;
+  display: flex;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.lk-media-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 24px;
+  border-radius: 7px;
+}
+
+.lk-media-button:hover {
+  background: var(--lk-hover);
+}
+
+.lk-media-close {
+  position: absolute;
+  top: 4px;
+  inset-inline-end: 4px;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+
+.lk-media-close .lk-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.lk-media-card:hover .lk-media-close {
+  opacity: 0.7;
+}
+
+.lk-media-card[playing] .lk-media-art {
+  animation: lk-breathe 2.4s ease-in-out infinite;
+}
+
+/* -------------------------------------------------------------------------
+ * Update card
+ * ----------------------------------------------------------------------- */
+
+.lk-update-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 4px 10px;
+  margin: 4px 8px;
+  padding: 10px 10px 10px 12px;
+  border-radius: 14px;
+  color: var(--lk-accent-text);
+  background:
+    radial-gradient(circle at 20% 0%, rgb(255 255 255 / 0.35), transparent 60%),
+    linear-gradient(135deg, var(--lk-accent), color-mix(in srgb, var(--lk-accent) 70%, var(--lk-frame-3)));
+  box-shadow: 0 8px 22px -8px color-mix(in srgb, var(--lk-accent) 70%, transparent);
+  overflow: hidden;
+  animation: lk-pop-in 520ms var(--lk-spring);
+}
+
+.lk-update-card[hidden],
+:root:not([lokum-vertical]) .lk-update-card {
+  display: none !important;
+}
+
+.lk-update-icon {
+  font-size: 20px;
+  animation: lk-wiggle 3.2s ease-in-out infinite;
+}
+
+.lk-update-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.lk-update-title {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lk-update-subtitle {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+:root[lokum] .lk-update-card .lk-update-button {
+  grid-column: 1 / 4;
+  justify-self: stretch;
+  padding: 6px 10px;
+  border-radius: 9px;
+  background: rgb(255 255 255 / 0.92);
+  color: var(--lk-accent);
+  font-weight: 700;
+  font-size: 12px;
+  transition: transform var(--lk-dur-fast) var(--lk-ease), box-shadow var(--lk-dur-fast);
+}
+
+:root[lokum] .lk-update-card .lk-update-button:hover {
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.15);
+  transform: translateY(-1px);
+}
+
+:root[lokum] .lk-update-card .lk-update-later {
+  position: absolute;
+  top: 4px;
+  inset-inline-end: 6px;
+  font-size: 14px;
+  opacity: 0.6;
+  line-height: 1;
+  padding: 2px;
+}
+
+.lk-update-progress {
+  grid-column: 1 / 4;
+  height: 4px;
+  border-radius: 4px;
+  background: rgb(255 255 255 / 0.3);
+  overflow: hidden;
+}
+
+.lk-update-progress[hidden] {
+  display: none;
+}
+
+.lk-update-progress-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 4px;
+  background: white;
+  transition: width 300ms var(--lk-ease);
+}
+
+/* -------------------------------------------------------------------------
+ * Title strip (arc)
+ * ----------------------------------------------------------------------- */
+
+#lokum-titlestrip .lk-strip-favicon {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+#lokum-titlestrip .lk-strip-title {
+  font-weight: 600;
+  color: var(--lk-text);
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50%;
+}
+
+#lokum-titlestrip .lk-strip-host {
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+#lokum-titlestrip .lk-strip-host::before {
+  content: "·";
+  margin-inline-end: 8px;
+}
+
+#lokum-titlestrip [hidden] {
+  display: none;
+}
+
+#lokum-titlestrip .lk-strip-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 22px;
+  border-radius: 6px;
+  opacity: 0;
+  -moz-window-dragging: no-drag;
+  transition: opacity var(--lk-dur-fast);
+}
+
+#lokum-titlestrip:hover .lk-strip-button {
+  opacity: 0.8;
+}
+
+#lokum-titlestrip .lk-strip-button:hover {
+  background: var(--lk-hover);
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------------------
+ * Command palette
+ * ----------------------------------------------------------------------- */
+
+.lk-palette {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 16vh;
+  background: color-mix(in srgb, var(--lk-frame-3) 14%, rgb(0 0 0 / 0.18));
+  opacity: 0;
+  transition: opacity var(--lk-dur) var(--lk-ease);
+}
+
+.lk-palette[hidden] {
+  display: none;
+}
+
+.lk-palette[open] {
+  opacity: 1;
+}
+
+.lk-palette-box {
+  width: min(640px, 88vw);
+  max-height: 62vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  background: var(--lk-surface-solid);
+  color: light-dark(#1f1b22, #f4eff6);
+  box-shadow: var(--lk-popover-shadow);
+  overflow: hidden;
+  transform: translateY(-10px) scale(0.97);
+  transition: transform var(--lk-dur-slow) var(--lk-spring);
+}
+
+.lk-palette[open] .lk-palette-box {
+  transform: none;
+}
+
+.lk-palette-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--lk-border);
+}
+
+.lk-palette-glyph {
+  width: 18px;
+  height: 18px;
+  color: var(--lk-accent);
+}
+
+.lk-palette-input {
+  flex: 1;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 16px;
+}
+
+.lk-palette-hint,
+.lk-palette-keys {
+  font: 11px/1 ui-monospace, "Cascadia Mono", monospace;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: var(--lk-hover);
+  color: var(--lk-text-muted);
+  white-space: nowrap;
+}
+
+.lk-palette-list {
+  overflow-y: auto;
+  padding: 6px;
+}
+
+.lk-palette-section {
+  padding: 8px 10px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lk-text-muted);
+}
+
+.lk-palette-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 11px;
+  font-size: 13.5px;
+}
+
+.lk-palette-row[selected] {
+  background: var(--lk-accent);
+  color: var(--lk-accent-text);
+}
+
+.lk-palette-row[selected] .lk-palette-detail,
+.lk-palette-row[selected] .lk-palette-keys {
+  color: inherit;
+  opacity: 0.85;
+  background: rgb(255 255 255 / 0.16);
+}
+
+.lk-palette-favicon {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.lk-palette-emoji {
+  width: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.lk-palette-label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lk-palette-detail {
+  color: var(--lk-text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.lk-palette-empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--lk-text-muted);
+}
+
+/* -------------------------------------------------------------------------
+ * Toasts
+ * ----------------------------------------------------------------------- */
+
+#lokum-toasts {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.lk-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: light-dark(rgb(30 20 28 / 0.92), rgb(250 246 250 / 0.95));
+  color: light-dark(#fff, #1d1720);
+  font-size: 13px;
+  font-weight: 550;
+  box-shadow: 0 12px 30px -10px rgb(0 0 0 / 0.45);
+  pointer-events: auto;
+  animation: lk-toast-in 460ms var(--lk-spring);
+}
+
+.lk-toast.lk-out {
+  animation: lk-toast-out 300ms var(--lk-ease) forwards;
+}
+
+.lk-toast .lk-icon {
+  width: 16px;
+  height: 16px;
+}
+
+:root[lokum] .lk-toast .lk-toast-action {
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: var(--lk-accent);
+  color: var(--lk-accent-text);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* -------------------------------------------------------------------------
+ * Onboarding overlay
+ * ----------------------------------------------------------------------- */
+
+#lokum-onboarding {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  z-index: 100;
+  background: transparent;
+  color-scheme: normal;
+  backdrop-filter: blur(26px) saturate(1.25);
+  animation: lk-fade 600ms var(--lk-ease);
+}
+
+:root[lokum-onboarding] :is(#urlbar, #lokum-palette, #lokum-toasts, #nav-bar .titlebar-buttonbox-container) {
+  visibility: hidden !important;
+}
+
+@keyframes lk-fade {
+  from { opacity: 0; }
+}
+
+#lokum-onboarding.lk-leaving {
+  animation: lk-onboarding-out 850ms var(--lk-ease) forwards;
+  pointer-events: none;
+}
+
+/* Emoji menu (space icon picker) */
+.lk-emoji-grid {
+  --lk-emoji-cols: 6;
+}
+
+.lk-emoji-item {
+  font-size: 16px;
+}
+
+/* Thin scrollbar in the vertical tab list. */
+:root[lokum][lokum-vertical] #tabbrowser-arrowscrollbox::part(scrollbox) {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--lk-text) 22%, transparent) transparent;
+}

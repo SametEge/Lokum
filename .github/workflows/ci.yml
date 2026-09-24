@@ -1,0 +1,68 @@
+# Continuous integration: every push to a branch and every pull request is
+# built for Windows and Linux and tested on real runners. Nothing is
+# published from here (see release.yml).
+name: CI
+
+on:
+  push:
+    branches-ignore: [main]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+  pull_request:
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Lint & unit tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: node --test "tests/unit/*.test.mjs"
+      - name: Locale completeness
+        run: python3 tests/check_locales.py
+      - name: Python syntax
+        run: python3 -m py_compile scripts/build.py scripts/release.py scripts/lokumbuild/*.py
+
+  plan:
+    name: Plan
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.ci.outputs.ci_version }}
+      firefox_version: ${{ steps.plan.outputs.firefox_version }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/release.py plan --event push
+      - id: ci
+        run: |
+          base=$(python3 -c "import json;print(json.load(open('version.json'))['version'])")
+          echo "ci_version=${base}-ci.${{ github.run_number }}" >> "$GITHUB_OUTPUT"
+
+  build:
+    name: Build
+    needs: plan
+    uses: ./.github/workflows/build.yml
+    with:
+      version: ${{ needs.plan.outputs.version }}
+      firefox_version: ${{ needs.plan.outputs.firefox_version }}
+      channel: ci

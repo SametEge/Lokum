@@ -1,0 +1,181 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* The window "frame": a soft flavor gradient with grain and powdered sugar,
+ * plus the mapping of Firefox's own theme variables onto the Lokum palette. */
+
+:root[lokum] {
+  transition:
+    --lk-frame-1 var(--lk-flavor-dur) var(--lk-ease),
+    --lk-frame-2 var(--lk-flavor-dur) var(--lk-ease),
+    --lk-frame-3 var(--lk-flavor-dur) var(--lk-ease),
+    --lk-accent var(--lk-flavor-dur) var(--lk-ease),
+    --lk-accent-text var(--lk-flavor-dur) var(--lk-ease),
+    --lk-text var(--lk-flavor-dur) var(--lk-ease),
+    --lk-text-muted var(--lk-flavor-dur) var(--lk-ease);
+
+  background-color: var(--lk-frame-2) !important;
+  background-image: var(--lk-frame-gradient) !important;
+  color: var(--lk-text);
+  font-family: var(--lk-font-ui);
+
+  /* Firefox chrome variables */
+  --toolbox-background-color: transparent;
+  --toolbox-background-color-inactive: transparent;
+  --toolbox-text-color: var(--lk-text);
+  --toolbox-text-color-inactive: var(--lk-text);
+  --toolbar-background-color: transparent;
+  --toolbar-text-color: var(--lk-text);
+  --toolbar-color: var(--lk-text);
+  --toolbarbutton-icon-fill: var(--lk-text);
+  --toolbarbutton-background-color-hover: var(--lk-hover);
+  --toolbarbutton-background-color-active: var(--lk-pressed);
+  --toolbarbutton-icon-fill-attention: var(--lk-accent);
+  --toolbarbutton-border-radius: 8px;
+  --tabs-navbar-separator-style: none;
+  --chrome-content-separator-color: transparent;
+
+  --toolbar-field-background-color: var(--lk-surface);
+  --toolbar-field-text-color: var(--lk-text);
+  --toolbar-field-border-color: transparent;
+  --toolbar-field-background-color-focus: var(--lk-surface-solid);
+  --toolbar-field-text-color-focus: light-dark(#1d1b20, #f5f2f7);
+  --toolbar-field-border-color-focus: var(--lk-accent);
+  --urlbar-box-background-color: var(--lk-hover);
+  --urlbar-box-background-color-hover: var(--lk-pressed);
+
+  --tab-background-color-selected: var(--lk-surface-strong);
+  --tab-background-color-hover: var(--lk-hover);
+  --tab-selected-textcolor: var(--lk-text);
+  --tab-border-radius: var(--lk-radius-tab);
+  --tab-box-shadow-selected: var(--lk-tab-shadow);
+  --tab-loading-fill: var(--lk-accent);
+  --tab-attention-dot-color: var(--lk-accent);
+
+  --sidebar-background-color: transparent;
+  --sidebar-text-color: var(--lk-text);
+  --sidebar-border-color: transparent;
+
+  --focus-outline-color: var(--lk-accent);
+  --color-accent-primary: var(--lk-accent);
+  --color-accent-primary-hover: color-mix(in srgb, var(--lk-accent) 88%, black);
+  --color-accent-primary-active: color-mix(in srgb, var(--lk-accent) 76%, black);
+  --color-accent-primary-selected: var(--lk-accent);
+  --button-text-color-primary: var(--lk-accent-text);
+
+  --tabpanel-background-color: light-dark(#ffffff, #1f1d24);
+  --content-area-shadow: none;
+}
+
+/* Panels, menus and the urlbar results keep system contrast but pick up the
+ * accent and rounded, sugar-coated corners. */
+:root[lokum] {
+  --panel-border-radius: 14px;
+  --arrowpanel-border-radius: 14px;
+  --urlbarview-background-color-selected: var(--lk-accent);
+  --urlbarview-text-color-selected: var(--lk-accent-text);
+}
+
+:root[lokum] body {
+  background: transparent !important;
+}
+
+/* Grain + sugar live on a fixed layer behind everything. */
+:root[lokum] #browser::before,
+:root[lokum] #browser::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+:root[lokum][lokum-grain] #browser::before {
+  background-image: var(--lk-grain);
+  opacity: light-dark(0.22, 0.3);
+  mix-blend-mode: soft-light;
+}
+
+:root[lokum][lokum-sugar] #sidebar-container::before,
+:root[lokum][lokum-sugar] #sidebar-container::after,
+:root[lokum][lokum-sugar][lokum-layout="horizontal"] #navigator-toolbox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+
+:root[lokum][lokum-sugar] #sidebar-container {
+  position: relative;
+}
+
+:root[lokum][lokum-sugar] #sidebar-container::before {
+  background-image: var(--lk-sugar-a);
+  opacity: 0.55;
+  animation: lk-twinkle 5.5s ease-in-out infinite alternate;
+}
+
+:root[lokum][lokum-sugar] #sidebar-container::after {
+  background-image: var(--lk-sugar-b);
+  background-position: 40px 70px;
+  opacity: 0.2;
+  animation: lk-twinkle 7s ease-in-out -3s infinite alternate-reverse;
+}
+
+:root[lokum][lokum-sugar][lokum-layout="horizontal"] #navigator-toolbox {
+  position: relative;
+}
+
+:root[lokum][lokum-sugar][lokum-layout="horizontal"] #navigator-toolbox::before {
+  background-image: var(--lk-sugar-a);
+  opacity: 0.45;
+  animation: lk-twinkle 6s ease-in-out infinite alternate;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[lokum][lokum-sugar] #sidebar-container::before,
+  :root[lokum][lokum-sugar] #sidebar-container::after {
+    filter: drop-shadow(0 0 1px var(--lk-accent));
+  }
+}
+
+:root[lokum]:is([lokum-animations="off"], [lokum-animations="reduced"]) :is(#sidebar-container, #navigator-toolbox)::before,
+:root[lokum]:is([lokum-animations="off"], [lokum-animations="reduced"]) #sidebar-container::after {
+  animation: none !important;
+}
+
+@keyframes lk-twinkle {
+  0% { opacity: 0.08; }
+  45% { opacity: 0.6; }
+  100% { opacity: 0.25; }
+}
+
+/* "Karışık" (assorted) flavor slowly drifts through lokum colors. */
+:root[lokum][lokum-flavor-animated]:not([lokum-animations="off"]) {
+  animation: lk-assorted 36s ease-in-out infinite;
+}
+
+@keyframes lk-assorted {
+  0%, 100% {
+    --lk-frame-1: light-dark(#ffe4ee, #2b1421);
+    --lk-frame-2: light-dark(#fff0b6, #2d2710);
+    --lk-frame-3: light-dark(#d9ecc3, #1d2a14);
+  }
+  33% {
+    --lk-frame-1: light-dark(#fff0b6, #2d2710);
+    --lk-frame-2: light-dark(#ffd9b6, #331f0f);
+    --lk-frame-3: light-dark(#e2d6ff, #221a40);
+  }
+  66% {
+    --lk-frame-1: light-dark(#c8ede0, #102c24);
+    --lk-frame-2: light-dark(#fac6da, #3a1a2d);
+    --lk-frame-3: light-dark(#fff0b6, #2d2710);
+  }
+}
+
+/* Inactive windows fade slightly, like sugar settling. */
+:root[lokum]:-moz-window-inactive :is(#sidebar-container, #navigator-toolbox, #lokum-titlestrip) {
+  opacity: 0.82;
+}

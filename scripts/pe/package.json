@@ -1,0 +1,10 @@
+{
+  "name": "lokum-pe-tools",
+  "private": true,
+  "type": "module",
+  "description": "Rewrites icons and version information of the Lokum executable.",
+  "dependencies": {
+    "pe-library": "^1.0.1",
+    "resedit": "^2.0.3"
+  }
+}
