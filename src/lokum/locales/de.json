@@ -422,6 +422,6 @@
   "welcome.finish.default": "Lokum als Standardbrowser festlegen",
   "welcome.finish.defaultDone": "Windows-Einstellungen werden geöffnet …",
   "welcome.finish.start": "Lossurfen",
-  "welcome.finish.spaces.one": "1 Bereich",
+  "welcome.finish.spaces.one": "{count} Bereich",
   "welcome.finish.spaces.other": "{count} Bereiche"
 }

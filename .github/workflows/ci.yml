@@ -37,7 +37,9 @@ jobs:
       - name: Unit tests
         run: node --test "tests/unit/*.test.mjs"
       - name: Locale completeness
-        run: python3 tests/check_locales.py
+        run: python3 tests/check_locales.py --strict
+      - name: Generated content styles are current
+        run: node scripts/dev/make_content_css.mjs --check
       - name: Python syntax
         run: python3 -m py_compile scripts/build.py scripts/release.py scripts/lokumbuild/*.py
 

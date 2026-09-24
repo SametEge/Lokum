@@ -419,7 +419,7 @@
   "welcome.finish.eyebrow": "All set",
   "welcome.finish.title": "Your Lokum is [ready]",
   "welcome.finish.subtitle": "Press Ctrl+K any time for the command palette, and find every option in Lokum Settings.",
-  "welcome.finish.spaces.one": "1 space",
+  "welcome.finish.spaces.one": "{count} space",
   "welcome.finish.default": "Make Lokum my default browser",
   "welcome.finish.defaultDone": "Opening Windows settings…",
   "welcome.finish.start": "Start browsing",

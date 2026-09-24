@@ -1,0 +1,214 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/*
+ * Global user sheet for Firefox's own pages. It is loaded in every process,
+ * so every rule is scoped with @-moz-document to the pages it dresses.
+ * User-sheet declarations lose to the page's own (author) styles unless they
+ * are !important, hence the many !important below.
+ */
+
+@import url("lokum-content-flavors.css");
+
+/* ------------------------------------------------------------------ */
+/* New tab and home page                                              */
+/* ------------------------------------------------------------------ */
+@-moz-document url("about:newtab"), url("about:home") {
+  :root {
+    --lk-card: light-dark(rgb(255 255 255 / 0.72), rgb(255 255 255 / 0.07));
+    --lk-card-strong: light-dark(rgb(255 255 255 / 0.9), rgb(255 255 255 / 0.12));
+    --lk-line: color-mix(in srgb, var(--lk-text) 12%, transparent);
+    --lk-sugar-dust: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='140'%20height='140'%3E%3Cg%20fill='white'%3E%3Ccircle%20cx='12'%20cy='18'%20r='1.2'%20fill-opacity='.7'/%3E%3Ccircle%20cx='64'%20cy='9'%20r='.8'%20fill-opacity='.55'/%3E%3Ccircle%20cx='118'%20cy='30'%20r='1.4'%20fill-opacity='.6'/%3E%3Ccircle%20cx='40'%20cy='61'%20r='.9'%20fill-opacity='.8'/%3E%3Ccircle%20cx='95'%20cy='74'%20r='1.1'%20fill-opacity='.5'/%3E%3Ccircle%20cx='21'%20cy='103'%20r='1.3'%20fill-opacity='.65'/%3E%3Ccircle%20cx='77'%20cy='121'%20r='.7'%20fill-opacity='.75'/%3E%3Ccircle%20cx='128'%20cy='112'%20r='1'%20fill-opacity='.5'/%3E%3C/g%3E%3C/svg%3E");
+
+    --newtab-background-color: var(--lk-frame-1) !important;
+    --newtab-background-color-secondary: var(--lk-card-strong) !important;
+    --newtab-text-primary-color: var(--lk-text) !important;
+    --newtab-text-secondary-color: var(--lk-text-muted) !important;
+    --newtab-primary-action-background: var(--lk-accent) !important;
+    --newtab-primary-element-hover-color: color-mix(in srgb, var(--lk-accent) 85%, black) !important;
+    --newtab-primary-element-active-color: color-mix(in srgb, var(--lk-accent) 75%, black) !important;
+    --newtab-primary-element-text-color: var(--lk-accent-text) !important;
+    --newtab-element-hover-color: color-mix(in srgb, var(--lk-accent) 10%, transparent) !important;
+    --newtab-element-active-color: color-mix(in srgb, var(--lk-accent) 18%, transparent) !important;
+    --newtab-element-secondary-color: color-mix(in srgb, var(--lk-text) 8%, transparent) !important;
+    --newtab-element-secondary-hover-color: color-mix(in srgb, var(--lk-text) 12%, transparent) !important;
+    --newtab-border-color: var(--lk-line) !important;
+    --newtab-textbox-background-color: var(--lk-card-strong) !important;
+    --newtab-textbox-focus-color: var(--lk-accent) !important;
+    --newtab-button-background: var(--lk-card) !important;
+    --newtab-button-hover-background: var(--lk-card-strong) !important;
+    --newtab-button-focus-border: var(--lk-accent) !important;
+    --newtab-contextual-text-primary-color: var(--lk-text) !important;
+    accent-color: var(--lk-accent);
+  }
+
+  body {
+    background-color: var(--lk-frame-1) !important;
+    background-image:
+      var(--lk-sugar-dust),
+      radial-gradient(70vw 55vh at 8% -8%, var(--lk-frame-2), transparent 70%),
+      radial-gradient(60vw 60vh at 105% 105%, var(--lk-frame-3), transparent 70%) !important;
+    background-attachment: fixed !important;
+    color: var(--lk-text) !important;
+  }
+
+  @media -moz-pref("lokum.sugarDust", false) {
+    body {
+      background-image:
+        radial-gradient(70vw 55vh at 8% -8%, var(--lk-frame-2), transparent 70%),
+        radial-gradient(60vw 60vh at 105% 105%, var(--lk-frame-3), transparent 70%) !important;
+    }
+  }
+
+  /* The search box: a soft, rounded pill that glows in the flavor accent. */
+  .search-wrapper .search-inner-wrapper,
+  .search-wrapper .search-handoff-button,
+  .search-wrapper input {
+    border-radius: 18px !important;
+  }
+
+  .search-wrapper .search-handoff-button,
+  .search-wrapper input {
+    background-color: var(--lk-card-strong) !important;
+    border: 1px solid var(--lk-line) !important;
+    box-shadow:
+      0 1px 2px color-mix(in srgb, var(--lk-text) 8%, transparent),
+      0 12px 32px -12px color-mix(in srgb, var(--lk-accent) 45%, transparent) !important;
+    transition: box-shadow 0.25s ease, transform 0.25s ease !important;
+  }
+
+  .search-wrapper .search-handoff-button:hover,
+  .search-wrapper input:hover {
+    transform: translateY(-1px);
+  }
+
+  .search-wrapper .search-handoff-button:focus-visible,
+  .search-wrapper input:focus,
+  .search-wrapper.fake-focus .search-handoff-button {
+    border-color: var(--lk-accent) !important;
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--lk-accent) 22%, transparent),
+      0 16px 40px -14px color-mix(in srgb, var(--lk-accent) 55%, transparent) !important;
+  }
+
+  /* Shortcuts ("top sites"): rounded candy tiles. */
+  .top-site-outer .tile,
+  .top-site-outer .top-site-icon,
+  .top-site-outer .screenshot {
+    border-radius: 16px !important;
+  }
+
+  .top-site-outer .tile {
+    background-color: var(--lk-card) !important;
+    box-shadow: 0 6px 18px -10px color-mix(in srgb, var(--lk-text) 35%, transparent) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .top-site-outer:is(:hover, :focus-within) .tile {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 26px -12px color-mix(in srgb, var(--lk-accent) 60%, transparent) !important;
+  }
+
+  .top-site-outer .title {
+    color: var(--lk-text) !important;
+  }
+
+  /* Cards, menus and the customize panel. */
+  :is(.card-outer, .ds-card, .ds-card-grid .ds-card, .context-menu, .customize-menu, .personalize-button) {
+    border-radius: 16px !important;
+  }
+
+  .context-menu,
+  .customize-menu {
+    background-color: var(--lk-card-strong) !important;
+    backdrop-filter: blur(18px) saturate(1.4);
+  }
+
+  .personalize-button,
+  .customize-menu-button,
+  .weatherButtonContextMenuWrapper button {
+    background-color: var(--lk-card) !important;
+    color: var(--lk-text) !important;
+  }
+
+  a,
+  .ds-header,
+  .section-title {
+    color: var(--lk-text) !important;
+  }
+
+  /* Lokum never shows sponsored content. */
+  .top-site-outer.sponsored,
+  .ds-card.sponsored,
+  .ds-card-grid .ds-card.sponsored,
+  .sponsored-label {
+    display: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .search-wrapper *,
+    .top-site-outer * {
+      transition: none !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Private browsing start page                                        */
+/* ------------------------------------------------------------------ */
+@-moz-document url("about:privatebrowsing") {
+  html,
+  body {
+    background-color: light-dark(#25103a, #180a26) !important;
+  }
+
+  body {
+    background-image:
+      radial-gradient(60vw 50vh at 10% 0%, color-mix(in srgb, var(--lk-accent) 35%, transparent), transparent 70%),
+      radial-gradient(50vw 50vh at 100% 100%, rgb(126 80 255 / 0.35), transparent 70%) !important;
+    background-attachment: fixed !important;
+  }
+
+  .search-inner-wrapper,
+  .search-handoff-button,
+  #search-handoff-button,
+  .info {
+    border-radius: 18px !important;
+  }
+
+  /* The "Try Mozilla VPN" and similar promotions. */
+  .promo,
+  #private-browsing-promo,
+  .promo-image-large {
+    display: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Firefox settings (about:preferences)                               */
+/* ------------------------------------------------------------------ */
+@-moz-document url-prefix("about:preferences"), url-prefix("about:settings") {
+  /* Lokum ships its policies on purpose (no telemetry, no Mozilla updater);
+     the "managed by your organization" banner would only confuse people. */
+  #policies-container,
+  #policies-container-content {
+    display: none !important;
+  }
+
+  /* Updates are handled by Lokum (about:lokum#updates). */
+  #updateApp,
+  #updatesCategory,
+  #updateSettingsContainer {
+    display: none !important;
+  }
+
+  /* Mozilla product promotions. */
+  #moreFromMozillaCategory,
+  #category-more-from-mozilla,
+  #mozillaVPNGroup,
+  #relayIntegrationGroup,
+  .mozilla-product-item {
+    display: none !important;
+  }
+}

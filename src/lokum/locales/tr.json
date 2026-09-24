@@ -422,6 +422,6 @@
   "welcome.finish.default": "Lokum'u varsayılan tarayıcım yap",
   "welcome.finish.defaultDone": "Windows ayarları açılıyor…",
   "welcome.finish.start": "Gezinmeye başla",
-  "welcome.finish.spaces.one": "1 alan",
+  "welcome.finish.spaces.one": "{count} alan",
   "welcome.finish.spaces.other": "{count} alan"
 }
