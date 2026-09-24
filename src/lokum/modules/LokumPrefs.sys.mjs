@@ -61,6 +61,8 @@ export const LOKUM_DEFAULTS = Object.freeze({
   "lokum.lastVersion": "",
   "lokum.locale.initialized": false,
   "lokum.shortcuts.enabled": true,
+  "lokum.install.applied": false, // installer choices (e.g. uBlock Origin) were applied
+  "lokum.ublock.installedByLokum": false,
 });
 
 /**

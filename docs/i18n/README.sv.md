@@ -110,18 +110,18 @@ kan ha en egen smak, så fönstret byter färg när du byter utrymme.
 
 | | Smak | Känsla |
 | --- | --- | --- |
-| 🌹 | **Ros** (Gül) | Den klassiska lokumen med rosenvatten, rodnande rosa. *(standard)* |
-| 🌰 | **Pistage** (Fıstık) | Frisk pistagegrön, lugn och fokuserad. |
-| 🍋 | **Citron** (Limon) | Solig citronzest för ljusa morgnar. |
-| 🍎 | **Granatäpple** (Nar) | Djupt granatäppelröd, djärv och saftig. |
-| 🍊 | **Apelsin** (Portakal) | Varmt sken av apelsin och bergamott. |
-| 🌿 | **Mynta** (Nane) | Sval mynta, frisk som en vårbris. |
-| 💜 | **Lavendel** (Lavanta) | Mjuk lavendel för drömska eftermiddagar. |
-| 🤍 | **Mastix** (Sakız) | Krämigt mastixelfenben, stilla och elegant. |
-| 🥥 | **Kokos** (Hindistan cevizi) | Kokosvit, ren och minimalistisk. |
-| ☕ | **Turkiskt kaffe** (Kahve) | Turkiskt kaffes fylliga bruna toner. |
-| 🌙 | **Midnatt** (Gece) | Stjärnklart midnattsplommon för nattugglor. |
-| 🎨 | **Blandade** (Karışık) | En ask blandade godsaker som långsamt glider genom alla färger. |
+| 🌹 | **Ros** | Den klassiska lokumen med rosenvatten, rodnande rosa. *(standard)* |
+| 🌰 | **Pistage** | Frisk pistagegrön, lugn och fokuserad. |
+| 🍋 | **Citron** | Solig citronzest för ljusa morgnar. |
+| 🍎 | **Granatäpple** | Djupt granatäppelröd, djärv och saftig. |
+| 🍊 | **Apelsin** | Varmt sken av apelsin och bergamott. |
+| 🌿 | **Mynta** | Sval mynta, frisk som en vårbris. |
+| 💜 | **Lavendel** | Mjuk lavendel för drömska eftermiddagar. |
+| 🤍 | **Mastix** | Krämigt mastixelfenben, stilla och elegant. |
+| 🥥 | **Kokos** | Kokosvit, ren och minimalistisk. |
+| ☕ | **Turkiskt kaffe** | Turkiskt kaffes fylliga bruna toner. |
+| 🌙 | **Midnatt** | Stjärnklart midnattsplommon för nattugglor. |
+| 🎨 | **Blandade** | En ask blandade godsaker som långsamt glider genom alla färger. |
 
 Testsviten kontrollerar varje palett: text måste nå en WCAG‑kontrast på 4,5:1
 mot sin ram och accentknappar 3:1 — i både ljust och mörkt läge.
@@ -356,6 +356,7 @@ Kommandoradsväxlar för skriptade installationer:
 | `/S` | Tyst installation |
 | `/D=C:\sökväg\Lokum` | Installationsmapp (måste stå sist) |
 | `/DESKTOP=0` | Ingen genväg på skrivbordet (standard `1`) |
+| `/UBLOCK=0` | Installera inte uBlock Origin (standard `1`: installeras vid första start) |
 | `/UPDATE` | Uppdatera en befintlig installation (används av uppdateraren) |
 | `/RELAUNCH` | Starta Lokum när det är klart |
 

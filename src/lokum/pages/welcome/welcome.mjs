@@ -12,6 +12,7 @@ import {
   LokumLayout,
   LokumSpaces,
   LokumShell,
+  LokumAddons,
   importFirefoxModule,
   t,
   tp,
@@ -575,7 +576,8 @@ const builders = {
         el("span", { class: "text" }, el("strong", { text: t(key) }), el("span", { text: t(`${key}.desc`) })),
         control);
 
-    choices.adblock = choices.adblock ?? true;
+    // Follows the installer checkbox (on by default).
+    choices.adblock = choices.adblock ?? LokumAddons.installerChoices().ublock !== false;
     return [
       el("span", { class: "lk-eyebrow" }, "🔐 ", t("welcome.privacy.eyebrow")),
       headline(t("welcome.privacy.title")),
@@ -689,21 +691,15 @@ function applySpaces() {
 }
 
 async function installAdblock() {
-  if (!choices.adblock) {
-    return;
-  }
   try {
-    const AM = importFirefoxModule("AddonManager");
-    if (await AM.getAddonByID("uBlock0@raymondhill.net")) {
-      return;
+    if (choices.adblock) {
+      LokumAddons.installUBlock("lokum-onboarding");
+    } else {
+      // Turned off in the tour after the installer already added it.
+      await LokumAddons.removeUBlockIfOurs();
     }
-    const install = await AM.getInstallForURL(
-      "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
-      { telemetryInfo: { source: "lokum-onboarding" } }
-    );
-    install.install().catch(ex => console.warn("Lokum: uBlock install failed", ex));
   } catch (ex) {
-    console.warn("Lokum: could not install uBlock Origin", ex);
+    console.warn("Lokum: could not update uBlock Origin", ex);
   }
 }
 

@@ -29,6 +29,9 @@ Check "Lokum layer present" (Test-Path "$installDir\browser\lokum\chrome.manifes
 Check "autoconfig present" (Test-Path "$installDir\lokum.cfg")
 Check "policies present" (Test-Path "$installDir\distribution\policies.json")
 Check "Firefox updater removed" (-not (Test-Path "$installDir\updater.exe"))
+$choices = Get-Content "$installDir\distribution\lokum-install.json" -Raw -ErrorAction SilentlyContinue | ConvertFrom-Json
+Check "installer choices written" ($null -ne $choices)
+Check "uBlock Origin chosen by default" ($choices -and $choices.ublock -eq $true) "($($choices.ublock))"
 Check "firefox.exe renamed" (-not (Test-Path "$installDir\firefox.exe"))
 
 $ver = (Get-Item "$installDir\lokum.exe").VersionInfo

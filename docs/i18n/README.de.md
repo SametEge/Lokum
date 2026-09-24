@@ -113,18 +113,18 @@ Sorte haben — beim Wechseln ändert das Fenster dann seine Farbe.
 
 | | Sorte | Stimmung |
 | --- | --- | --- |
-| 🌹 | **Rose** (Gül) | Das klassische Rosenwasser‑Lokum, zartrosa. *(Standard)* |
-| 🌰 | **Pistazie** (Fıstık) | Frisches Pistaziengrün, ruhig und konzentriert. |
-| 🍋 | **Zitrone** (Limon) | Sonnige Zitronenschale für helle Morgen. |
-| 🍎 | **Granatapfel** (Nar) | Tiefes Granatapfelrot, kräftig und saftig. |
-| 🍊 | **Orange** (Portakal) | Warmes Leuchten von Orange und Bergamotte. |
-| 🌿 | **Minze** (Nane) | Kühle Minze, frisch wie eine Frühlingsbrise. |
-| 💜 | **Lavendel** (Lavanta) | Sanfter Lavendel für verträumte Nachmittage. |
-| 🤍 | **Mastix** (Sakız) | Cremiges Mastix‑Elfenbein, still und elegant. |
-| 🥥 | **Kokos** (Hindistan cevizi) | Kokosweiß, klar und minimalistisch. |
-| ☕ | **Türkischer Kaffee** (Kahve) | Die satten Brauntöne türkischen Kaffees. |
-| 🌙 | **Mitternacht** (Gece) | Sternenklare Mitternachtspflaume für Nachteulen. |
-| 🎨 | **Gemischt** (Karışık) | Eine Schachtel gemischter Lokum, die langsam durch alle Farben gleitet. |
+| 🌹 | **Rose** | Das klassische Rosenwasser‑Lokum, zartrosa. *(Standard)* |
+| 🌰 | **Pistazie** | Frisches Pistaziengrün, ruhig und konzentriert. |
+| 🍋 | **Zitrone** | Sonnige Zitronenschale für helle Morgen. |
+| 🍎 | **Granatapfel** | Tiefes Granatapfelrot, kräftig und saftig. |
+| 🍊 | **Orange** | Warmes Leuchten von Orange und Bergamotte. |
+| 🌿 | **Minze** | Kühle Minze, frisch wie eine Frühlingsbrise. |
+| 💜 | **Lavendel** | Sanfter Lavendel für verträumte Nachmittage. |
+| 🤍 | **Mastix** | Cremiges Mastix‑Elfenbein, still und elegant. |
+| 🥥 | **Kokos** | Kokosweiß, klar und minimalistisch. |
+| ☕ | **Türkischer Kaffee** | Die satten Brauntöne türkischen Kaffees. |
+| 🌙 | **Mitternacht** | Sternenklare Mitternachtspflaume für Nachteulen. |
+| 🎨 | **Gemischt** | Eine Schachtel gemischter Lokum, die langsam durch alle Farben gleitet. |
 
 Die Testsuite prüft jede Palette: Text muss auf seinem Rahmen einen
 WCAG‑Kontrast von 4,5:1 erreichen und Akzent‑Schaltflächen 3:1 — im hellen wie
@@ -365,6 +365,7 @@ Befehlszeilenoptionen für skriptgesteuerte Installationen:
 | `/S` | Stille Installation |
 | `/D=C:\Pfad\Lokum` | Installationsordner (muss zuletzt stehen) |
 | `/DESKTOP=0` | Keine Desktop‑Verknüpfung (Standard `1`) |
+| `/UBLOCK=0` | uBlock Origin nicht installieren (Standard `1`: beim ersten Start installiert) |
 | `/UPDATE` | Bestehende Installation aktualisieren (vom Updater genutzt) |
 | `/RELAUNCH` | Lokum nach Abschluss starten |
 

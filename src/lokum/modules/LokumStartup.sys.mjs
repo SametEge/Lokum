@@ -13,6 +13,7 @@ import { LokumPrefs } from "chrome://lokum/content/modules/LokumPrefs.sys.mjs";
 const lazy = {};
 ChromeUtils.defineESModuleGetters(lazy, {
   LokumAboutPages: "chrome://lokum/content/modules/LokumAboutPages.sys.mjs",
+  LokumAddons: "chrome://lokum/content/modules/LokumAddons.sys.mjs",
   LokumContentStyles: "chrome://lokum/content/modules/LokumContentStyles.sys.mjs",
   LokumI18n: "chrome://lokum/content/modules/LokumI18n.sys.mjs",
   LokumLayout: "chrome://lokum/content/modules/LokumLayout.sys.mjs",
@@ -111,6 +112,8 @@ export const LokumStartup = {
       lazy.LokumSelfTest.run(win, selfTestOutput);
       return;
     }
+
+    safely("installer choices", () => lazy.LokumAddons.applyInstallerChoices());
 
     if (!LokumPrefs.get("lokum.onboarding.done")) {
       lazy.LokumWindow.showOnboarding(win);

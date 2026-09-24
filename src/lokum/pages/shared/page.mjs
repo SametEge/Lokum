@@ -19,6 +19,7 @@ export const { LokumUpdater } = M("LokumUpdater");
 export const { LokumTabs } = M("LokumTabs");
 export const { LokumShell } = M("LokumShell");
 export const { importFirefoxModule } = M("LokumCompat");
+export const { LokumAddons, UBLOCK_ID } = M("LokumAddons");
 
 export const t = (key, args) => LokumI18n.t(key, args);
 export const tp = (key, count, args) => LokumI18n.tp(key, count, args);

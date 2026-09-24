@@ -113,18 +113,18 @@ proprio, così la finestra cambia colore quando cambi Spazio.
 
 | | Gusto | Atmosfera |
 | --- | --- | --- |
-| 🌹 | **Rosa** (Gül) | Il classico lokum all'acqua di rose, rosa delicato. *(predefinito)* |
-| 🌰 | **Pistacchio** (Fıstık) | Verde pistacchio fresco, calmo e concentrato. |
-| 🍋 | **Limone** (Limon) | Scorza di limone solare per mattine luminose. |
-| 🍎 | **Melograno** (Nar) | Rosso melograno intenso, deciso e succoso. |
-| 🍊 | **Arancia** (Portakal) | Il caldo bagliore di arancia e bergamotto. |
-| 🌿 | **Menta** (Nane) | Menta fresca, frizzante come una brezza di primavera. |
-| 💜 | **Lavanda** (Lavanta) | Lavanda morbida per pomeriggi sognanti. |
-| 🤍 | **Mastice** (Sakız) | Avorio cremoso al mastice, sobrio ed elegante. |
-| 🥥 | **Cocco** (Hindistan cevizi) | Bianco cocco, pulito e minimale. |
-| ☕ | **Caffè turco** (Kahve) | I ricchi marroni del caffè turco. |
-| 🌙 | **Mezzanotte** (Gece) | Prugna di mezzanotte stellata per i nottambuli. |
-| 🎨 | **Assortiti** (Karışık) | Una scatola di lokum assortiti che scivola lentamente attraverso tutti i colori. |
+| 🌹 | **Rosa** | Il classico lokum all'acqua di rose, rosa delicato. *(predefinito)* |
+| 🌰 | **Pistacchio** | Verde pistacchio fresco, calmo e concentrato. |
+| 🍋 | **Limone** | Scorza di limone solare per mattine luminose. |
+| 🍎 | **Melograno** | Rosso melograno intenso, deciso e succoso. |
+| 🍊 | **Arancia** | Il caldo bagliore di arancia e bergamotto. |
+| 🌿 | **Menta** | Menta fresca, frizzante come una brezza di primavera. |
+| 💜 | **Lavanda** | Lavanda morbida per pomeriggi sognanti. |
+| 🤍 | **Mastice** | Avorio cremoso al mastice, sobrio ed elegante. |
+| 🥥 | **Cocco** | Bianco cocco, pulito e minimale. |
+| ☕ | **Caffè turco** | I ricchi marroni del caffè turco. |
+| 🌙 | **Mezzanotte** | Prugna di mezzanotte stellata per i nottambuli. |
+| 🎨 | **Assortiti** | Una scatola di lokum assortiti che scivola lentamente attraverso tutti i colori. |
 
 La suite di test controlla ogni tavolozza: il testo deve raggiungere un
 contrasto WCAG di 4,5:1 sulla sua cornice e i pulsanti di accento 3:1, sia in
@@ -366,6 +366,7 @@ Opzioni da riga di comando per installazioni automatizzate:
 | `/S` | Installazione silenziosa |
 | `/D=C:\percorso\Lokum` | Cartella di installazione (deve essere l'ultima) |
 | `/DESKTOP=0` | Nessun collegamento sul desktop (predefinito `1`) |
+| `/UBLOCK=0` | Non installare uBlock Origin (predefinito `1`: installato al primo avvio) |
 | `/UPDATE` | Aggiorna un'installazione esistente (usato dall'aggiornamento) |
 | `/RELAUNCH` | Avvia Lokum al termine |
 
