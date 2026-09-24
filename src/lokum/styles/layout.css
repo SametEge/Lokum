@@ -1,0 +1,562 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===================================================================
+ * Shared: the page floats on the frame as a rounded "lokum" card.
+ * =================================================================== */
+
+:root[lokum]:not([inDOMFullscreen]) #tabbrowser-tabbox {
+  margin: 0 var(--lk-margin) var(--lk-margin) var(--lk-margin);
+  background: transparent;
+}
+
+:root[lokum]:not([inDOMFullscreen]) .browserContainer {
+  border-radius: var(--lk-radius) !important;
+  overflow: clip;
+  border: none !important;
+  outline: none;
+}
+
+:root[lokum][lokum-content-shadow]:not([inDOMFullscreen]) #tabbrowser-tabpanels > :not(.split-view-panel) > .browserContainer,
+:root[lokum][lokum-content-shadow]:not([inDOMFullscreen]) #tabbrowser-tabpanels[splitview] .split-view-panel > .browserContainer {
+  box-shadow: var(--lk-card-shadow) !important;
+}
+
+:root[lokum]:not([inDOMFullscreen]) .dialogOverlay[topmost="true"] {
+  border-radius: var(--lk-radius) !important;
+}
+
+:root[lokum] #tabbrowser-tabpanels {
+  background: transparent !important;
+}
+
+:root[lokum] #tabbrowser-tabpanels[splitview] .split-view-splitter {
+  width: var(--lk-margin) !important;
+  margin: 0 !important;
+  background: transparent;
+  border-radius: 4px;
+}
+
+:root[lokum] #tabbrowser-tabpanels[splitview] .split-view-splitter:hover {
+  background: var(--lk-accent-soft);
+}
+
+:root[lokum][inDOMFullscreen] #tabbrowser-tabbox {
+  margin: 0 !important;
+}
+
+/* Toolbars sit directly on the frame. */
+:root[lokum] :is(#navigator-toolbox, #nav-bar, #TabsToolbar, #PersonalToolbar) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+:root[lokum] #navigator-toolbox {
+  border-bottom: none !important;
+}
+
+/* Urlbar: a soft sugar-glass pill. */
+:root[lokum] #urlbar-background {
+  border-radius: 12px !important;
+  transition: background-color var(--lk-dur) var(--lk-ease), box-shadow var(--lk-dur) var(--lk-ease);
+}
+
+:root[lokum] .urlbar:not([focused]) .urlbar-background {
+  box-shadow: inset 0 0 0 1px var(--lk-border);
+}
+
+:root[lokum] .urlbar {
+  --urlbar-background-border-radius: 12px;
+}
+
+:root[lokum] .urlbar[focused] .urlbar-background {
+  box-shadow: 0 0 0 2px var(--lk-accent-soft), 0 8px 26px -8px var(--lk-shadow-tint);
+}
+
+/* Toolbar buttons: rounded, springy feedback. */
+:root[lokum] toolbar .toolbarbutton-1 > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+  border-radius: 9px !important;
+  transition: background-color var(--lk-dur-fast) var(--lk-ease), transform var(--lk-dur-fast) var(--lk-ease);
+}
+
+:root[lokum]:not([lokum-animations="off"]) toolbar .toolbarbutton-1:not([disabled]):hover:active > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+  transform: scale(0.9);
+}
+
+/* ===================================================================
+ * Vertical layouts (arc + vertical): sidebar tabs styling
+ * =================================================================== */
+
+:root[lokum][lokum-vertical] #sidebar-container {
+  background: transparent !important;
+  border: none !important;
+}
+
+:root[lokum][lokum-vertical] #sidebar-launcher-splitter {
+  width: var(--lk-margin) !important;
+  min-width: 4px;
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  transition: background-color var(--lk-dur) var(--lk-ease);
+}
+
+:root[lokum][lokum-vertical] #sidebar-launcher-splitter:hover {
+  background-image: linear-gradient(to right, transparent 45%, var(--lk-accent-soft) 45%, var(--lk-accent-soft) 55%, transparent 55%) !important;
+}
+
+:root[lokum][lokum-vertical] #tabbrowser-tabs[orient="vertical"] {
+  --tab-min-height: 36px;
+  --tab-inline-padding: 10px;
+  --tab-inner-inline-margin: 8px;
+  --tab-vertical-block-margin: 1px;
+  --tab-block-margin: 1px;
+}
+
+:root[lokum][lokum-vertical][lokum-density="compact"] #tabbrowser-tabs[orient="vertical"] {
+  --tab-min-height: 30px;
+}
+
+:root[lokum][lokum-vertical][lokum-density="comfy"] #tabbrowser-tabs[orient="vertical"] {
+  --tab-min-height: 42px;
+}
+
+:root[lokum][lokum-vertical] #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab {
+  transition: opacity var(--lk-dur) var(--lk-ease), transform var(--lk-dur) var(--lk-ease);
+}
+
+:root[lokum][lokum-vertical] #tabbrowser-tabs[orient="vertical"] .tab-background {
+  border-radius: var(--lk-radius-tab) !important;
+  transition: background-color var(--lk-dur-fast) var(--lk-ease), box-shadow var(--lk-dur) var(--lk-ease);
+}
+
+:root[lokum][lokum-vertical] #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:is([selected], [multiselected]) .tab-background {
+  background-color: var(--lk-surface-strong) !important;
+  box-shadow: var(--lk-tab-shadow) !important;
+}
+
+:root[lokum][lokum-vertical] #tabbrowser-tabs[orient="vertical"] .tab-label {
+  font-size: 12.5px;
+  font-weight: 450;
+}
+
+:root[lokum][lokum-vertical] #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[selected] .tab-label {
+  font-weight: 560;
+}
+
+/* Close button visibility preference. */
+:root[lokum][lokum-vertical][lokum-close-button="hover"] #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:not(:hover) .tab-close-button {
+  opacity: 0;
+}
+
+:root[lokum][lokum-close-button="never"] .tabbrowser-tab .tab-close-button {
+  display: none !important;
+}
+
+/* Favorites: pinned tabs become a grid of sugar cubes. */
+:root[lokum][lokum-vertical] #pinned-tabs-container[orient="vertical"] .tabbrowser-tab .tab-background {
+  background-color: var(--lk-surface) !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 0 0 1px var(--lk-border) !important;
+}
+
+:root[lokum][lokum-vertical] #pinned-tabs-container[orient="vertical"] .tabbrowser-tab[selected] .tab-background {
+  background-color: var(--lk-surface-strong) !important;
+  box-shadow: 0 0 0 2px var(--lk-accent-soft), var(--lk-tab-shadow) !important;
+}
+
+:root[lokum][lokum-vertical] #vertical-pinned-tabs-splitter {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* The "+ New Tab" row. */
+:root[lokum][lokum-vertical] #tabs-newtab-button {
+  border-radius: var(--lk-radius-tab);
+  color: var(--lk-text-muted) !important;
+  opacity: 0.9;
+}
+
+:root[lokum][lokum-vertical][lokum-newtab-top] #tabbrowser-arrowscrollbox-periphery {
+  order: -1;
+}
+
+:root[lokum][lokum-vertical] #tabs-newtab-button:hover {
+  color: var(--lk-text) !important;
+  background: var(--lk-hover) !important;
+}
+
+/* Hide Firefox's promo cards: Lokum has its own onboarding. */
+:root[lokum] #drag-to-pin-promo-card {
+  display: none !important;
+}
+
+/* ===================================================================
+ * ARC layout: navigation + address bar inside a full height sidebar.
+ * =================================================================== */
+
+:root[lokum][lokum-layout="arc"]:not([customizing]) {
+  --lk-titlestrip-height: 38px;
+
+  & #navigator-toolbox {
+    position: absolute !important;
+    top: 0;
+    inset-inline-start: 0;
+    width: var(--lk-sidebar-width);
+    z-index: 5;
+    transition: inset-inline-start var(--lk-dur-slow) var(--lk-ease-out);
+  }
+
+  &[lokum-sidebar-end] #navigator-toolbox {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+    transition: inset-inline-end var(--lk-dur-slow) var(--lk-ease-out);
+  }
+
+  & #sidebar-container {
+    padding-top: var(--lk-toolbox-height) !important;
+  }
+
+  & #TabsToolbar,
+  & #PersonalToolbar {
+    display: none !important;
+  }
+
+  /* Firefox's own sidebar toggle is replaced by compact mode (Ctrl+Alt+S)
+     and can reappear when Firefox rebuilds its toolbar state. */
+  & #sidebar-button {
+    display: none !important;
+  }
+
+  & #toolbar-menubar:not([inactive]) {
+    flex-wrap: wrap;
+    padding-inline: 8px;
+  }
+
+  & #nav-bar {
+    padding: 6px 8px 2px 8px !important;
+    min-height: 0 !important;
+  }
+
+  & #nav-bar .titlebar-spacer,
+  & #nav-bar #vertical-spacer {
+    display: none !important;
+  }
+
+  & #nav-bar-customization-target {
+    flex-wrap: wrap;
+    row-gap: 8px;
+    align-items: center;
+  }
+
+  & #nav-bar-customization-target > :is(toolbarspring, .toolbarspring) {
+    display: none !important;
+  }
+
+  & #urlbar-container {
+    order: 100;
+    flex: 1 0 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding-block: 0 !important;
+    padding-inline: 0 2px !important;
+    --urlbar-container-height: 38px;
+    --urlbar-height: 34px;
+    position: relative;
+  }
+
+  /* The sidebar is too narrow for identity labels ("Not Secure", the
+   * browser name on built-in pages...); keep just the icon there. The
+   * floating command bar has room and shows them again. */
+  & #urlbar:not([breakout-extend]) #identity-icon-label,
+  & #urlbar:not([breakout-extend]) #trust-label,
+  & #urlbar:not([breakout-extend]) #identity-box .identity-box-button > label {
+    display: none !important;
+  }
+
+  & #urlbar:not([breakout-extend]) #identity-box {
+    margin-inline-end: 2px;
+  }
+
+  /* Push the trailing buttons (extensions, downloads) to the end of row 1. */
+  & #nav-bar-customization-target > #stop-reload-button {
+    margin-inline-end: auto;
+  }
+
+  & #nav-bar {
+    position: relative;
+  }
+
+  /* The main menu button floats in the top row so the address bar can use
+   * the full sidebar width on the second row. */
+  & #PanelUI-button {
+    position: absolute;
+    top: 6px;
+    inset-inline-end: 6px;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  & #nav-bar-customization-target::after {
+    content: "";
+    order: 50;
+    width: 34px;
+    flex-shrink: 0;
+  }
+
+  & #nav-bar-overflow-button {
+    position: absolute;
+    top: 6px;
+    inset-inline-end: 42px;
+  }
+
+  /* The caption buttons (minimize / maximize / close) move to the title
+   * strip above the page. */
+  & #nav-bar .titlebar-buttonbox-container {
+    position: fixed;
+    top: 0;
+    inset-inline-end: 0;
+    height: var(--lk-titlestrip-height);
+    z-index: 6;
+    align-items: stretch;
+  }
+
+  &[lokum-sidebar-end] #nav-bar {
+    padding-top: calc(var(--lk-titlestrip-height) + 2px) !important;
+  }
+
+  & #tabbrowser-tabbox {
+    margin-top: 0 !important;
+    margin-inline-start: 0 !important;
+  }
+
+  &[lokum-sidebar-end] #tabbrowser-tabbox {
+    margin-inline-start: var(--lk-margin) !important;
+    margin-inline-end: 0 !important;
+  }
+
+  /* Floating command bar: the focused address bar detaches from the sidebar
+   * and opens centered over the page, Arc style. */
+  &[lokum-floating-urlbar] #urlbar[breakout][breakout-extend] {
+    position: fixed !important;
+    top: 18vh !important;
+    left: calc(50vw - min(380px, 42vw)) !important;
+    width: min(760px, 84vw) !important;
+    --urlbar-width: min(760px, 84vw);
+    margin: 0 !important;
+    translate: none !important;
+    --urlbar-container-height: 52px;
+    --urlbar-height: 48px;
+    animation: lk-commandbar-in var(--lk-dur) var(--lk-ease-out);
+  }
+
+  &[lokum-floating-urlbar] #urlbar[breakout][breakout-extend] > .urlbar-background {
+    border-radius: 18px !important;
+    box-shadow: var(--lk-popover-shadow) !important;
+    background-color: var(--lk-surface-solid) !important;
+    border: 1px solid var(--lk-border) !important;
+    inset: 0 !important;
+  }
+
+  &[lokum-floating-urlbar] #urlbar[breakout][breakout-extend] > .urlbar-input-container {
+    padding-inline: 14px !important;
+    font-size: 1.12em;
+  }
+
+  &[lokum-floating-urlbar] #urlbar[breakout][breakout-extend] .urlbarView {
+    margin-inline: 8px !important;
+    width: auto !important;
+  }
+}
+
+@keyframes lk-commandbar-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A veil behind the floating command bar. */
+#lokum-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  background: color-mix(in srgb, var(--lk-frame-3) 18%, rgb(0 0 0 / 0.14));
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--lk-dur) var(--lk-ease);
+}
+
+:root[lokum-urlbar-floating] #lokum-veil {
+  opacity: 1;
+}
+
+/* Title strip above the page (arc layout). */
+#lokum-titlestrip {
+  display: none;
+}
+
+:root[lokum][lokum-layout="arc"]:not([customizing], [inDOMFullscreen]) #lokum-titlestrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--lk-titlestrip-height);
+  min-height: var(--lk-titlestrip-height);
+  padding-inline: 12px 150px;
+  -moz-window-dragging: drag;
+  color: var(--lk-text-muted);
+  font-size: 12px;
+  user-select: none;
+  overflow: hidden;
+}
+
+:root[lokum][lokum-layout="arc"][lokum-sidebar-end] #lokum-titlestrip {
+  padding-inline: 12px;
+}
+
+/* ===================================================================
+ * Compact mode (arc + vertical): the sidebar hides and slides in when
+ * the pointer touches the window edge.
+ * =================================================================== */
+
+:root[lokum][lokum-vertical]:is([lokum-compact], [inFullscreen]):not([customizing]) {
+  & #sidebar-container {
+    position: fixed !important;
+    top: var(--lk-margin);
+    bottom: var(--lk-margin);
+    inset-inline-start: calc(-1 * var(--lk-sidebar-width) - 24px);
+    width: var(--lk-sidebar-width);
+    z-index: 4;
+    border-radius: var(--lk-radius);
+    background-image: var(--lk-frame-gradient) !important;
+    background-color: var(--lk-frame-2) !important;
+    box-shadow: var(--lk-popover-shadow);
+    transition: inset-inline-start var(--lk-dur-slow) var(--lk-ease-out);
+    overflow: clip;
+  }
+
+  & #sidebar-launcher-splitter {
+    display: none !important;
+  }
+
+  & #tabbrowser-tabbox {
+    margin-inline-start: var(--lk-margin) !important;
+  }
+
+  &[lokum-sidebar-peek] #sidebar-container {
+    inset-inline-start: var(--lk-margin);
+  }
+}
+
+:root[lokum][lokum-layout="arc"]:is([lokum-compact], [inFullscreen]):not([customizing]) {
+  & #navigator-toolbox {
+    top: var(--lk-margin);
+    inset-inline-start: calc(-1 * var(--lk-sidebar-width) - 24px);
+    z-index: 5;
+  }
+
+  &[lokum-sidebar-peek] #navigator-toolbox {
+    inset-inline-start: var(--lk-margin);
+  }
+
+  & #sidebar-container {
+    padding-top: var(--lk-toolbox-height) !important;
+  }
+}
+
+:root[lokum][lokum-vertical][lokum-sidebar-end]:is([lokum-compact], [inFullscreen]):not([customizing]) {
+  & #sidebar-container {
+    inset-inline-start: auto;
+    inset-inline-end: calc(-1 * var(--lk-sidebar-width) - 24px);
+    transition: inset-inline-end var(--lk-dur-slow) var(--lk-ease-out);
+  }
+  &[lokum-sidebar-peek] #sidebar-container {
+    inset-inline-end: var(--lk-margin);
+  }
+  & #tabbrowser-tabbox {
+    margin-inline-end: var(--lk-margin) !important;
+  }
+}
+
+:root[lokum][lokum-layout="arc"][lokum-sidebar-end]:is([lokum-compact], [inFullscreen]):not([customizing]) {
+  & #navigator-toolbox {
+    inset-inline-start: auto;
+    inset-inline-end: calc(-1 * var(--lk-sidebar-width) - 24px);
+  }
+  &[lokum-sidebar-peek] #navigator-toolbox {
+    inset-inline-end: var(--lk-margin);
+  }
+}
+
+#lokum-edge {
+  display: none;
+}
+
+:root[lokum][lokum-vertical]:is([lokum-compact], [inFullscreen]):not([customizing], [inDOMFullscreen]) #lokum-edge {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  width: 7px;
+  z-index: 3;
+}
+
+:root[lokum][lokum-vertical][lokum-sidebar-end]:is([lokum-compact], [inFullscreen]) #lokum-edge {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+
+/* ===================================================================
+ * VERTICAL layout: Firefox's vertical tabs with a slim top toolbar.
+ * =================================================================== */
+
+:root[lokum][lokum-layout="vertical"] {
+  & #nav-bar {
+    padding-block: 4px !important;
+  }
+}
+
+/* ===================================================================
+ * HORIZONTAL layout: classic tabs, sugar-pill style.
+ * =================================================================== */
+
+:root[lokum][lokum-layout="horizontal"] {
+  & #TabsToolbar {
+    padding-inline-start: 4px;
+  }
+
+  & #tabbrowser-tabs[orient="horizontal"] {
+    --tab-min-height: 34px;
+    --tab-border-radius: 10px;
+  }
+
+  & #tabbrowser-tabs[orient="horizontal"] .tab-background {
+    border-radius: 10px !important;
+    margin-block: 5px !important;
+    transition: background-color var(--lk-dur-fast) var(--lk-ease), box-shadow var(--lk-dur) var(--lk-ease);
+  }
+
+  & #tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab[selected] .tab-background {
+    background-color: var(--lk-surface-strong) !important;
+    box-shadow: var(--lk-tab-shadow) !important;
+  }
+
+  & #nav-bar {
+    padding-block: 2px 6px !important;
+  }
+
+  & #urlbar-container {
+    --urlbar-container-height: 40px;
+  }
+}

@@ -1,0 +1,109 @@
+# Reusable workflow: builds Lokum for Windows and Linux from an official
+# Firefox release, then installs and self-tests the result on real Windows
+# and Linux runners. Used by ci.yml and release.yml.
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        description: Lokum version to stamp into the build
+        type: string
+        required: true
+      firefox_version:
+        description: Firefox release to build on
+        type: string
+        required: true
+      channel:
+        type: string
+        default: stable
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.platform }}
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [win64, linux-x86_64]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq nsis p7zip-full unzip xz-utils
+          makensis -VERSION
+          7z | head -2
+
+      - name: Install PE tools
+        if: startsWith(matrix.platform, 'win')
+        run: npm ci --prefix scripts/pe --no-audit --no-fund
+
+      - name: Cache Firefox downloads
+        uses: actions/cache@v4
+        with:
+          path: .cache/firefox
+          key: firefox-${{ matrix.platform }}-${{ inputs.firefox_version }}
+
+      - name: Build Lokum ${{ inputs.version }} (Firefox ${{ inputs.firefox_version }})
+        run: >
+          python3 scripts/build.py
+          --platform ${{ matrix.platform }}
+          --version "${{ inputs.version }}"
+          --firefox-version "${{ inputs.firefox_version }}"
+          --channel "${{ inputs.channel }}"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: lokum-${{ matrix.platform }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14
+
+  test-windows:
+    name: Install & self-test on Windows
+    needs: build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: lokum-win64
+          path: dist
+      - name: Smoke test
+        shell: pwsh
+        run: |
+          $setup = (Get-ChildItem dist\Lokum-Setup-*.exe | Select-Object -First 1).FullName
+          ./tests/smoke/windows.ps1 -Setup $setup
+
+  test-linux:
+    name: Self-test on Linux
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: lokum-linux-x86_64
+          path: dist
+      - name: Runtime libraries
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libgtk-3-0t64 libasound2t64 libdbus-glib-1-2 libx11-xcb1 || true
+      - name: Smoke test
+        run: tests/smoke/linux.sh dist/Lokum-*-linux-x86_64.tar.xz

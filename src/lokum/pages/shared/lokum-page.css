@@ -1,0 +1,482 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* Shared look for Lokum's pages (settings, welcome). The flavor palette is
+ * applied to :root by LokumFlavors.apply(), exactly like the browser chrome. */
+
+@property --lk-frame-1 { syntax: "<color>"; inherits: true; initial-value: #ffe4ee; }
+@property --lk-frame-2 { syntax: "<color>"; inherits: true; initial-value: #fac6da; }
+@property --lk-frame-3 { syntax: "<color>"; inherits: true; initial-value: #f1a2c2; }
+@property --lk-accent { syntax: "<color>"; inherits: true; initial-value: #d23c78; }
+@property --lk-accent-text { syntax: "<color>"; inherits: true; initial-value: #ffffff; }
+@property --lk-text { syntax: "<color>"; inherits: true; initial-value: #4a1730; }
+@property --lk-text-muted { syntax: "<color>"; inherits: true; initial-value: #8b5271; }
+
+:root {
+  color-scheme: light dark;
+  --lk-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --lk-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --lk-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --lk-dur: 240ms;
+  --lk-surface: light-dark(rgb(255 255 255 / 0.62), rgb(255 255 255 / 0.06));
+  --lk-surface-strong: light-dark(rgb(255 255 255 / 0.9), rgb(255 255 255 / 0.11));
+  --lk-surface-solid: light-dark(#ffffff, #221c26);
+  --lk-hover: color-mix(in srgb, var(--lk-text) 7%, transparent);
+  --lk-pressed: color-mix(in srgb, var(--lk-text) 13%, transparent);
+  --lk-border: color-mix(in srgb, var(--lk-text) 11%, transparent);
+  --lk-accent-soft: color-mix(in srgb, var(--lk-accent) 16%, transparent);
+  --lk-accent-softer: color-mix(in srgb, var(--lk-accent) 8%, transparent);
+  --lk-shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 12px 32px -14px color-mix(in srgb, var(--lk-frame-3) 60%, rgb(40 10 25 / 0.5));
+  --lk-radius: 18px;
+  --lk-sugar-tex: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='60'%20height='60'%3E%3Cg%20fill='white'%3E%3Ccircle%20cx='27.2'%20cy='33.5'%20r='1.4'%20fill-opacity='0.62'/%3E%3Ccircle%20cx='50.6'%20cy='12.0'%20r='1.4'%20fill-opacity='0.73'/%3E%3Ccircle%20cx='47.0'%20cy='6.5'%20r='0.9'%20fill-opacity='0.44'/%3E%3Ccircle%20cx='32.2'%20cy='52.6'%20r='0.5'%20fill-opacity='0.71'/%3E%3Ccircle%20cx='24.0'%20cy='27.3'%20r='0.7'%20fill-opacity='0.72'/%3E%3Ccircle%20cx='49.2'%20cy='4.7'%20r='0.5'%20fill-opacity='0.46'/%3E%3Ccircle%20cx='15.0'%20cy='2.7'%20r='1.4'%20fill-opacity='0.55'/%3E%3Ccircle%20cx='35.3'%20cy='12.3'%20r='0.8'%20fill-opacity='0.73'/%3E%3Ccircle%20cx='30.0'%20cy='39.4'%20r='1.4'%20fill-opacity='0.74'/%3E%3Ccircle%20cx='24.6'%20cy='33.0'%20r='0.6'%20fill-opacity='0.77'/%3E%3Ccircle%20cx='19.3'%20cy='14.3'%20r='0.9'%20fill-opacity='0.37'/%3E%3Ccircle%20cx='33.7'%20cy='7.3'%20r='0.6'%20fill-opacity='0.86'/%3E%3Ccircle%20cx='23.4'%20cy='56.6'%20r='0.5'%20fill-opacity='0.48'/%3E%3Ccircle%20cx='54.8'%20cy='4.0'%20r='1.2'%20fill-opacity='0.94'/%3E%3Ccircle%20cx='24.1'%20cy='5.2'%20r='0.8'%20fill-opacity='0.82'/%3E%3Ccircle%20cx='16.6'%20cy='6.1'%20r='1.0'%20fill-opacity='0.36'/%3E%3Ccircle%20cx='24.8'%20cy='54.5'%20r='0.7'%20fill-opacity='0.50'/%3E%3Ccircle%20cx='6.9'%20cy='4.5'%20r='1.4'%20fill-opacity='0.46'/%3E%3Ccircle%20cx='33.4'%20cy='27.0'%20r='0.8'%20fill-opacity='0.94'/%3E%3Ccircle%20cx='45.6'%20cy='25.3'%20r='1.2'%20fill-opacity='0.42'/%3E%3Ccircle%20cx='25.4'%20cy='13.3'%20r='0.9'%20fill-opacity='0.87'/%3E%3Ccircle%20cx='57.5'%20cy='35.4'%20r='0.5'%20fill-opacity='0.48'/%3E%3Ccircle%20cx='23.9'%20cy='50.6'%20r='0.6'%20fill-opacity='0.38'/%3E%3Ccircle%20cx='9.5'%20cy='26.6'%20r='0.5'%20fill-opacity='0.81'/%3E%3Ccircle%20cx='20.1'%20cy='18.2'%20r='0.6'%20fill-opacity='0.39'/%3E%3Ccircle%20cx='13.1'%20cy='37.9'%20r='0.5'%20fill-opacity='0.71'/%3E%3Ccircle%20cx='22.6'%20cy='27.3'%20r='1.4'%20fill-opacity='0.85'/%3E%3Ccircle%20cx='8.9'%20cy='23.4'%20r='0.7'%20fill-opacity='0.54'/%3E%3Ccircle%20cx='14.2'%20cy='36.4'%20r='0.8'%20fill-opacity='0.45'/%3E%3Ccircle%20cx='37.5'%20cy='33.1'%20r='1.2'%20fill-opacity='0.88'/%3E%3Ccircle%20cx='36.0'%20cy='25.4'%20r='0.6'%20fill-opacity='0.42'/%3E%3Ccircle%20cx='30.7'%20cy='15.8'%20r='1.2'%20fill-opacity='0.50'/%3E%3Ccircle%20cx='48.8'%20cy='35.6'%20r='0.9'%20fill-opacity='0.66'/%3E%3Ccircle%20cx='54.9'%20cy='57.7'%20r='0.7'%20fill-opacity='0.49'/%3E%3Ccircle%20cx='33.4'%20cy='50.4'%20r='0.6'%20fill-opacity='0.52'/%3E%3Ccircle%20cx='54.2'%20cy='12.8'%20r='0.5'%20fill-opacity='0.39'/%3E%3Ccircle%20cx='24.9'%20cy='15.4'%20r='0.5'%20fill-opacity='0.46'/%3E%3Ccircle%20cx='22.4'%20cy='34.2'%20r='0.7'%20fill-opacity='0.41'/%3E%3Ccircle%20cx='9.0'%20cy='27.1'%20r='1.0'%20fill-opacity='0.74'/%3E%3Ccircle%20cx='41.1'%20cy='34.9'%20r='0.7'%20fill-opacity='0.70'/%3E%3Ccircle%20cx='54.6'%20cy='28.5'%20r='1.0'%20fill-opacity='0.77'/%3E%3Ccircle%20cx='56.8'%20cy='2.2'%20r='0.6'%20fill-opacity='0.64'/%3E%3Ccircle%20cx='43.4'%20cy='19.5'%20r='0.6'%20fill-opacity='0.40'/%3E%3Ccircle%20cx='32.7'%20cy='43.7'%20r='0.7'%20fill-opacity='0.83'/%3E%3Ccircle%20cx='54.1'%20cy='21.4'%20r='1.4'%20fill-opacity='0.89'/%3E%3Ccircle%20cx='51.5'%20cy='25.2'%20r='0.5'%20fill-opacity='0.87'/%3E%3C/g%3E%3C/svg%3E");
+  --lk-font: system-ui, "Segoe UI Variable Text", "Segoe UI", "Noto Sans", sans-serif;
+  --lk-font-display: "Segoe UI Variable Display", system-ui, "Segoe UI", sans-serif;
+
+  transition:
+    --lk-frame-1 700ms var(--lk-ease),
+    --lk-frame-2 700ms var(--lk-ease),
+    --lk-frame-3 700ms var(--lk-ease),
+    --lk-accent 700ms var(--lk-ease),
+    --lk-accent-text 700ms var(--lk-ease),
+    --lk-text 700ms var(--lk-ease),
+    --lk-text-muted 700ms var(--lk-ease);
+
+  font-family: var(--lk-font);
+  font-size: 14px;
+  color: var(--lk-text);
+  background-color: var(--lk-frame-2);
+  background-image:
+    radial-gradient(1200px 600px at 0% 0%, rgb(255 255 255 / 0.35), transparent 60%),
+    linear-gradient(150deg, var(--lk-frame-1), var(--lk-frame-2) 55%, var(--lk-frame-3));
+  background-attachment: fixed;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-image:
+      radial-gradient(1200px 600px at 0% 0%, rgb(255 255 255 / 0.05), transparent 60%),
+      linear-gradient(150deg, var(--lk-frame-1), var(--lk-frame-2) 55%, var(--lk-frame-3));
+  }
+}
+
+:root[lokum-flavor-animated] {
+  animation: lk-page-assorted 36s ease-in-out infinite;
+}
+
+@keyframes lk-page-assorted {
+  0%, 100% {
+    --lk-frame-1: light-dark(#ffe4ee, #2b1421);
+    --lk-frame-2: light-dark(#fff0b6, #2d2710);
+    --lk-frame-3: light-dark(#d9ecc3, #1d2a14);
+  }
+  33% {
+    --lk-frame-1: light-dark(#fff0b6, #2d2710);
+    --lk-frame-2: light-dark(#ffd9b6, #331f0f);
+    --lk-frame-3: light-dark(#e2d6ff, #221a40);
+  }
+  66% {
+    --lk-frame-1: light-dark(#c8ede0, #102c24);
+    --lk-frame-2: light-dark(#fac6da, #3a1a2d);
+    --lk-frame-3: light-dark(#fff0b6, #2d2710);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+input[type="color"] {
+  appearance: none;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px var(--lk-surface-solid), 0 0 0 4px var(--lk-border), 0 4px 10px -4px rgb(0 0 0 / 0.3);
+}
+
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: var(--lk-font-display);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--lk-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.lk-icon {
+  width: 16px;
+  height: 16px;
+  -moz-context-properties: fill, stroke;
+  fill: currentColor;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------------- buttons */
+
+.lk-button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 650;
+  color: var(--lk-text);
+  background: var(--lk-surface-strong);
+  box-shadow: 0 0 0 1px var(--lk-border), 0 1px 2px rgb(0 0 0 / 0.05);
+  cursor: pointer;
+  transition: transform 160ms var(--lk-ease), background-color 160ms, box-shadow 160ms;
+  white-space: nowrap;
+}
+
+.lk-button:hover {
+  background: var(--lk-surface-solid);
+  box-shadow: 0 0 0 1px var(--lk-border), 0 4px 14px -6px rgb(0 0 0 / 0.25);
+}
+
+.lk-button:active {
+  transform: scale(0.96);
+}
+
+.lk-button:focus-visible,
+.lk-toggle input:focus-visible + .lk-toggle-track,
+.lk-segmented input:focus-visible + span,
+.lk-flavor:focus-visible,
+.lk-choice:focus-visible {
+  outline: 2px solid var(--lk-accent);
+  outline-offset: 2px;
+}
+
+.lk-button.primary {
+  color: var(--lk-accent-text);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--lk-accent) 88%, white), var(--lk-accent));
+  box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--lk-accent) 80%, transparent), inset 0 1px 0 rgb(255 255 255 / 0.25);
+}
+
+.lk-button.primary:hover {
+  filter: brightness(1.05);
+}
+
+.lk-button.ghost {
+  background: transparent;
+  box-shadow: none;
+}
+
+.lk-button.ghost:hover {
+  background: var(--lk-hover);
+}
+
+.lk-button.danger {
+  color: light-dark(#b3261e, #ffb4ab);
+}
+
+.lk-button[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- toggle */
+
+.lk-toggle {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.lk-toggle input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.lk-toggle-track {
+  width: 44px;
+  height: 26px;
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--lk-text) 20%, transparent);
+  position: relative;
+  transition: background-color 220ms var(--lk-ease);
+}
+
+.lk-toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  transition: transform 320ms var(--lk-spring), width 200ms var(--lk-ease);
+}
+
+.lk-toggle:active .lk-toggle-track::after {
+  width: 25px;
+}
+
+.lk-toggle input:checked + .lk-toggle-track {
+  background: var(--lk-accent);
+}
+
+.lk-toggle input:checked + .lk-toggle-track::after {
+  transform: translateX(18px);
+}
+
+.lk-toggle:active input:checked + .lk-toggle-track::after {
+  transform: translateX(13px);
+}
+
+/* ------------------------------------------------------------ segmented */
+
+.lk-segmented {
+  display: inline-flex;
+  padding: 3px;
+  gap: 2px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--lk-text) 8%, transparent);
+  flex-wrap: wrap;
+}
+
+.lk-segmented label {
+  position: relative;
+  cursor: pointer;
+}
+
+.lk-segmented input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lk-segmented span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lk-text-muted);
+  transition: background-color 200ms var(--lk-ease), color 200ms, box-shadow 200ms;
+  white-space: nowrap;
+}
+
+.lk-segmented label:hover span {
+  color: var(--lk-text);
+}
+
+.lk-segmented input:checked + span {
+  background: var(--lk-surface-solid);
+  color: var(--lk-text);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.12);
+}
+
+/* --------------------------------------------------------------- select */
+
+.lk-select {
+  appearance: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--lk-text);
+  background: var(--lk-surface-strong) url("chrome://lokum/content/images/icons/chevron-down.svg") no-repeat right 10px center / 14px;
+  -moz-context-properties: fill, stroke;
+  fill: currentColor;
+  stroke: currentColor;
+  border: none;
+  border-radius: 11px;
+  padding: 8px 34px 8px 12px;
+  min-height: 36px;
+  box-shadow: 0 0 0 1px var(--lk-border);
+  cursor: pointer;
+  max-width: 280px;
+}
+
+.lk-select:focus-visible,
+.lk-input:focus-visible {
+  outline: 2px solid var(--lk-accent);
+  outline-offset: 1px;
+}
+
+.lk-input {
+  appearance: none;
+  font: inherit;
+  color: var(--lk-text);
+  background: var(--lk-surface-strong);
+  border: none;
+  border-radius: 11px;
+  padding: 8px 12px;
+  min-height: 36px;
+  box-shadow: 0 0 0 1px var(--lk-border);
+}
+
+/* --------------------------------------------------------------- slider */
+
+.lk-range {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lk-range output {
+  min-width: 44px;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  color: var(--lk-text-muted);
+}
+
+.lk-range input[type="range"] {
+  appearance: none;
+  width: 200px;
+  height: 6px;
+  border-radius: 6px;
+  background: linear-gradient(to right, var(--lk-accent) var(--fill, 50%), color-mix(in srgb, var(--lk-text) 16%, transparent) var(--fill, 50%));
+  cursor: pointer;
+}
+
+.lk-range input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 0 2px var(--lk-accent), 0 2px 6px rgb(0 0 0 / 0.25);
+  transition: transform 200ms var(--lk-spring);
+}
+
+.lk-range input[type="range"]:active::-moz-range-thumb {
+  transform: scale(1.18);
+}
+
+.lk-range input[type="range"]::-moz-range-track {
+  background: transparent;
+}
+
+/* --------------------------------------------------------------- misc */
+
+.lk-card {
+  background: var(--lk-surface);
+  border-radius: var(--lk-radius);
+  box-shadow: var(--lk-shadow), inset 0 0 0 1px light-dark(rgb(255 255 255 / 0.6), rgb(255 255 255 / 0.05));
+  backdrop-filter: blur(18px) saturate(1.3);
+}
+
+.lk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--lk-accent-soft);
+  color: var(--lk-accent);
+}
+
+.lk-kbd,
+kbd {
+  font: 12px/1 ui-monospace, "Cascadia Mono", "Consolas", monospace;
+  padding: 4px 7px;
+  border-radius: 7px;
+  background: var(--lk-surface-strong);
+  box-shadow: 0 0 0 1px var(--lk-border), 0 2px 0 var(--lk-border);
+  white-space: nowrap;
+}
+
+.lk-muted {
+  color: var(--lk-text-muted);
+}
+
+/* The Lokum cube logo (pure CSS 3D). Reused by settings & welcome. */
+.lk-logo-cube {
+  --s: 40px;
+  width: var(--s);
+  height: var(--s);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-24deg) rotateY(38deg);
+  animation: lk-logo-spin 14s linear infinite;
+}
+
+.lk-logo-cube > i {
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--s) * 0.22);
+  background:
+    var(--lk-sugar-tex) 0 0 / 24px 24px,
+    radial-gradient(circle at 35% 25%, rgb(255 255 255 / 0.5), transparent 62%),
+    linear-gradient(145deg, color-mix(in srgb, var(--lk-accent) 55%, white), var(--lk-accent));
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.25);
+}
+
+.lk-logo-cube > i:nth-child(1) { transform: translateZ(calc(var(--s) / 2)); }
+.lk-logo-cube > i:nth-child(2) { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); filter: brightness(0.9); }
+.lk-logo-cube > i:nth-child(3) { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }
+.lk-logo-cube > i:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); filter: brightness(0.95); }
+.lk-logo-cube > i:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); filter: brightness(1.12); }
+.lk-logo-cube > i:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); filter: brightness(0.8); }
+
+@keyframes lk-logo-spin {
+  from { transform: rotateX(-24deg) rotateY(38deg); }
+  to { transform: rotateX(-24deg) rotateY(398deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lk-logo-cube {
+    animation: none;
+  }
+}
+
+:root[lokum-animations="off"] *,
+:root[lokum-animations="off"] *::before,
+:root[lokum-animations="off"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+::selection {
+  background: var(--lk-accent);
+  color: var(--lk-accent-text);
+}
+
+/* Scrollbars */
+:root {
+  scrollbar-color: color-mix(in srgb, var(--lk-text) 25%, transparent) transparent;
+}

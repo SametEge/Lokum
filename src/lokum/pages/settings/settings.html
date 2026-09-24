@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src chrome:; script-src chrome:; style-src chrome: 'unsafe-inline'; img-src chrome: data: https: moz-icon: page-icon: cached-favicon: blob:; connect-src https:; object-src 'none'" />
+  <title>Lokum</title>
+  <link rel="icon" href="chrome://lokum/content/images/lokum-icon.svg" />
+  <link rel="stylesheet" href="chrome://lokum/content/pages/shared/lokum-page.css" />
+  <link rel="stylesheet" href="chrome://lokum/content/pages/settings/settings.css" />
+  <script type="module" src="chrome://lokum/content/pages/settings/settings.mjs"></script>
+</head>
+<body>
+  <div class="lk-settings">
+    <aside class="lk-nav">
+      <a class="lk-brand" href="#about">
+        <div class="lk-brand-cube"><div class="lk-logo-cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="lk-brand-text">
+          <span class="lk-brand-name">Lokum</span>
+          <span class="lk-brand-version" id="brand-version"></span>
+        </div>
+      </a>
+      <label class="lk-search">
+        <img class="lk-icon" src="chrome://lokum/content/images/icons/search.svg" alt="" />
+        <input id="search" type="search" autocomplete="off" />
+      </label>
+      <nav id="nav" class="lk-nav-list"></nav>
+      <div class="lk-nav-footer" id="nav-footer"></div>
+    </aside>
+    <main id="main" class="lk-main" tabindex="-1"></main>
+  </div>
+  <div id="sugar" class="lk-sugar" aria-hidden="true"></div>
+</body>
+</html>
