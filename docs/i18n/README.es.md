@@ -27,15 +27,15 @@
 
 **Lokum** es un navegador web construido sobre Mozilla Firefox y con sabor a
 lokum, la delicia turca. Toma el motor, la seguridad y las extensiones en los
-que ya confías y los envuelve en una barra lateral al estilo de Arc, doce
+que ya confías y los envuelve en una barra lateral de altura completa, doce
 «sabores» de color mezclados a mano, Espacios, una paleta de comandos,
 animaciones suaves y una primera configuración inusualmente cuidada — en doce
 idiomas. Se actualiza solo, en silencio, desde GitHub Releases en cuanto hay una
 versión nueva.
 
 <p align="center">
-  <img src="../images/screenshots/arc-light.webp" alt="Lokum con la barra lateral estilo Arc y el sabor Rosa" width="49%">
-  <img src="../images/screenshots/arc-dark.webp" alt="Lokum en modo oscuro con el sabor Medianoche" width="49%">
+  <img src="../images/screenshots/sidebar-light.webp" alt="Lokum con la barra lateral y el sabor Rosa" width="49%">
+  <img src="../images/screenshots/sidebar-dark.webp" alt="Lokum en modo oscuro con el sabor Medianoche" width="49%">
 </p>
 
 ---
@@ -89,7 +89,7 @@ Consigue la versión más reciente en la **[página de versiones](https://github
 ## Lo más destacado
 
 - 🍬 **Doce sabores** — cada tema es un tipo de lokum: Rosa, Pistacho, Limón, Granada, Naranja, Menta, Lavanda, Almáciga, Coco, Café turco, Medianoche y una caja *Surtido* animada. Cada uno con receta clara y oscura.
-- 🧭 **Barra lateral estilo Arc _o_ pestañas clásicas** — una barra lateral de altura completa con la barra de direcciones dentro, las pestañas verticales de Firefox o la tira de pestañas clásica. Cambia cuando quieras; la ventana se reorganiza en vivo.
+- 🧭 **Barra lateral _o_ pestañas clásicas** — una barra lateral de altura completa con la barra de direcciones dentro, las pestañas verticales de Firefox o la tira de pestañas clásica. Cambia cuando quieras; la ventana se reorganiza en vivo.
 - 🗂️ **Espacios** — separa Personal, Trabajo, Estudios y Ocio, cada uno con sus pestañas, su icono, su sabor y (opcionalmente) su contenedor. Desliza o pulsa <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> para cambiar.
 - ⌨️ **Paleta de comandos** (<kbd>Ctrl</kbd>+<kbd>K</kbd>) — búsqueda aproximada entre pestañas abiertas y más de 40 acciones, y una gran **barra de comandos flotante** al hacer clic en la barra de direcciones.
 - 🎵 **Minirreproductor** — reproduce, pausa, salta y silencia la música o los vídeos de otras pestañas desde la barra lateral.
@@ -148,7 +148,7 @@ también respeta el ajuste del sistema *reducir movimiento*.
 
 | Diseño | Cómo se ve |
 | --- | --- |
-| **Barra lateral (estilo Arc)** *(predeterminado)* | Pestañas, barra de direcciones y botones de navegación viven en una única barra lateral de altura completa. La página flota sobre tu sabor como una tarjeta redondeada, con una fina franja de título encima que muestra el título, el sitio y un botón *Copiar enlace*. |
+| **Barra lateral** *(predeterminado)* | Pestañas, barra de direcciones y botones de navegación viven en una única barra lateral de altura completa. La página flota sobre tu sabor como una tarjeta redondeada, con una fina franja de título encima que muestra el título, el sitio y un botón *Copiar enlace*. |
 | **Pestañas verticales** | Las pestañas verticales nativas de Firefox en una barra lateral, con la barra de direcciones arriba. Familiar y espacioso. |
 | **Pestañas clásicas** | Pestañas arriba, como en cualquier navegador — siempre vestidas con tu sabor. |
 
@@ -160,7 +160,7 @@ Más opciones de diseño:
 
 - **Lado de la barra lateral** — izquierda o derecha.
 - **Ocultar la barra lateral (modo compacto)** — <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>. La página ocupa toda la ventana y la barra lateral aparece cuando el puntero toca el borde.
-- **Barra de comandos flotante** — la barra de direcciones se abre grande y centrada sobre la página, como en Arc.
+- **Barra de comandos flotante** — la barra de direcciones se abre grande y centrada sobre la página.
 - **Las pestañas nuevas aparecen** arriba o abajo de la lista.
 - **Botón de cerrar pestaña** al pasar el ratón, siempre o nunca.
 - **Las pestañas fijadas se convierten en favoritas** — una cuadrícula de iconos grandes arriba en la barra lateral, igual en todos los Espacios.
@@ -227,13 +227,13 @@ completa sobre el navegador — y el navegador cambia en vivo detrás de él a
 medida que eliges.
 
 <p align="center">
+  <img src="../images/screenshots/welcome-intro.webp" alt="Recorrido de bienvenida: Te damos la bienvenida a Lokum" width="49%">
   <img src="../images/screenshots/welcome-flavor.webp" alt="Recorrido de bienvenida: elige tu sabor" width="49%">
-  <img src="../images/screenshots/welcome-layout.webp" alt="Recorrido de bienvenida: elige tu diseño" width="49%">
 </p>
 
 1. **Bienvenida** — un cubo de lokum 3D flotante, azúcar que revolotea y un selector de idioma.
 2. **Sabor** — doce cubos azucarados caen en una bandeja; toca uno y todo el navegador cambia de color con una nube de azúcar glas. Elige claro, oscuro o automático, o pulsa **Sorpréndeme** para una ruleta de sabores.
-3. **Diseño** — barra lateral estilo Arc, pestañas verticales o clásicas, lado de la barra y modo compacto, con vista previa en vivo.
+3. **Diseño** — barra lateral de altura completa, pestañas verticales o clásicas, lado de la barra y modo compacto, con vista previa en vivo.
 4. **Espacios** — empieza con Personal y añade Trabajo, Estudios y Ocio con un toque cada uno.
 5. **Importar** — Lokum detecta los otros navegadores de tu ordenador (Chrome, Edge, Brave, Opera, Vivaldi…) y trae marcadores, contraseñas, historial y más.
 6. **Privacidad** — protección contra el rastreo Equilibrada o Estricta, uBlock Origin, DNS seguro; la telemetría siempre está desactivada.
@@ -254,7 +254,7 @@ nombre.
 | Sección | Qué puedes hacer |
 | --- | --- |
 | **Apariencia** | Galería de sabores, claro/oscuro/automático, color de acento propio, azúcar glas, grano, animaciones, redondez de las esquinas, espaciado del marco, sombra de la página, densidad, fuente de la interfaz. |
-| **Diseño** | Barra lateral Arc / vertical / clásica, lado de la barra, modo compacto, barra de comandos flotante, posición de las pestañas nuevas, botones de cerrar, minirreproductor, barra de marcadores, personalizar la barra de herramientas. |
+| **Diseño** | Barra lateral / vertical / clásica, lado de la barra, modo compacto, barra de comandos flotante, posición de las pestañas nuevas, botones de cerrar, minirreproductor, barra de marcadores, personalizar la barra de herramientas. |
 | **Espacios** | Activar Espacios, colorear la ventana según el Espacio, deslizar para cambiar; añadir, renombrar, cambiar icono y sabor, reordenar y eliminar Espacios; elegir contenedores. |
 | **Pestañas** | Archivado automático, pestañas dormidas, restaurar al iniciar, vistas previas, grupos de pestañas, vista dividida, imagen en imagen automática, confirmar antes de salir. |
 | **Archivo** | Buscar, reabrir y quitar pestañas archivadas; vaciar el archivo. |
@@ -588,8 +588,7 @@ El código fuente de Lokum se distribuye bajo la
 Firefox y el logotipo de Firefox son marcas de la Mozilla Foundation. Lokum es
 un proyecto independiente, no afiliado ni respaldado por Mozilla; se construye a
 partir de las versiones oficiales de Mozilla y elimina de ellas la marca
-Firefox. Arc es una marca de The Browser Company, que tampoco está afiliada a
-Lokum — Lokum simplemente se inspira en sus ideas. uBlock Origin es obra de
+Firefox. uBlock Origin es obra de
 Raymond Hill y sus colaboradores.
 
 <p align="center"><sub>Hecho con 🍬 y Firefox.</sub></p>

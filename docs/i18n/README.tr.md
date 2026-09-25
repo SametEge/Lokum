@@ -27,15 +27,15 @@
 
 **Lokum**, Mozilla Firefox üzerine kurulu, Türk lokumu tadında bir web
 tarayıcısıdır. Zaten güvendiğiniz motoru, güvenliği ve eklentileri alır;
-onları Arc tarzı bir kenar çubuğuna, elle karıştırılmış on iki renk
+onları tam boy bir kenar çubuğuna, elle karıştırılmış on iki renk
 "lezzetine", Alanlar'a (Spaces), bir komut paletine, yumuşak animasyonlara ve
 alışılmadık derecede ayrıntılı bir ilk kurulum deneyimine sarar — on iki dilde.
 Yeni bir sürüm hazır olduğu anda kendini GitHub Releases üzerinden sessizce
 günceller.
 
 <p align="center">
-  <img src="../images/screenshots/arc-light.webp" alt="Arc tarzı kenar çubuğu ve Gül lezzetiyle Lokum" width="49%">
-  <img src="../images/screenshots/arc-dark.webp" alt="Gece lezzetiyle karanlık modda Lokum" width="49%">
+  <img src="../images/screenshots/sidebar-light.webp" alt="Kenar çubuğu düzeni ve Gül lezzetiyle Lokum" width="49%">
+  <img src="../images/screenshots/sidebar-dark.webp" alt="Gece lezzetiyle karanlık modda Lokum" width="49%">
 </p>
 
 ---
@@ -88,7 +88,7 @@ En yeni sürümü **[Sürümler sayfasından](https://github.com/SametEge/Lokum/
 ## Öne çıkanlar
 
 - 🍬 **On iki lezzet** — her tema bir lokum çeşidi: Gül, Fıstık, Limon, Nar, Portakal, Nane, Lavanta, Sakız, Hindistan cevizi, Türk kahvesi, Gece ve hareketli bir *Karışık* kutusu. Her birinin açık ve koyu tarifi var.
-- 🧭 **Arc tarzı kenar çubuğu _ya da_ klasik sekmeler** — adres çubuğunun içinde olduğu tam boy bir kenar çubuğu, Firefox'un dikey sekmeleri veya klasik sekme şeridi. İstediğiniz an değiştirin; pencere canlı olarak yeniden düzenlenir.
+- 🧭 **Kenar çubuğu _ya da_ klasik sekmeler** — adres çubuğunun içinde olduğu tam boy bir kenar çubuğu, Firefox'un dikey sekmeleri veya klasik sekme şeridi. İstediğiniz an değiştirin; pencere canlı olarak yeniden düzenlenir.
 - 🗂️ **Alanlar** — Kişisel, İş, Okul ve Eğlence'yi ayırın; her birinin kendi sekmeleri, simgesi, lezzeti ve (isteğe bağlı) kapsayıcısı olur. Kaydırarak ya da <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> ile geçiş yapın.
 - ⌨️ **Komut paleti** (<kbd>Ctrl</kbd>+<kbd>K</kbd>) — açık sekmeler ve 40'tan fazla işlem arasında bulanık arama; adres çubuğuna odaklandığınızda da büyük bir **yüzen komut çubuğu**.
 - 🎵 **Mini oynatıcı** — diğer sekmelerdeki müziği veya videoları kenar çubuğundan oynatın/duraklatın, geçin ve sessize alın.
@@ -146,7 +146,7 @@ veya kapalı). Lokum sisteminizin *hareketi azalt* ayarına da uyar.
 
 | Düzen | Nasıl görünür |
 | --- | --- |
-| **Kenar çubuğu (Arc tarzı)** *(varsayılan)* | Sekmeler, adres çubuğu ve gezinme düğmeleri tam boy tek bir kenar çubuğunda yaşar. Sayfa, lezzetinizin üzerinde yuvarlak bir kart olarak süzülür; üstünde sayfa başlığını, siteyi ve *bağlantıyı kopyala* düğmesini gösteren ince bir başlık şeridi bulunur. |
+| **Kenar çubuğu** *(varsayılan)* | Sekmeler, adres çubuğu ve gezinme düğmeleri tam boy tek bir kenar çubuğunda yaşar. Sayfa, lezzetinizin üzerinde yuvarlak bir kart olarak süzülür; üstünde sayfa başlığını, siteyi ve *bağlantıyı kopyala* düğmesini gösteren ince bir başlık şeridi bulunur. |
 | **Dikey sekmeler** | Firefox'un yerleşik dikey sekmeleri kenar çubuğunda, adres çubuğu üstte. Tanıdık ve ferah. |
 | **Klasik sekmeler** | Bildiğiniz her tarayıcı gibi sekmeler üstte — yine lezzetinizle giydirilmiş. |
 
@@ -158,7 +158,7 @@ Diğer düzen seçenekleri:
 
 - **Kenar çubuğu tarafı** — sol veya sağ.
 - **Kenar çubuğunu gizle (kompakt mod)** — <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>. Sayfa tüm pencereyi kaplar; imleciniz pencere kenarına değdiğinde kenar çubuğu kayarak gelir.
-- **Yüzen komut çubuğu** — adres çubuğu, Arc'taki gibi sayfanın üstünde büyük ve ortalanmış açılır.
+- **Yüzen komut çubuğu** — adres çubuğu, sayfanın üstünde büyük ve ortalanmış açılır.
 - **Yeni sekmeler** listenin üstünde veya altında açılır.
 - **Sekme kapatma düğmesi** üzerine gelince, her zaman veya hiçbir zaman.
 - **Sabitlenmiş sekmeler favori olur** — kenar çubuğunun üstünde, her Alan'da aynı kalan büyük simgelerden bir ızgara.
@@ -224,13 +224,13 @@ Lokum'u ilk kez başlattığınızda tarayıcının üzerinde tam ekran bir kar�
 turu açılır — ve siz seçtikçe tarayıcı arkada canlı olarak değişir.
 
 <p align="center">
+  <img src="../images/screenshots/welcome-intro.webp" alt="Karşılama turu: Lokum'a hoş geldin" width="49%">
   <img src="../images/screenshots/welcome-flavor.webp" alt="Karşılama turu: lezzetinizi seçin" width="49%">
-  <img src="../images/screenshots/welcome-layout.webp" alt="Karşılama turu: düzeninizi seçin" width="49%">
 </p>
 
 1. **Hoş geldiniz** — süzülen 3D bir lokum küpü, uçuşan şeker ve dil seçici.
 2. **Lezzet** — on iki şekerli küp bir tepsiye düşer; birine dokunun, tüm tarayıcı bir pudra şekeri patlamasıyla renk değiştirir. Açık, koyu veya otomatiği seçin ya da lezzet ruleti için **Beni şaşırt**'a basın.
-3. **Düzen** — Arc tarzı kenar çubuğu, dikey sekmeler veya klasik sekmeler; kenar çubuğu tarafı ve kompakt mod, canlı önizlemeyle.
+3. **Düzen** — tam boy kenar çubuğu, dikey sekmeler veya klasik sekmeler; kenar çubuğu tarafı ve kompakt mod, canlı önizlemeyle.
 4. **Alanlar** — Kişisel ile başlayın; İş, Okul ve Eğlence şablonlarını tek dokunuşla ekleyin.
 5. **İçe aktar** — Lokum bilgisayarınızdaki diğer tarayıcıları (Chrome, Edge, Brave, Opera, Vivaldi…) algılar; yer imlerini, parolaları, geçmişi ve daha fazlasını taşır.
 6. **Gizlilik** — Dengeli veya Katı izleme koruması, uBlock Origin, Güvenli DNS; telemetri her zaman kapalı.
@@ -250,7 +250,7 @@ arama kutusu herhangi bir ayarı adıyla bulur.
 | Bölüm | Neler yapabilirsiniz |
 | --- | --- |
 | **Görünüm** | Lezzet galerisi, açık/koyu/otomatik, özel vurgu rengi, pudra şekeri, doku, animasyonlar, köşe yuvarlaklığı, çerçeve boşluğu, sayfa gölgesi, yoğunluk, arayüz yazı tipi. |
-| **Düzen** | Arc kenar çubuğu / dikey / klasik, kenar çubuğu tarafı, kompakt mod, yüzen komut çubuğu, yeni sekme konumu, kapatma düğmeleri, mini oynatıcı, yer imleri araç çubuğu, araç çubuğunu özelleştirme. |
+| **Düzen** | Kenar çubuğu / dikey / klasik, kenar çubuğu tarafı, kompakt mod, yüzen komut çubuğu, yeni sekme konumu, kapatma düğmeleri, mini oynatıcı, yer imleri araç çubuğu, araç çubuğunu özelleştirme. |
 | **Alanlar** | Alanları açma/kapama, pencereyi alana göre renklendirme, kaydırarak geçiş; Alan ekleme, yeniden adlandırma, simge ve lezzet değiştirme, sıralama ve silme; kapsayıcı seçme. |
 | **Sekmeler** | Otomatik arşiv, uyuyan sekmeler, başlangıçta geri yükleme, sekme önizlemeleri, sekme grupları, bölünmüş görünüm, otomatik Görüntü içinde görüntü, çıkmadan önce onay. |
 | **Arşiv** | Arşivlenmiş sekmeleri arama, geri açma ve kaldırma; arşivi boşaltma. |
@@ -582,8 +582,7 @@ Lokum'un kaynak kodu, Firefox ile aynı lisans olan
 Firefox ve Firefox logosu Mozilla Foundation'ın ticari markalarıdır. Lokum
 bağımsız bir projedir; Mozilla ile bağlantılı değildir ve Mozilla tarafından
 onaylanmamıştır. Mozilla'nın resmi sürümlerinden derlenir ve Firefox markasını
-bunlardan çıkarır. Arc, The Browser Company'nin ticari markasıdır; onun da
-Lokum ile bir bağlantısı yoktur — Lokum yalnızca fikirlerinden ilham alır.
+bunlardan çıkarır.
 uBlock Origin, Raymond Hill ve katkıda bulunanlar tarafından geliştirilmektedir.
 
 <p align="center"><sub>🍬 ve Firefox ile yapıldı.</sub></p>

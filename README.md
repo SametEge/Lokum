@@ -27,14 +27,14 @@
 
 **Lokum** is a web browser built on Mozilla Firefox and flavored like Turkish
 delight. It takes the engine, security and extensions you already trust and
-wraps them in an Arc‑style sidebar, twelve hand‑mixed color "flavors",
+wraps them in a full‑height sidebar, twelve hand‑mixed color "flavors",
 Spaces, a command palette, gentle animations and an unusually detailed
 first‑run experience — in twelve languages. It updates itself from GitHub
 Releases, quietly, the moment a new version is ready.
 
 <p align="center">
-  <img src="docs/images/screenshots/arc-light.webp" alt="Lokum with the Arc-style sidebar and the Rose flavor" width="49%">
-  <img src="docs/images/screenshots/arc-dark.webp" alt="Lokum in dark mode with the Midnight flavor" width="49%">
+  <img src="docs/images/screenshots/sidebar-light.webp" alt="Lokum with the sidebar layout and the Rose flavor" width="49%">
+  <img src="docs/images/screenshots/sidebar-dark.webp" alt="Lokum in dark mode with the Midnight flavor" width="49%">
 </p>
 
 ---
@@ -85,7 +85,7 @@ Grab the newest version from the **[Releases page](https://github.com/SametEge/L
 ## Highlights
 
 - 🍬 **Twelve flavors** — every theme is a kind of lokum: Rose, Pistachio, Lemon, Pomegranate, Orange, Mint, Lavender, Mastic, Coconut, Turkish Coffee, Midnight and an animated *Assorted* box. Each has a light and a dark recipe.
-- 🧭 **Arc‑style sidebar _or_ classic tabs** — choose a full‑height sidebar with the address bar inside it, Firefox's vertical tabs, or the classic tab strip. Switch any time; the window rearranges itself live.
+- 🧭 **Sidebar _or_ classic tabs** — choose a full‑height sidebar with the address bar inside it, Firefox's vertical tabs, or the classic tab strip. Switch any time; the window rearranges itself live.
 - 🗂️ **Spaces** — separate Personal, Work, School and Fun, each with its own tabs, icon, flavor and (optionally) container. Swipe or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> to switch.
 - ⌨️ **Command palette** (<kbd>Ctrl</kbd>+<kbd>K</kbd>) — fuzzy search across open tabs and 40+ actions, and a big **floating command bar** when you focus the address bar.
 - 🎵 **Mini player** — play/pause, skip and mute music or videos from other tabs right in the sidebar.
@@ -142,7 +142,7 @@ your system's *reduce motion* setting.
 
 | Layout | What it looks like |
 | --- | --- |
-| **Sidebar (Arc style)** *(default)* | Tabs, the address bar and the navigation buttons live in one full‑height sidebar. The page floats on your flavor as a rounded card, with a slim title strip above it showing the page title, the site and a *copy link* button. |
+| **Sidebar** *(default)* | Tabs, the address bar and the navigation buttons live in one full‑height sidebar. The page floats on your flavor as a rounded card, with a slim title strip above it showing the page title, the site and a *copy link* button. |
 | **Vertical tabs** | Firefox's native vertical tabs in a sidebar, with the address bar on top. Familiar and roomy. |
 | **Classic tabs** | Tabs across the top, like every browser you know — still dressed in your flavor. |
 
@@ -154,7 +154,7 @@ More layout options:
 
 - **Sidebar side** — left or right.
 - **Hide sidebar (compact mode)** — <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>. The page takes the whole window and the sidebar slides in when your pointer touches the window edge.
-- **Floating command bar** — the address bar opens big and centered over the page, like Arc.
+- **Floating command bar** — the address bar opens big and centered over the page.
 - **New tabs appear** at the top or the bottom of the list.
 - **Tab close button** on hover, always or never.
 - **Pinned tabs become favorites** — a grid of big icons at the top of the sidebar that stays the same in every Space.
@@ -218,13 +218,13 @@ The first time you start Lokum, a full‑screen welcome tour opens over the
 browser — and the browser changes live behind it as you choose.
 
 <p align="center">
+  <img src="docs/images/screenshots/welcome-intro.webp" alt="Welcome tour: Welcome to Lokum" width="49%">
   <img src="docs/images/screenshots/welcome-flavor.webp" alt="Welcome tour: pick your flavor" width="49%">
-  <img src="docs/images/screenshots/welcome-layout.webp" alt="Welcome tour: choose your layout" width="49%">
 </p>
 
 1. **Welcome** — a floating 3D lokum cube, drifting sugar and a language switcher.
 2. **Flavor** — twelve sugar‑dusted cubes drop into a tray; tap one and the whole browser changes color with a burst of powdered sugar. Pick light, dark or automatic, or press **Surprise me** for a flavor roulette.
-3. **Layout** — Arc‑style sidebar, vertical tabs or classic tabs, sidebar side and compact mode, previewed live.
+3. **Layout** — full‑height sidebar, vertical tabs or classic tabs, sidebar side and compact mode, previewed live.
 4. **Spaces** — start with Personal and add Work, School and Fun presets with one tap each.
 5. **Import** — Lokum detects the other browsers on your computer (Chrome, Edge, Brave, Opera, Vivaldi…) and brings over bookmarks, passwords, history and more.
 6. **Privacy** — Balanced or Strict tracking protection, uBlock Origin, Secure DNS; telemetry is always off.
@@ -243,7 +243,7 @@ and the search box finds any setting by name.
 | Section | What you can do |
 | --- | --- |
 | **Appearance** | Flavor gallery, light/dark/automatic, custom accent color, powdered sugar, grain, animations, corner roundness, frame spacing, page shadow, density, interface font. |
-| **Layout** | Arc sidebar / vertical / classic, sidebar side, compact mode, floating command bar, new tab position, close buttons, mini player, bookmarks toolbar, toolbar customization. |
+| **Layout** | Sidebar / vertical / classic, sidebar side, compact mode, floating command bar, new tab position, close buttons, mini player, bookmarks toolbar, toolbar customization. |
 | **Spaces** | Turn Spaces on/off, color the window by Space, swipe to switch; add, rename, re‑icon, re‑flavor, reorder and delete Spaces; choose containers. |
 | **Tabs** | Auto‑archive, sleeping tabs, restore on startup, tab previews, tab groups, split view, automatic Picture‑in‑Picture, confirm before quitting. |
 | **Archive** | Search, reopen and remove archived tabs; empty the archive. |
@@ -571,8 +571,6 @@ the same license as Firefox.
 Firefox and the Firefox logo are trademarks of the Mozilla Foundation. Lokum is
 an independent project, not affiliated with or endorsed by Mozilla; it is built
 from Mozilla's official releases and removes the Firefox branding from them.
-Arc is a trademark of The Browser Company, which is not affiliated with Lokum
-either — Lokum is simply inspired by its ideas. uBlock Origin is by Raymond
-Hill and contributors.
+uBlock Origin is by Raymond Hill and contributors.
 
 <p align="center"><sub>Made with 🍬 and Firefox.</sub></p>
