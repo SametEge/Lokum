@@ -27,15 +27,15 @@
 
 **Lokum** è un browser web basato su Mozilla Firefox e aromatizzato come un
 lokum, la delizia turca. Prende il motore, la sicurezza e le estensioni di cui
-ti fidi già e li avvolge in una barra laterale in stile Arc, dodici «gusti» di
+ti fidi già e li avvolge in una barra laterale a tutta altezza, dodici «gusti» di
 colore mescolati a mano, gli Spazi, una tavolozza dei comandi, animazioni
 delicate e una prima configurazione insolitamente curata — in dodici lingue. Si
 aggiorna da solo, in silenzio, tramite GitHub Releases non appena una nuova
 versione è pronta.
 
 <p align="center">
-  <img src="../images/screenshots/arc-light.webp" alt="Lokum con la barra laterale in stile Arc e il gusto Rosa" width="49%">
-  <img src="../images/screenshots/arc-dark.webp" alt="Lokum in modalità scura con il gusto Mezzanotte" width="49%">
+  <img src="../images/screenshots/sidebar-light.webp" alt="Lokum con la barra laterale e il gusto Rosa" width="49%">
+  <img src="../images/screenshots/sidebar-dark.webp" alt="Lokum in modalità scura con il gusto Mezzanotte" width="49%">
 </p>
 
 ---
@@ -89,7 +89,7 @@ Scarica la versione più recente dalla **[pagina delle versioni](https://github.
 ## In breve
 
 - 🍬 **Dodici gusti** — ogni tema è un tipo di lokum: Rosa, Pistacchio, Limone, Melograno, Arancia, Menta, Lavanda, Mastice, Cocco, Caffè turco, Mezzanotte e una scatola *Assortiti* animata. Ognuno con una ricetta chiara e una scura.
-- 🧭 **Barra laterale in stile Arc _oppure_ schede classiche** — una barra laterale a tutta altezza con dentro la barra degli indirizzi, le schede verticali di Firefox o la classica barra delle schede. Cambia quando vuoi: la finestra si riorganizza dal vivo.
+- 🧭 **Barra laterale _oppure_ schede classiche** — una barra laterale a tutta altezza con dentro la barra degli indirizzi, le schede verticali di Firefox o la classica barra delle schede. Cambia quando vuoi: la finestra si riorganizza dal vivo.
 - 🗂️ **Spazi** — separa Personale, Lavoro, Scuola e Svago, ognuno con le sue schede, la sua icona, il suo gusto e (a scelta) il suo contenitore. Scorri oppure usa <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> per cambiare.
 - ⌨️ **Tavolozza dei comandi** (<kbd>Ctrl</kbd>+<kbd>K</kbd>) — ricerca approssimativa tra le schede aperte e oltre 40 azioni, più una grande **barra dei comandi fluttuante** quando fai clic sulla barra degli indirizzi.
 - 🎵 **Mini lettore** — riproduci, metti in pausa, salta e silenzia musica e video delle altre schede direttamente dalla barra laterale.
@@ -149,7 +149,7 @@ movimento*.
 
 | Layout | Com'è |
 | --- | --- |
-| **Barra laterale (stile Arc)** *(predefinito)* | Schede, barra degli indirizzi e pulsanti di navigazione vivono in un'unica barra laterale a tutta altezza. La pagina fluttua sul tuo gusto come una scheda arrotondata, sormontata da una sottile striscia del titolo con il titolo della pagina, il sito e un pulsante *Copia link*. |
+| **Barra laterale** *(predefinito)* | Schede, barra degli indirizzi e pulsanti di navigazione vivono in un'unica barra laterale a tutta altezza. La pagina fluttua sul tuo gusto come una scheda arrotondata, sormontata da una sottile striscia del titolo con il titolo della pagina, il sito e un pulsante *Copia link*. |
 | **Schede verticali** | Le schede verticali native di Firefox in una barra laterale, con la barra degli indirizzi in alto. Familiare e spaziosa. |
 | **Schede classiche** | Schede in alto, come in ogni browser — sempre vestite del tuo gusto. |
 
@@ -161,7 +161,7 @@ Altre opzioni di layout:
 
 - **Lato della barra laterale** — sinistra o destra.
 - **Nascondi la barra laterale (modalità compatta)** — <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>. La pagina occupa tutta la finestra; la barra laterale scivola dentro quando il puntatore tocca il bordo.
-- **Barra dei comandi fluttuante** — la barra degli indirizzi si apre grande e centrata sopra la pagina, come in Arc.
+- **Barra dei comandi fluttuante** — la barra degli indirizzi si apre grande e centrata sopra la pagina.
 - **Le nuove schede compaiono** in cima o in fondo all'elenco.
 - **Pulsante di chiusura delle schede** al passaggio del mouse, sempre o mai.
 - **Le schede fissate diventano preferiti** — una griglia di grandi icone in cima alla barra laterale, uguale in ogni Spazio.
@@ -227,13 +227,13 @@ Al primo avvio di Lokum si apre un tour di benvenuto a schermo intero sopra il
 browser — e il browser cambia dal vivo dietro di esso mentre scegli.
 
 <p align="center">
+  <img src="../images/screenshots/welcome-intro.webp" alt="Tour di benvenuto: Benvenuto in Lokum" width="49%">
   <img src="../images/screenshots/welcome-flavor.webp" alt="Tour di benvenuto: scegli il tuo gusto" width="49%">
-  <img src="../images/screenshots/welcome-layout.webp" alt="Tour di benvenuto: scegli il layout" width="49%">
 </p>
 
 1. **Benvenuto** — un cubetto di lokum 3D fluttuante, zucchero che volteggia e un selettore della lingua.
 2. **Gusto** — dodici cubetti zuccherati cadono in un vassoio; toccane uno e tutto il browser cambia colore in una nuvola di zucchero a velo. Scegli chiaro, scuro o automatico, oppure premi **Sorprendimi** per una roulette dei gusti.
-3. **Layout** — barra laterale stile Arc, schede verticali o classiche, lato della barra e modalità compatta, con anteprima dal vivo.
+3. **Layout** — barra laterale a tutta altezza, schede verticali o classiche, lato della barra e modalità compatta, con anteprima dal vivo.
 4. **Spazi** — inizia con Personale e aggiungi Lavoro, Scuola e Svago con un tocco ciascuno.
 5. **Importa** — Lokum rileva gli altri browser del computer (Chrome, Edge, Brave, Opera, Vivaldi…) e porta con sé segnalibri, password, cronologia e altro.
 6. **Privacy** — protezione antitracciamento Bilanciata o Restrittiva, uBlock Origin, DNS sicuro; la telemetria è sempre disattivata.
@@ -253,7 +253,7 @@ nome.
 | Sezione | Cosa puoi fare |
 | --- | --- |
 | **Aspetto** | Galleria dei gusti, chiaro/scuro/automatico, colore di accento personalizzato, zucchero a velo, grana, animazioni, arrotondamento degli angoli, spaziatura della cornice, ombra della pagina, densità, carattere dell'interfaccia. |
-| **Layout** | Barra laterale Arc / verticale / classica, lato della barra, modalità compatta, barra dei comandi fluttuante, posizione delle nuove schede, pulsanti di chiusura, mini lettore, barra dei segnalibri, personalizzazione della barra degli strumenti. |
+| **Layout** | Barra laterale / verticale / classica, lato della barra, modalità compatta, barra dei comandi fluttuante, posizione delle nuove schede, pulsanti di chiusura, mini lettore, barra dei segnalibri, personalizzazione della barra degli strumenti. |
 | **Spazi** | Attiva gli Spazi, colora la finestra in base allo Spazio, scorri per cambiare; aggiungi, rinomina, cambia icona e gusto, riordina ed elimina Spazi; scegli i contenitori. |
 | **Schede** | Archiviazione automatica, schede in sospensione, ripristino all'avvio, anteprime, gruppi di schede, vista divisa, Picture‑in‑Picture automatico, conferma prima di uscire. |
 | **Archivio** | Cerca, riapri e rimuovi schede archiviate; svuota l'archivio. |
@@ -589,8 +589,7 @@ Il codice sorgente di Lokum è distribuito con la
 Firefox e il logo di Firefox sono marchi della Mozilla Foundation. Lokum è un
 progetto indipendente, non affiliato né approvato da Mozilla; è costruito a
 partire dalle versioni ufficiali di Mozilla e ne rimuove il marchio Firefox.
-Arc è un marchio di The Browser Company, anch'essa non affiliata a Lokum — Lokum
-si ispira semplicemente alle sue idee. uBlock Origin è opera di Raymond Hill e
+uBlock Origin è opera di Raymond Hill e
 dei suoi collaboratori.
 
 <p align="center"><sub>Fatto con 🍬 e Firefox.</sub></p>

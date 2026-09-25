@@ -27,14 +27,14 @@
 
 **Lokum** är en webbläsare byggd på Mozilla Firefox, smaksatt som turkisk
 konfekt. Den tar motorn, säkerheten och tilläggen som du redan litar på och
-slår in dem i ett sidofält i Arc‑stil, tolv handblandade färg‑”smaker”,
+slår in dem i ett sidofält i full höjd, tolv handblandade färg‑”smaker”,
 utrymmen (Spaces), en kommandopalett, mjuka animationer och en ovanligt
 genomarbetad första start — på tolv språk. Den uppdaterar sig själv, tyst, via
 GitHub Releases så fort en ny version är klar.
 
 <p align="center">
-  <img src="../images/screenshots/arc-light.webp" alt="Lokum med sidofält i Arc-stil och smaken Ros" width="49%">
-  <img src="../images/screenshots/arc-dark.webp" alt="Lokum i mörkt läge med smaken Midnatt" width="49%">
+  <img src="../images/screenshots/sidebar-light.webp" alt="Lokum med sidofältet och smaken Ros" width="49%">
+  <img src="../images/screenshots/sidebar-dark.webp" alt="Lokum i mörkt läge med smaken Midnatt" width="49%">
 </p>
 
 ---
@@ -87,7 +87,7 @@ Hämta den senaste versionen från **[versionssidan](https://github.com/SametEge
 ## Höjdpunkter
 
 - 🍬 **Tolv smaker** — varje tema är en sorts lokum: Ros, Pistage, Citron, Granatäpple, Apelsin, Mynta, Lavendel, Mastix, Kokos, Turkiskt kaffe, Midnatt och en animerad ask *Blandade*. Var och en med ett ljust och ett mörkt recept.
-- 🧭 **Sidofält i Arc‑stil _eller_ klassiska flikar** — ett sidofält i full höjd med adressfältet inuti, Firefox vertikala flikar eller den klassiska flikraden. Byt när du vill; fönstret ordnar om sig direkt.
+- 🧭 **Sidofält _eller_ klassiska flikar** — ett sidofält i full höjd med adressfältet inuti, Firefox vertikala flikar eller den klassiska flikraden. Byt när du vill; fönstret ordnar om sig direkt.
 - 🗂️ **Utrymmen** — håll isär Personligt, Jobb, Skola och Nöje, var och en med egna flikar, egen ikon, egen smak och (om du vill) egen behållare. Svep eller tryck <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> för att byta.
 - ⌨️ **Kommandopalett** (<kbd>Ctrl</kbd>+<kbd>K</kbd>) — ungefärlig sökning bland öppna flikar och fler än 40 åtgärder, plus ett stort **svävande kommandofält** när du klickar i adressfältet.
 - 🎵 **Minispelare** — spela, pausa, hoppa och stäng av ljudet för musik och video i andra flikar direkt i sidofältet.
@@ -143,7 +143,7 @@ respekterar också systeminställningen *minska rörelse*.
 
 | Layout | Så ser den ut |
 | --- | --- |
-| **Sidofält (Arc‑stil)** *(standard)* | Flikar, adressfält och navigeringsknappar bor i ett och samma sidofält i full höjd. Sidan svävar över din smak som ett rundat kort, med en smal titelrad ovanför som visar sidans titel, webbplatsen och knappen *Kopiera länk*. |
+| **Sidofält** *(standard)* | Flikar, adressfält och navigeringsknappar bor i ett och samma sidofält i full höjd. Sidan svävar över din smak som ett rundat kort, med en smal titelrad ovanför som visar sidans titel, webbplatsen och knappen *Kopiera länk*. |
 | **Vertikala flikar** | Firefox egna vertikala flikar i ett sidofält, adressfältet högst upp. Välbekant och rymligt. |
 | **Klassiska flikar** | Flikar längs överkanten, som i alla webbläsare — fortfarande klädda i din smak. |
 
@@ -155,7 +155,7 @@ Fler layoutalternativ:
 
 - **Sidofältets sida** — vänster eller höger.
 - **Dölj sidofältet (kompakt läge)** — <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>. Sidan tar hela fönstret och sidofältet glider fram när pekaren når fönsterkanten.
-- **Svävande kommandofält** — adressfältet öppnas stort och centrerat över sidan, som i Arc.
+- **Svävande kommandofält** — adressfältet öppnas stort och centrerat över sidan.
 - **Nya flikar hamnar** överst eller nederst i listan.
 - **Stängknapp på flikar** vid hovring, alltid eller aldrig.
 - **Fästa flikar blir favoriter** — ett rutnät av stora ikoner högst upp i sidofältet som är detsamma i varje utrymme.
@@ -219,13 +219,13 @@ Första gången du startar Lokum öppnas en välkomsttur i helskärm över
 webbläsaren — och webbläsaren ändras live bakom den medan du väljer.
 
 <p align="center">
+  <img src="../images/screenshots/welcome-intro.webp" alt="Välkomstturen: Välkommen till Lokum" width="49%">
   <img src="../images/screenshots/welcome-flavor.webp" alt="Välkomstturen: välj din smak" width="49%">
-  <img src="../images/screenshots/welcome-layout.webp" alt="Välkomstturen: välj din layout" width="49%">
 </p>
 
 1. **Välkommen** — en svävande 3D‑lokumkub, virvlande socker och ett språkval.
 2. **Smak** — tolv sockrade kuber faller ned i ett fat; tryck på en så byter hela webbläsaren färg i ett moln av florsocker. Välj ljust, mörkt eller automatiskt — eller tryck **Överraska mig** för ett smakroulette.
-3. **Layout** — sidofält i Arc‑stil, vertikala eller klassiska flikar, sidofältets sida och kompakt läge, med liveförhandsvisning.
+3. **Layout** — sidofält i full höjd, vertikala eller klassiska flikar, sidofältets sida och kompakt läge, med liveförhandsvisning.
 4. **Utrymmen** — börja med Personligt och lägg till Jobb, Skola och Nöje med ett tryck vardera.
 5. **Import** — Lokum hittar de andra webbläsarna på datorn (Chrome, Edge, Brave, Opera, Vivaldi…) och tar med bokmärken, lösenord, historik och mer.
 6. **Integritet** — balanserat eller strikt spårningsskydd, uBlock Origin, säker DNS; telemetri är alltid av.
@@ -245,7 +245,7 @@ alternativ gäller direkt och sökrutan hittar alla inställningar på namn.
 | Avsnitt | Vad du kan göra |
 | --- | --- |
 | **Utseende** | Smakgalleri, ljust/mörkt/automatiskt, egen accentfärg, florsocker, korn, animationer, hörnrundning, ramavstånd, sidskugga, täthet, gränssnittets typsnitt. |
-| **Layout** | Arc‑sidofält / vertikalt / klassiskt, sidofältets sida, kompakt läge, svävande kommandofält, placering av nya flikar, stängknappar, minispelare, bokmärkesfält, anpassa verktygsfältet. |
+| **Layout** | Sidofält / vertikalt / klassiskt, sidofältets sida, kompakt läge, svävande kommandofält, placering av nya flikar, stängknappar, minispelare, bokmärkesfält, anpassa verktygsfältet. |
 | **Utrymmen** | Slå på utrymmen, färga fönstret efter utrymme, svep för att byta; lägg till, byt namn, ikon och smak, sortera och ta bort utrymmen; välj behållare. |
 | **Flikar** | Automatisk arkivering, sovande flikar, återställ vid start, förhandsvisning av flikar, flikgrupper, delad vy, automatisk bild‑i‑bild, bekräfta innan du avslutar. |
 | **Arkiv** | Sök, öppna och ta bort arkiverade flikar; töm arkivet. |
@@ -575,8 +575,6 @@ samma licens som Firefox.
 Firefox och Firefox‑logotypen är varumärken som tillhör Mozilla Foundation.
 Lokum är ett oberoende projekt som varken är knutet till eller godkänt av
 Mozilla; det byggs från Mozillas officiella versioner och tar bort
-Firefox‑varumärket från dem. Arc är ett varumärke som tillhör The Browser
-Company, som inte heller har någon koppling till Lokum — Lokum är bara
-inspirerat av dess idéer. uBlock Origin är skapat av Raymond Hill och bidragsgivare.
+Firefox‑varumärket från dem. uBlock Origin är skapat av Raymond Hill och bidragsgivare.
 
 <p align="center"><sub>Gjord med 🍬 och Firefox.</sub></p>

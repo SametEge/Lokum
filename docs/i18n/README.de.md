@@ -27,15 +27,15 @@
 
 **Lokum** ist ein Webbrowser auf Basis von Mozilla Firefox mit dem Geschmack
 von türkischem Lokum. Er nimmt die Engine, die Sicherheit und die Erweiterungen,
-denen Sie bereits vertrauen, und verpackt sie in eine Seitenleiste im Stil von
-Arc, zwölf von Hand gemischte Farb‑„Sorten“, Bereiche (Spaces), eine
+denen Sie bereits vertrauen, und verpackt sie in eine Seitenleiste über die volle
+Höhe, zwölf von Hand gemischte Farb‑„Sorten“, Bereiche (Spaces), eine
 Befehlspalette, sanfte Animationen und eine ungewöhnlich liebevolle
 Ersteinrichtung — in zwölf Sprachen. Sobald eine neue Version bereitsteht,
 aktualisiert er sich still über GitHub Releases.
 
 <p align="center">
-  <img src="../images/screenshots/arc-light.webp" alt="Lokum mit Arc-Seitenleiste und der Sorte Rose" width="49%">
-  <img src="../images/screenshots/arc-dark.webp" alt="Lokum im dunklen Modus mit der Sorte Mitternacht" width="49%">
+  <img src="../images/screenshots/sidebar-light.webp" alt="Lokum mit Seitenleiste und der Sorte Rose" width="49%">
+  <img src="../images/screenshots/sidebar-dark.webp" alt="Lokum im dunklen Modus mit der Sorte Mitternacht" width="49%">
 </p>
 
 ---
@@ -89,7 +89,7 @@ Die neueste Version gibt es auf der **[Release-Seite](https://github.com/SametEg
 ## Höhepunkte
 
 - 🍬 **Zwölf Sorten** — jedes Theme ist eine Lokum‑Sorte: Rose, Pistazie, Zitrone, Granatapfel, Orange, Minze, Lavendel, Mastix, Kokos, Türkischer Kaffee, Mitternacht und eine animierte *Gemischt*‑Schachtel. Jede mit hellem und dunklem Rezept.
-- 🧭 **Seitenleiste im Arc‑Stil _oder_ klassische Tabs** — eine Seitenleiste über die volle Höhe mit Adressleiste, die vertikalen Tabs von Firefox oder die klassische Tableiste. Jederzeit umschaltbar; das Fenster ordnet sich live neu an.
+- 🧭 **Seitenleiste _oder_ klassische Tabs** — eine Seitenleiste über die volle Höhe mit Adressleiste, die vertikalen Tabs von Firefox oder die klassische Tableiste. Jederzeit umschaltbar; das Fenster ordnet sich live neu an.
 - 🗂️ **Bereiche** — trennen Sie Privat, Arbeit, Schule und Freizeit, jeweils mit eigenen Tabs, eigenem Symbol, eigener Sorte und (optional) eigener Umgebung (Container). Wischen oder <kbd>Strg</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> zum Wechseln.
 - ⌨️ **Befehlspalette** (<kbd>Strg</kbd>+<kbd>K</kbd>) — unscharfe Suche über offene Tabs und mehr als 40 Aktionen, dazu eine große **schwebende Befehlsleiste**, sobald Sie die Adressleiste anklicken.
 - 🎵 **Mini‑Player** — Musik und Videos anderer Tabs direkt in der Seitenleiste abspielen, pausieren, überspringen und stummschalten.
@@ -148,7 +148,7 @@ Systemeinstellung *Bewegung reduzieren*.
 
 | Layout | So sieht es aus |
 | --- | --- |
-| **Seitenleiste (Arc‑Stil)** *(Standard)* | Tabs, Adressleiste und Navigationsknöpfe leben in einer Seitenleiste über die volle Höhe. Die Seite schwebt als abgerundete Karte über Ihrer Sorte, darüber eine schmale Titelzeile mit Seitentitel, Website und einer Schaltfläche *Link kopieren*. |
+| **Seitenleiste** *(Standard)* | Tabs, Adressleiste und Navigationsknöpfe leben in einer Seitenleiste über die volle Höhe. Die Seite schwebt als abgerundete Karte über Ihrer Sorte, darüber eine schmale Titelzeile mit Seitentitel, Website und einer Schaltfläche *Link kopieren*. |
 | **Vertikale Tabs** | Die nativen vertikalen Tabs von Firefox in einer Seitenleiste, Adressleiste oben. Vertraut und geräumig. |
 | **Klassische Tabs** | Tabs oben, wie in jedem Browser — aber in Ihrer Sorte gekleidet. |
 
@@ -160,7 +160,7 @@ Weitere Layout‑Optionen:
 
 - **Seite der Seitenleiste** — links oder rechts.
 - **Seitenleiste ausblenden (Kompaktmodus)** — <kbd>Strg</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>. Die Seite nutzt das ganze Fenster; die Seitenleiste gleitet herein, wenn der Mauszeiger den Fensterrand berührt.
-- **Schwebende Befehlsleiste** — die Adressleiste öffnet sich groß und zentriert über der Seite, wie bei Arc.
+- **Schwebende Befehlsleiste** — die Adressleiste öffnet sich groß und zentriert über der Seite.
 - **Neue Tabs erscheinen** oben oder unten in der Liste.
 - **Tab‑Schließen‑Knopf** beim Überfahren, immer oder nie.
 - **Angeheftete Tabs werden Favoriten** — ein Raster großer Symbole oben in der Seitenleiste, das in jedem Bereich gleich bleibt.
@@ -226,13 +226,13 @@ Beim ersten Start öffnet sich eine Vollbild‑Willkommenstour über dem Browser
 und der Browser verändert sich dahinter live, während Sie wählen.
 
 <p align="center">
+  <img src="../images/screenshots/welcome-intro.webp" alt="Willkommenstour: Willkommen bei Lokum" width="49%">
   <img src="../images/screenshots/welcome-flavor.webp" alt="Willkommenstour: Sorte wählen" width="49%">
-  <img src="../images/screenshots/welcome-layout.webp" alt="Willkommenstour: Layout wählen" width="49%">
 </p>
 
 1. **Willkommen** — ein schwebender 3D‑Lokumwürfel, rieselnder Zucker und eine Sprachauswahl.
 2. **Sorte** — zwölf gezuckerte Würfel fallen in eine Schale; tippen Sie einen an, und der ganze Browser wechselt mit einer Puderzuckerwolke die Farbe. Hell, dunkel oder automatisch wählen — oder **Überrasch mich** für ein Sorten‑Roulette.
-3. **Layout** — Arc‑Seitenleiste, vertikale oder klassische Tabs, Seite der Leiste und Kompaktmodus, live in der Vorschau.
+3. **Layout** — Seitenleiste über die volle Höhe, vertikale oder klassische Tabs, Seite der Leiste und Kompaktmodus, live in der Vorschau.
 4. **Bereiche** — starten Sie mit Privat und fügen Sie Arbeit, Schule und Freizeit mit je einem Tipp hinzu.
 5. **Import** — Lokum erkennt andere Browser auf Ihrem Computer (Chrome, Edge, Brave, Opera, Vivaldi…) und übernimmt Lesezeichen, Passwörter, Chronik und mehr.
 6. **Datenschutz** — ausgewogener oder strenger Tracking‑Schutz, uBlock Origin, sicheres DNS; Telemetrie ist immer aus.
@@ -252,7 +252,7 @@ Option wirkt sofort, und das Suchfeld findet jede Einstellung beim Namen.
 | Abschnitt | Was Sie tun können |
 | --- | --- |
 | **Aussehen** | Sortengalerie, hell/dunkel/automatisch, eigene Akzentfarbe, Puderzucker, Körnung, Animationen, Eckenrundung, Rahmenabstand, Seitenschatten, Dichte, Oberflächenschrift. |
-| **Layout** | Arc‑Seitenleiste / vertikal / klassisch, Seite der Leiste, Kompaktmodus, schwebende Befehlsleiste, Position neuer Tabs, Schließen‑Knöpfe, Mini‑Player, Lesezeichen‑Symbolleiste, Symbolleiste anpassen. |
+| **Layout** | Seitenleiste / vertikal / klassisch, Seite der Leiste, Kompaktmodus, schwebende Befehlsleiste, Position neuer Tabs, Schließen‑Knöpfe, Mini‑Player, Lesezeichen‑Symbolleiste, Symbolleiste anpassen. |
 | **Bereiche** | Bereiche an/aus, Fenster nach Bereich färben, Wischen zum Wechseln; Bereiche anlegen, umbenennen, Symbol und Sorte ändern, sortieren und löschen; Umgebungen wählen. |
 | **Tabs** | Automatisches Archiv, schlafende Tabs, beim Start wiederherstellen, Tab‑Vorschau, Tab‑Gruppen, geteilte Ansicht, automatisches Bild‑im‑Bild, Bestätigung vor dem Beenden. |
 | **Archiv** | Archivierte Tabs durchsuchen, öffnen und entfernen; Archiv leeren. |
@@ -587,8 +587,7 @@ derselben Lizenz wie Firefox.
 Firefox und das Firefox‑Logo sind Marken der Mozilla Foundation. Lokum ist ein
 unabhängiges Projekt, weder mit Mozilla verbunden noch von Mozilla unterstützt;
 es wird aus Mozillas offiziellen Versionen gebaut und entfernt daraus das
-Firefox‑Branding. Arc ist eine Marke von The Browser Company, die ebenfalls
-nicht mit Lokum verbunden ist — Lokum ist lediglich von ihren Ideen inspiriert.
+Firefox‑Branding.
 uBlock Origin stammt von Raymond Hill und Mitwirkenden.
 
 <p align="center"><sub>Gemacht mit 🍬 und Firefox.</sub></p>

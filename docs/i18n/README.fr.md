@@ -27,15 +27,15 @@
 
 **Lokum** est un navigateur Web construit sur Mozilla Firefox et parfumé comme
 un loukoum. Il reprend le moteur, la sécurité et les extensions auxquels vous
-faites déjà confiance et les enveloppe dans une barre latérale façon Arc, douze
+faites déjà confiance et les enveloppe dans une barre latérale pleine hauteur, douze
 « saveurs » de couleurs mélangées à la main, des Espaces, une palette de
 commandes, des animations délicates et une première configuration d'une rare
 minutie — en douze langues. Il se met à jour tout seul, discrètement, via
 GitHub Releases dès qu'une nouvelle version est prête.
 
 <p align="center">
-  <img src="../images/screenshots/arc-light.webp" alt="Lokum avec la barre latérale façon Arc et la saveur Rose" width="49%">
-  <img src="../images/screenshots/arc-dark.webp" alt="Lokum en mode sombre avec la saveur Minuit" width="49%">
+  <img src="../images/screenshots/sidebar-light.webp" alt="Lokum avec la barre latérale et la saveur Rose" width="49%">
+  <img src="../images/screenshots/sidebar-dark.webp" alt="Lokum en mode sombre avec la saveur Minuit" width="49%">
 </p>
 
 ---
@@ -89,7 +89,7 @@ Récupérez la dernière version sur la **[page des versions](https://github.com
 ## Points forts
 
 - 🍬 **Douze saveurs** — chaque thème est une sorte de loukoum : Rose, Pistache, Citron, Grenade, Orange, Menthe, Lavande, Mastic, Noix de coco, Café turc, Minuit et une boîte *Assortiment* animée. Chacune avec une recette claire et une sombre.
-- 🧭 **Barre latérale façon Arc _ou_ onglets classiques** — une barre latérale pleine hauteur contenant la barre d'adresse, les onglets verticaux de Firefox ou la barre d'onglets classique. Changez quand vous voulez ; la fenêtre se réorganise en direct.
+- 🧭 **Barre latérale _ou_ onglets classiques** — une barre latérale pleine hauteur contenant la barre d'adresse, les onglets verticaux de Firefox ou la barre d'onglets classique. Changez quand vous voulez ; la fenêtre se réorganise en direct.
 - 🗂️ **Espaces** — séparez Personnel, Travail, Études et Loisirs, chacun avec ses onglets, son icône, sa saveur et (en option) son conteneur. Balayez ou utilisez <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> pour passer de l'un à l'autre.
 - ⌨️ **Palette de commandes** (<kbd>Ctrl</kbd>+<kbd>K</kbd>) — recherche approximative parmi les onglets ouverts et plus de 40 actions, et une grande **barre de commande flottante** quand vous cliquez dans la barre d'adresse.
 - 🎵 **Mini‑lecteur** — lecture/pause, piste suivante et sourdine pour la musique ou les vidéos des autres onglets, directement dans la barre latérale.
@@ -149,7 +149,7 @@ désactivées). Lokum respecte aussi le réglage système *réduire les animatio
 
 | Disposition | À quoi elle ressemble |
 | --- | --- |
-| **Barre latérale (style Arc)** *(par défaut)* | Onglets, barre d'adresse et boutons de navigation vivent dans une seule barre latérale pleine hauteur. La page flotte sur votre saveur comme une carte arrondie, surmontée d'une fine bande de titre avec le titre de la page, le site et un bouton *Copier le lien*. |
+| **Barre latérale** *(par défaut)* | Onglets, barre d'adresse et boutons de navigation vivent dans une seule barre latérale pleine hauteur. La page flotte sur votre saveur comme une carte arrondie, surmontée d'une fine bande de titre avec le titre de la page, le site et un bouton *Copier le lien*. |
 | **Onglets verticaux** | Les onglets verticaux natifs de Firefox dans une barre latérale, barre d'adresse en haut. Familier et spacieux. |
 | **Onglets classiques** | Les onglets en haut, comme dans tous les navigateurs — toujours habillés de votre saveur. |
 
@@ -161,7 +161,7 @@ Autres options de disposition :
 
 - **Côté de la barre latérale** — gauche ou droite.
 - **Masquer la barre latérale (mode compact)** — <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>. La page occupe toute la fenêtre ; la barre latérale glisse quand votre pointeur touche le bord de la fenêtre.
-- **Barre de commande flottante** — la barre d'adresse s'ouvre en grand, centrée au‑dessus de la page, comme dans Arc.
+- **Barre de commande flottante** — la barre d'adresse s'ouvre en grand, centrée au‑dessus de la page.
 - **Les nouveaux onglets apparaissent** en haut ou en bas de la liste.
 - **Bouton de fermeture des onglets** au survol, toujours ou jamais.
 - **Les onglets épinglés deviennent des favoris** — une grille de grandes icônes en haut de la barre latérale, identique dans chaque Espace.
@@ -229,13 +229,13 @@ par‑dessus le navigateur — et le navigateur change en direct derrière elle 
 fil de vos choix.
 
 <p align="center">
+  <img src="../images/screenshots/welcome-intro.webp" alt="Visite de bienvenue : Bienvenue dans Lokum" width="49%">
   <img src="../images/screenshots/welcome-flavor.webp" alt="Visite de bienvenue : choisissez votre saveur" width="49%">
-  <img src="../images/screenshots/welcome-layout.webp" alt="Visite de bienvenue : choisissez votre disposition" width="49%">
 </p>
 
 1. **Bienvenue** — un cube de loukoum 3D flottant, du sucre qui virevolte et un sélecteur de langue.
 2. **Saveur** — douze cubes sucrés tombent dans un plateau ; touchez‑en un et tout le navigateur change de couleur dans un nuage de sucre glace. Choisissez clair, sombre ou automatique, ou appuyez sur **Surprenez‑moi** pour une roulette des saveurs.
-3. **Disposition** — barre latérale façon Arc, onglets verticaux ou classiques, côté de la barre et mode compact, avec aperçu en direct.
+3. **Disposition** — barre latérale pleine hauteur, onglets verticaux ou classiques, côté de la barre et mode compact, avec aperçu en direct.
 4. **Espaces** — commencez avec Personnel et ajoutez Travail, Études et Loisirs d'une seule touche.
 5. **Importation** — Lokum détecte les autres navigateurs de votre ordinateur (Chrome, Edge, Brave, Opera, Vivaldi…) et récupère marque‑pages, mots de passe, historique et plus encore.
 6. **Vie privée** — protection contre le pistage Équilibrée ou Stricte, uBlock Origin, DNS sécurisé ; la télémétrie est toujours désactivée.
@@ -256,7 +256,7 @@ paramètre par son nom.
 | Section | Ce que vous pouvez faire |
 | --- | --- |
 | **Apparence** | Galerie de saveurs, clair/sombre/automatique, couleur d'accent personnalisée, sucre glace, grain, animations, arrondi des coins, espacement du cadre, ombre de la page, densité, police de l'interface. |
-| **Disposition** | Barre latérale Arc / verticale / classique, côté de la barre, mode compact, barre de commande flottante, position des nouveaux onglets, boutons de fermeture, mini‑lecteur, barre personnelle, personnalisation de la barre d'outils. |
+| **Disposition** | Barre latérale / verticale / classique, côté de la barre, mode compact, barre de commande flottante, position des nouveaux onglets, boutons de fermeture, mini‑lecteur, barre personnelle, personnalisation de la barre d'outils. |
 | **Espaces** | Activer les Espaces, colorer la fenêtre selon l'Espace, balayer pour changer ; ajouter, renommer, changer l'icône et la saveur, réordonner et supprimer des Espaces ; choisir les conteneurs. |
 | **Onglets** | Archivage automatique, onglets en veille, restauration au démarrage, aperçus d'onglets, groupes d'onglets, vue partagée, incrustation vidéo automatique, confirmation avant de quitter. |
 | **Archive** | Rechercher, rouvrir et retirer des onglets archivés ; vider l'archive. |
@@ -593,8 +593,7 @@ Le code source de Lokum est distribué sous la
 Firefox et le logo Firefox sont des marques de la Mozilla Foundation. Lokum est
 un projet indépendant, ni affilié à Mozilla ni approuvé par elle ; il est
 construit à partir des versions officielles de Mozilla dont il retire l'image
-de marque Firefox. Arc est une marque de The Browser Company, qui n'est pas non
-plus affiliée à Lokum — Lokum s'inspire simplement de ses idées. uBlock Origin
+de marque Firefox. uBlock Origin
 est l'œuvre de Raymond Hill et de ses contributeurs.
 
 <p align="center"><sub>Fait avec 🍬 et Firefox.</sub></p>

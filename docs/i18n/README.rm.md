@@ -27,15 +27,15 @@
 
 **Lokum** è in navigatur da web construì sin Mozilla Firefox cun il gust dal
 lokum tirc. El prenda il motor, la segirezza e las extensiuns en las qualas ti
-has gia fidanza e las envolva en ina trav laterala en stil Arc, dudesch «gusts»
+has gia fidanza e las envolva en ina trav laterala sin l'entira autezza, dudesch «gusts»
 da colurs maschadads a maun, spazis, ina paletta da cumonds, animaziuns lommas
 ed ina configuraziun iniziala fitg minuziusa — en dudesch linguas. Uschespert
 ch'ina nova versiun è pronta, s'actualisescha el sez e senza canera via GitHub
 Releases.
 
 <p align="center">
-  <img src="../images/screenshots/arc-light.webp" alt="Lokum cun la trav laterala en stil Arc ed il gust Rosa" width="49%">
-  <img src="../images/screenshots/arc-dark.webp" alt="Lokum en il modus stgir cun il gust Mesanotg" width="49%">
+  <img src="../images/screenshots/sidebar-light.webp" alt="Lokum cun la trav laterala ed il gust Rosa" width="49%">
+  <img src="../images/screenshots/sidebar-dark.webp" alt="Lokum en il modus stgir cun il gust Mesanotg" width="49%">
 </p>
 
 ---
@@ -89,7 +89,7 @@ Prenda la versiun la pli nova da la **[pagina da las versiuns](https://github.co
 ## Il meglier
 
 - 🍬 **Dudesch gusts** — mintga tema è ina sort da lokum: Rosa, Pistazia, Citrona, Granat, Pomaranza, Menta, Lavanda, Mastix, Cocos, Caffè tirc, Mesanotg ed ina stgatla *Maschadà* animada. Mintgin cun ina retsetta clera ed ina stgira.
-- 🧭 **Trav laterala en stil Arc _u_ tabs classics** — ina trav laterala sin l'entira autezza cun la trav d'adressas, ils tabs verticals da Firefox u la trav da tabs classica. Mida cura che ti vuls; la fanestra sa reorganisescha directamain.
+- 🧭 **Trav laterala _u_ tabs classics** — ina trav laterala sin l'entira autezza cun la trav d'adressas, ils tabs verticals da Firefox u la trav da tabs classica. Mida cura che ti vuls; la fanestra sa reorganisescha directamain.
 - 🗂️ **Spazis** — separa Persunal, Lavur, Scola e Divertiment, mintgin cun agens tabs, atgna icona, agen gust e (sch'ins vul) agen container. Stritga u smatga <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> per midar.
 - ⌨️ **Paletta da cumonds** (<kbd>Ctrl</kbd>+<kbd>K</kbd>) — tschertga approximativa tranter tabs averts e dapli che 40 acziuns, ed ina gronda **trav da cumonds flottanta** cura che ti cliccas en la trav d'adressas.
 - 🎵 **Mini‑player** — reproducir, far pausa, sursiglir e metter senza tun musica u videos d'auters tabs directamain en la trav laterala.
@@ -149,7 +149,7 @@ moviments*.
 
 | Disposiziun | Co ch'ella para |
 | --- | --- |
-| **Trav laterala (stil Arc)** *(standard)* | Tabs, trav d'adressas e buttuns da navigaziun vivan en ina trav laterala sin l'entira autezza. La pagina flotta sin tes gust sco carta radunda; sura ina stretga trav da titel cun il titel da la pagina, la website ed in buttun *Copiar la colliaziun*. |
+| **Trav laterala** *(standard)* | Tabs, trav d'adressas e buttuns da navigaziun vivan en ina trav laterala sin l'entira autezza. La pagina flotta sin tes gust sco carta radunda; sura ina stretga trav da titel cun il titel da la pagina, la website ed in buttun *Copiar la colliaziun*. |
 | **Tabs verticals** | Ils tabs verticals natifs da Firefox en ina trav laterala, la trav d'adressas sisum. Enconuschent e spazius. |
 | **Tabs classics** | Tabs sisum, sco en mintga navigatur — adina en tes gust. |
 
@@ -161,7 +161,7 @@ Ulteriuras opziuns da disposiziun:
 
 - **Vart da la trav laterala** — sanestra u dretga.
 - **Zuppentar la trav laterala (modus cumpact)** — <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>. La pagina occupa l'entira fanestra; la trav laterala cumpara cura che la mieur tutga l'ur da la fanestra.
-- **Trav da cumonds flottanta** — la trav d'adressas s'avra gronda e centrada sur la pagina, sco en Arc.
+- **Trav da cumonds flottanta** — la trav d'adressas s'avra gronda e centrada sur la pagina.
 - **Novs tabs cumparan** sisum u giudim en la glista.
 - **Buttun per serrar tabs** cun passar sur, adina u mai.
 - **Tabs fixads daventan favurits** — ina grilla da grondas iconas sisum en la trav laterala, adina la medema en mintga spazi.
@@ -229,13 +229,13 @@ visur sur il navigatur — ed il navigatur sa mida davosvart directamain, uschè
 spert sco che ti tschernas.
 
 <p align="center">
+  <img src="../images/screenshots/welcome-intro.webp" alt="Tura da bainvegni: Bainvegni en Lokum" width="49%">
   <img src="../images/screenshots/welcome-flavor.webp" alt="Tura da bainvegni: tscherna tes gust" width="49%">
-  <img src="../images/screenshots/welcome-layout.webp" alt="Tura da bainvegni: tscherna tia disposiziun" width="49%">
 </p>
 
 1. **Bainvegni** — in cub da lokum 3D che flotta, zutger che sgola ed ina tscherna da la lingua.
 2. **Gust** — dudesch cubs cun zutger crodan en ina cuppa; tutga in e l'entir navigatur mida la colur cun ina nivla da zutger pulvra. Tscherna cler, stgir u automatic — u smatga **Surprenda mai** per ina roulette da gusts.
-3. **Disposiziun** — trav laterala en stil Arc, tabs verticals u classics, vart da la trav e modus cumpact, cun prevista directa.
+3. **Disposiziun** — trav laterala sin l'entira autezza, tabs verticals u classics, vart da la trav e modus cumpact, cun prevista directa.
 4. **Spazis** — cumenza cun Persunal ed agiunta Lavur, Scola e Divertiment cun in clic mintgin.
 5. **Importar** — Lokum enconuscha ils auters navigaturs sin tes computer (Chrome, Edge, Brave, Opera, Vivaldi…) e prenda cun sai segnapaginas, pleds‑clav, cronologia e dapli.
 6. **Sfera privata** — protecziun cunter il fastizar equilibrada u stretga, uBlock Origin, DNS segir; la telemetria è adina deactivada.
@@ -255,7 +255,7 @@ effect immediat, e la tschertga chatta mintga preferenza tenor ses num.
 | Secziun | Tge che ti pos far |
 | --- | --- |
 | **Apparientscha** | Galaria da gusts, cler/stgir/automatic, atgna colur d'accent, zutger pulvra, grana, animaziuns, chantuns radunds, distanza dal rom, sumbriva da la pagina, densitad, scrittira da l'interfatscha. |
-| **Disposiziun** | Trav laterala Arc / verticala / classica, vart da la trav, modus cumpact, trav da cumonds flottanta, posiziun da novs tabs, buttuns per serrar, mini‑player, trav da segnapaginas, persunalisar la trav d'utensils. |
+| **Disposiziun** | Trav laterala / verticala / classica, vart da la trav, modus cumpact, trav da cumonds flottanta, posiziun da novs tabs, buttuns per serrar, mini‑player, trav da segnapaginas, persunalisar la trav d'utensils. |
 | **Spazis** | Activar spazis, colurar la fanestra tenor spazi, stritgar per midar; agiuntar, renumnar, midar icona e gust, ordinar e stizzar spazis; tscherner containers. |
 | **Tabs** | Archiv automatic, tabs che dorman, restaurar cun aviar, prevista da tabs, gruppas da tabs, vista partida, maletg‑en‑maletg automatic, confermar avant che terminar. |
 | **Archiv** | Tschertgar, reavrir ed allontanar tabs archivads; svidar l'archiv. |
@@ -591,8 +591,7 @@ Il code da funtauna da Lokum stat sut la
 Firefox ed il logo da Firefox èn marcas da la Mozilla Foundation. Lokum è in
 project independent, betg collià cun Mozilla e betg sustegnì da Mozilla; el
 vegn construì da las versiuns uffizialas da Mozilla ed allontanescha da quellas
-la marca Firefox. Arc è ina marca da The Browser Company, che n'è era betg
-colliada cun Lokum — Lokum è mo inspirà da sias ideas. uBlock Origin è da
+la marca Firefox. uBlock Origin è da
 Raymond Hill e ses collavuraturs.
 
 <p align="center"><sub>Fatg cun 🍬 e Firefox.</sub></p>
